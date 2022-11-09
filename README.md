@@ -83,7 +83,7 @@ $ helm repo add fission-charts https://fission.github.io/fission-charts/
 $ helm repo update
 
 # Install fission disabling custom prometheus
-helm install --version v1.17.0 --namespace $FISSION_NAMESPACE fission fission-charts/fission-alle --set prometheus.enabled=False
+helm install --version v1.17.0 --namespace $FISSION_NAMESPACE fission fission-charts/fission-all --set prometheus.enabled=False
 ```
 
 ### Install Prometheus
