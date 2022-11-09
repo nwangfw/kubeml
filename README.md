@@ -120,7 +120,7 @@ you can use the following commands:
 ```bash
 $ export KUBEML_NAMESPACE=kubeml
 $ kubectl create namespace $KUBEML_NAMESPACE
-$ helm repo add kubeml https://github.com/nwangfw
+$ helm install kubeml ../kubeml/ml/charts/kubeml 
 # Install all the components in the kubeml namespace
 $ helm install --namespace $KUBEML_NAMESPACE --name-template kubeml 
 ```
