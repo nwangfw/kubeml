@@ -83,7 +83,7 @@ $ helm repo add fission-charts https://fission.github.io/fission-charts/
 $ helm repo update
 
 # Install fission disabling custom prometheus
-$ helm install -n fission fission fission-charts/fission-core --set prometheus.enabled=False
+# helm install --version v1.17.0 --namespace $FISSION_NAMESPACE fission fission-charts/fission-alle --set prometheus.enabled=False
 ```
 
 ### Install Prometheus
@@ -120,10 +120,9 @@ you can use the following commands:
 ```bash
 $ export KUBEML_NAMESPACE=kubeml
 $ kubectl create namespace $KUBEML_NAMESPACE
-
+$ helm repo add kubeml https://github.com/nwangfw
 # Install all the components in the kubeml namespace
-$ helm install --namespace $KUBEML_NAMESPACE --name-template kubeml \
-    https://github.com/diegostock12/kubeml/releases/download/0.1.2/kubeml-0.1.2.tgz
+$ helm install --namespace $KUBEML_NAMESPACE --name-template kubeml 
 ```
 
 ## Writing a Function
