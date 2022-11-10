@@ -119,9 +119,8 @@ you can use the following commands:
 
 ```bash
 $ export KUBEML_NAMESPACE=kubeml
-$ kubectl create namespace $KUBEML_NAMESPACE
 # Install all the components in the kubeml namespace
-$ helm install --namespace $KUBEML_NAMESPACE kubeml ../kubeml/ml/charts/kubeml 
+$ kubectl create namespace $KUBEML_NAMESPACE
 ```
 
 ## Writing a Function
