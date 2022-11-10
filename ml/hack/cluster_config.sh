@@ -26,9 +26,10 @@ fi
 echo "Deploying fission..."
 
 kubectl create namespace $FISSION_NAMESPACE
-helm install --namespace $FISSION_NAMESPACE --name-template fission \
-    https://github.com/fission/fission/releases/download/1.12.0/fission-core-1.12.0.tgz \
-    --set prometheus.enabled=false \
+helm repo add fission-charts https://fission.github.io/fission-charts/
+helm repo update
+helm install --version v1.17.0 --namespace $FISSION_NAMESPACE fission \
+    fission-charts/fission-all --set prometheus.enabled=False \
     2>&1
 
 echo "Fission deployed!"
@@ -53,8 +54,7 @@ fi
 echo "Deploying kubeml"
 
 kubectl create namespace $KUBEML_NAMESPACE
-helm install kubeml --namespace $KUBEML_NAMESPACE  \
-    https://github.com/diegostock12/kubeml/releases/download/0.1.2/kubeml-0.1.2.tgz \
+helm install kubeml ../kubeml/ml/charts/kubeml --namespace $KUBEML_NAMESPACE \
     2>&1
 
 echo "kubeml deployed!! all done"
