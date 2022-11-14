@@ -70,6 +70,12 @@ For installation, you need to add a few repositories to your helm repo list and 
 indexed in your local machine, you can directly run the `cluster_config.sh` script under `ml/hack` that will take care
 of everything for you.
 
+```bash
+$ chmod +x ml/hack/cluster_config.sh"
+$ ./ml/hack/cluster_config.sh"
+```
+
+
 ### Install Fission
 KubeML requires a Kubernetes Cluster and Fission installed to work. To install fission,
 it is recommended to use Helm.
