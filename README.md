@@ -75,6 +75,7 @@ $ chmod +x ml/hack/cluster_config.sh"
 $ ./ml/hack/cluster_config.sh"
 ```
 
+Or, you can install three components individually by following commands,
 
 ### Install Fission
 KubeML requires a Kubernetes Cluster and Fission installed to work. To install fission,
