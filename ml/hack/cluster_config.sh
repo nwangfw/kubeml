@@ -54,7 +54,7 @@ fi
 echo "Deploying kubeml"
 
 kubectl create namespace $KUBEML_NAMESPACE
-helm install kubeml ../kubeml/ml/charts/kubeml --namespace $KUBEML_NAMESPACE \
+helm install kubeml ml/charts/kubeml --namespace $KUBEML_NAMESPACE \
     2>&1
 
 echo "kubeml deployed!! all done"
