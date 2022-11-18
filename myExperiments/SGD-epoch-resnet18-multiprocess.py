@@ -106,6 +106,24 @@ def load_state(optimizer, i):
     else:
         print('no state found')
 
+def model_weight_average():
+    model = models.resnet18(pretrained= False)
+    cur_model = models.resnet18(pretrained= False)
+
+    sd_avg = model.state_dict()
+
+    beta = 1.0/parallelism 
+    for i in range(parallelism):
+        cur_model.load_state_dict(torch.load(f"./model_{i}.pt"))
+        for key in cur_model.state_dict():
+            if i == 0:
+                sd_avg[key] = (cur_model.state_dict()[key]) / parallelism
+            else:
+                sd_avg[key] += (cur_model.state_dict()[key]) / parallelism
+    model.load_state_dict(sd_avg)
+    return model
+    
+
 
 if __name__ == "__main__": 
 
@@ -119,7 +137,9 @@ if __name__ == "__main__":
     trainset = datasets.CIFAR10(root='./data', train=True,
                                             download=True, transform=transform)
 
-
+    valset = datasets.CIFAR10(root='./data', train=False,
+                                        download=True, transform=transform)
+    val_loader= torch.utils.data.DataLoader(valset, batch_size=256)
     #train_loader = torch.utils.data.DataLoader(trainset, batch_size=256)
 
     # May have to create our own dataloader
@@ -140,8 +160,8 @@ if __name__ == "__main__":
     torch.multiprocessing.set_start_method('spawn')#
 
     start = datetime.now()
-    parallelism = 2
-    for epoch in range(2):
+    parallelism = 4
+    for epoch in range(100):
         print('\nEpoch', epoch)
         processes = []
 
@@ -149,10 +169,10 @@ if __name__ == "__main__":
         if epoch == 0:
             # create new models
             model = models.resnet18(pretrained= False)
-            model.to(device)
         else:
             # update model: model average
-            pass
+            model = model_weight_average()
+        model.to(device)
 
         for i in range(parallelism):
             # not sure it will re-gernate the data or not.
@@ -182,18 +202,16 @@ if __name__ == "__main__":
             p.join()
     
      
+        validation_start = datetime.now()
+        validate(model, device, val_loader)
+        print('Validiation done, time is: ', datetime.now() - validation_start)
 
 
 
 
     print("Training Completion Time: ", datetime.now() - start)
-    valset = datasets.CIFAR10(root='./data', train=False,
-                                        download=True, transform=transform)
-    val_loader= torch.utils.data.DataLoader(valset, batch_size=256)
+ 
 
-    validation_start = datetime.now()
-    validate(model, device, val_loader)
-    print('Validiation done, time is: ', datetime.now() - validation_start)
 
     finish_time = time.perf_counter()
  
