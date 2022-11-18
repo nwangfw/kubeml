@@ -76,6 +76,7 @@ def validate(model, device, val_loader: tdata.DataLoader) -> (float, float):
     correct = 0
     with torch.no_grad():
         for data, target in val_loader:
+            #print(data.dtype, type(target))
             data, target = data.to(device), target.to(device)
             output = model(data)
             _, predicted = torch.max(output.data, 1)
@@ -109,15 +110,15 @@ def load_state(optimizer, i):
 if __name__ == "__main__": 
 
     torch.manual_seed(42) 
-
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(device)
     transform = transforms.Compose(
         [transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
     trainset = datasets.CIFAR10(root='./data', train=True,
                                             download=True, transform=transform)
-    valset = datasets.CIFAR10(root='./data', train=False,
-                                            download=True, transform=transform)
+
 
     #train_loader = torch.utils.data.DataLoader(trainset, batch_size=256)
 
@@ -134,10 +135,6 @@ if __name__ == "__main__":
 
 
 
-    model = models.resnet18(pretrained= False)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(device)
-    model.to(device)
 
     start_time = time.perf_counter()
     torch.multiprocessing.set_start_method('spawn')#
@@ -149,7 +146,12 @@ if __name__ == "__main__":
         processes = []
 
         # load averaged model,
-        if epoch > 0:
+        if epoch == 0:
+            # create new models
+            model = models.resnet18(pretrained= False)
+            model.to(device)
+        else:
+            # update model: model average
             pass
 
         for i in range(parallelism):
@@ -179,15 +181,19 @@ if __name__ == "__main__":
         for p in processes:
             p.join()
     
-        #update model 
+     
 
 
 
 
     print("Training Completion Time: ", datetime.now() - start)
-    # validation_start = datetime.now()
-    # validate(model, device, valset)
-    # print('Validiation done, time is: ', datetime.now() - validation_start)
+    valset = datasets.CIFAR10(root='./data', train=False,
+                                        download=True, transform=transform)
+    val_loader= torch.utils.data.DataLoader(valset, batch_size=256)
+
+    validation_start = datetime.now()
+    validate(model, device, val_loader)
+    print('Validiation done, time is: ', datetime.now() - validation_start)
 
     finish_time = time.perf_counter()
  
