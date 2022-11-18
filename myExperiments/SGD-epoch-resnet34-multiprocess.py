@@ -6,6 +6,7 @@ import numpy as np
 import pickle
 import matplotlib.pyplot as plt
 import os
+import argparse
 
 import torch
 import torch.nn as nn
@@ -31,10 +32,10 @@ def train(model: nn.Module, device,
 
     # create optimizer
     optimizer = optim.SGD(model.parameters(), lr=0.1, weight_decay=1e-4, momentum=0.9)
-
     if epoch > 0:
         load_state(optimizer, i)
-        #model = torch.load(f"model_epoch_{epoch - 1}.pt")
+        # load the global averaged model
+        # model.load_state_dict(torch.load(f"model_resnet34.pt"))
 
     criterion = nn.CrossEntropyLoss()
     
@@ -72,6 +73,7 @@ def validate(model, device, val_loader: tdata.DataLoader) -> (float, float):
 
     criterion =nn.CrossEntropyLoss()
     model.eval()
+    model.to(device)
     test_loss = 0
     correct = 0
     with torch.no_grad():
@@ -126,7 +128,16 @@ def model_weight_average():
 
 
 if __name__ == "__main__": 
-
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-b','--batch_size', default=128, type=int, metavar='N',
+                        help='batch size')
+    parser.add_argument('-lr','--learning_rate', default=0.1, type=float, metavar='N',
+                        help='learning rate')                    
+    parser.add_argument('-p', '--parallelism', default=2, type=int,
+                        help='number of functions')                        
+    parser.add_argument('-e','--epochs', default=10, type=int, metavar='N',
+                        help='number of total epochs to run')
+    args = parser.parse_args()
     torch.manual_seed(42) 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(device)
@@ -139,7 +150,7 @@ if __name__ == "__main__":
 
     valset = datasets.CIFAR10(root='./data', train=False,
                                         download=True, transform=transform)
-    val_loader= torch.utils.data.DataLoader(valset, batch_size=256)
+    val_loader= torch.utils.data.DataLoader(valset, batch_size=args.batch_size)
     #train_loader = torch.utils.data.DataLoader(trainset, batch_size=256)
 
     # May have to create our own dataloader
@@ -160,12 +171,12 @@ if __name__ == "__main__":
     torch.multiprocessing.set_start_method('spawn')#
 
     start = datetime.now()
-    parallelism = 4
-    for epoch in range(10):
+    parallelism = args.parallelism
+    for epoch in range(args.epochs):
         print('\nEpoch', epoch)
         processes = []
 
-        # load averaged model,
+        # each process fetch and update its model,
         if epoch == 0:
             # create new models
             model = models.resnet34(pretrained= False)
@@ -173,12 +184,13 @@ if __name__ == "__main__":
             # update model: model average
             model = model_weight_average()
         model.to(device)
+        # create optimizer
 
         for i in range(parallelism):
             # not sure it will re-gernate the data or not.
             train_sampler = torch.utils.data.distributed.DistributedSampler(trainset,num_replicas=parallelism, rank=i)
             train_loader = torch.utils.data.DataLoader(dataset=trainset,
-                                            batch_size=256,
+                                            batch_size=args.batch_size,
                                             shuffle=False,
                                             num_workers=0,
                                             pin_memory=True,
@@ -200,7 +212,8 @@ if __name__ == "__main__":
         # Joins all the processes 
         for p in processes:
             p.join()
-    
+        
+
      
         validation_start = datetime.now()
         validate(model, device, val_loader)
