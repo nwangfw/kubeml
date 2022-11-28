@@ -18,7 +18,8 @@ from torch.nn.functional import nll_loss, cross_entropy
 
 from torch import optim
 from datetime import datetime
-
+import warnings
+warnings.filterwarnings("ignore")
 
 
 def task():
@@ -176,11 +177,10 @@ if __name__ == "__main__":
         print('\nEpoch', epoch)
         processes = []
 
+        model = models.resnet34(pretrained= False)
+
         # each process fetch and update its model,
-        if epoch == 0:
-            # create new models
-            model = models.resnet34(pretrained= False)
-        else:
+        if epoch > 0:
             # update model: model average
             model = model_weight_average()
         model.to(device)
@@ -213,6 +213,8 @@ if __name__ == "__main__":
         for p in processes:
             p.join()
         
+        for p in processes:
+            p.terminate()
 
      
         validation_start = datetime.now()

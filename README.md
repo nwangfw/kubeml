@@ -71,8 +71,8 @@ indexed in your local machine, you can directly run the `cluster_config.sh` scri
 of everything for you.
 
 ```bash
-$ chmod +x ml/hack/cluster_config.sh"
-$ ./ml/hack/cluster_config.sh"
+$ chmod +x ml/hack/cluster_config.sh
+$ ./ml/hack/cluster_config.sh
 ```
 
 Or, you can install three components individually by following commands,
