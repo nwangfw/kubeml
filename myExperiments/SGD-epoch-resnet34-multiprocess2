@@ -211,6 +211,7 @@ if __name__ == "__main__":
         
         for p in processes:
             p.terminate()
+            
         model = model_weight_average()
         torch.save(model.state_dict(), f"model_resnet34.pt")
 
