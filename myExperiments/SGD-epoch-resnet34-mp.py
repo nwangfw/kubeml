@@ -110,7 +110,7 @@ def train(device, epoch, i, results, args) -> float:
     print('Process: {}, Time to save checkpoint: {}'.format(i, datetime.now() - checkPointStart))
     print('Process: {}, Time of one train epoch: {}'.format(i, datetime.now() - trainStart))
     modelSaveTime = (datetime.now() - checkPointStart).total_seconds()
-    trainEpochTime = (datetime.now() - checkPointStart).total_seconds()
+    trainEpochTime = (datetime.now() - trainStart).total_seconds()
 
     if i == 0:
          # open the file in the write mode
