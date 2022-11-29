@@ -298,4 +298,6 @@ if __name__ == "__main__":
     results = np.genfromtxt('{}/results.csv'.format(os.getcwd()), delimiter=',')
     print(['data_loading', 'model_loading', 'model_update', 'model_saving', 'total'])
     print(np.mean(results, axis=0))
+    print(['model_saving_average'])
+    print(sum(model_averging_time) / float(len(model_averging_time)))
     os.remove('{}/results.csv'.format(os.getcwd()))
