@@ -1,4 +1,4 @@
-module github.com/diegostock12/kubeml/ml
+module github.com/nwangfw/kubeml/ml
 
 go 1.12
 
