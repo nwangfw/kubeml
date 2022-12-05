@@ -15,7 +15,7 @@ import (
 
 const (
 	KubeMlNamespace = "kubeml"
-	KubeMlContainer = "diegostock12/kubeml"
+	KubeMlContainer = "centaurusinfra/kubeml"
 )
 
 // Parameter server is run in a separate goroutine from the scheduler

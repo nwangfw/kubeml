@@ -133,6 +133,8 @@ def main():
     torch.manual_seed(42)
     random.seed(42)
 
+
+
     lenet = LeNet()
     dataset = MnistDataset()
     kubenet = KubeLeNet(lenet, dataset)

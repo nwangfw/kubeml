@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/diegostock12/kubeml/ml/pkg/controller"
-	"github.com/diegostock12/kubeml/ml/pkg/ps"
-	"github.com/diegostock12/kubeml/ml/pkg/scheduler"
-	"github.com/diegostock12/kubeml/ml/pkg/train"
+	"github.com/nwangfw/kubeml/ml/pkg/controller"
+	"github.com/nwangfw/kubeml/ml/pkg/ps"
+	"github.com/nwangfw/kubeml/ml/pkg/scheduler"
+	"github.com/nwangfw/kubeml/ml/pkg/train"
 	"os"
 
 	"github.com/docopt/docopt-go"
