@@ -256,7 +256,6 @@ class KubeModel(ABC):
 
         :return: The loss of the epoch, as returned by the user function
         """
-
         self._on_train_start()
 
         # Determine the batches that we need to train on and the first subset id
