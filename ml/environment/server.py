@@ -8,7 +8,7 @@ import bjoern
 import sentry_sdk
 from flask import Flask, request, abort, jsonify
 from gevent.pywsgi import WSGIServer
-from kubeml.exceptions import KubeMLException
+from serverlessdl.exceptions import KubeMLException
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 IS_PY2 = (sys.version_info.major == 2)

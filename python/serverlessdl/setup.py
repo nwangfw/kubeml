@@ -8,14 +8,14 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 setup(
-    name='kubeml',
-    version='0.1.6',
-    description='Python tools for training Neural Networks with KubeML',
-    author='Diego Albo Martínez',
-    author_email="diego.albo.martinez@gmail.com",
+    name='serverlessdl',
+    version='0.1',
+    description='Python tools for training Neural Networks in a serverless setup',
+    author='Ning Wang originally from Diego Albo Martínez: diego.albo.martinez@gmail.com',
+    author_email="nwang@futurewei.com",
     long_description=README,
     long_description_content_type="text/markdown",
-    packages=['kubeml'],
+    packages=['serverlessdl'],
     install_requires=[
         'torch>=1.7',
         'redisai>=1.0.1',
