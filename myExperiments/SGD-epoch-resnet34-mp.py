@@ -19,10 +19,14 @@ from torch.nn.functional import nll_loss, cross_entropy
 
 from torch import optim
 from datetime import datetime
+import shutil
 
 import warnings
 warnings.filterwarnings("ignore")
 
+#experimental setting
+experiment_name ="resnet34"
+path = os.getcwd()
 
 def assignProcssToDevice(nums_of_devices, id):
     return 'cuda:' + str(id % nums_of_devices)
@@ -47,7 +51,7 @@ def train(device, epoch, i, results, args) -> float:
     # create optimizer
     if epoch > 0:
         # load the global averaged model
-        model.load_state_dict(torch.load(f"model_resnet34.pt"))
+        model.load_state_dict(torch.load(f"{path}/tmp/model_resnet34.pt"))
  
     model.to(device)
 
@@ -106,7 +110,7 @@ def train(device, epoch, i, results, args) -> float:
     # save the optimizer state
     checkPointStart = datetime.now()
     save_state(optimizer, i)
-    torch.save(model.state_dict(), f"model_{i}.pt")
+    torch.save(model.state_dict(), f"{path}/tmp/model_{i}.pt")
     print('Process: {}, Time to save checkpoint: {}'.format(i, datetime.now() - checkPointStart))
     print('Process: {}, Time of one train epoch: {}'.format(i, datetime.now() - trainStart))
     modelSaveTime = (datetime.now() - checkPointStart).total_seconds()
@@ -114,12 +118,7 @@ def train(device, epoch, i, results, args) -> float:
 
     if i == 0:
          # open the file in the write mode
-        path = '{}/results.csv'.format(os.getcwd())
-        # if not os.path.exists(path):
-        #     os.makedirs(path)
-        # fig.savefig(os.path.join(path, "Iteration_{}.png".format(i)))
-        # plt.close(fig)
-        with open(path, 'a', encoding='UTF8') as f:
+        with open(f'{path}/results.csv', 'a', encoding='UTF8') as f:
             writer = csv.writer(f)
             writer.writerow([dataLoadTime, modelLoadTime, modelUpdateTime, modelSaveTime, trainEpochTime])
 
@@ -160,13 +159,16 @@ def validate(model, device) -> (float, float):
     return accuracy, test_loss
 
 def save_state(optimizer, i):
-    with open(f'optimizer_state_{i}.pkl', 'wb') as f:
+    isExist = os.path.exists(f'{path}/tmp/')
+    if not isExist:
+        os.makedirs(f'{path}/tmp/')    
+    with open(f'{path}/tmp/optimizer_state_{i}.pkl', 'wb') as f:
         #print(optimizer.state_dict()['state'])
         pickle.dump(optimizer.state_dict(), f)
     #print('saving optimizer state done, time is: ', datetime.now() - start)
 def load_state(optimizer, i):
-    if os.path.isfile(f'optimizer_state_{i}.pkl'):
-        with open(f'optimizer_state_{i}.pkl', 'rb') as f:
+    if os.path.isfile(f'{path}/tmp/optimizer_state_{i}.pkl'):
+        with open(f'{path}/tmp/optimizer_state_{i}.pkl', 'rb') as f:
             state = pickle.load(f)
             optimizer.load_state_dict(state)
             #update_state(optimizer, state)
@@ -182,7 +184,7 @@ def model_weight_average(parallelism):
 
     beta = 1.0/parallelism 
     for i in range(parallelism):
-        cur_model.load_state_dict(torch.load(f"./model_{i}.pt"))
+        cur_model.load_state_dict(torch.load(f"{path}/tmp/model_{i}.pt"))
         for key in cur_model.state_dict():
             if i == 0:
                 sd_avg[key] = (cur_model.state_dict()[key]) / parallelism
@@ -203,6 +205,8 @@ if __name__ == "__main__":
                         help='number of functions')                        
     parser.add_argument('-e','--epochs', default=10, type=int, metavar='N',
                         help='number of total epochs to run')
+    parser.add_argument('-n','--number_of_tests', default=1, type=int, metavar='N',
+                    help='number of tests to repeat')                         
     args = parser.parse_args()
 
 
@@ -229,75 +233,90 @@ if __name__ == "__main__":
     nums_of_devices = torch.cuda.device_count()
 
 
-    start_time = time.perf_counter()
     torch.multiprocessing.set_start_method('spawn')#
+    for _ in range(args.number_of_tests):
+        start = datetime.now()
+        start_time = time.perf_counter()
+        epoch_time = []
+        model_averging_time = []
 
-    start = datetime.now()
-    parallelism = args.parallelism
+        parallelism = args.parallelism
 
-    epoch_time = []
-    model_averging_time = []
+        for epoch in range(args.epochs):
+            print('\nEpoch', epoch)
+            processes = []
+            epochStart = datetime.now()
+            # create optimizer
 
+            for i in range(parallelism):
+                # not sure it will re-gernate the data or not.
 
-    for epoch in range(args.epochs):
-        print('\nEpoch', epoch)
-        processes = []
-        epochStart = datetime.now()
-        # create optimizer
+                # print("Process ", i, dir(train_sampler), train_sampler.total_size)
+                # print("Process ", i, dir(train_loader), type(train_loader.batch_sampler))
+                # print("Process ", i, list(train_loader.batch_sampler))
 
-        for i in range(parallelism):
-            # not sure it will re-gernate the data or not.
+                # for i, batch_indices in enumerate(train_loader.batch_sampler):
+                #     print(f'Batch #{i} indices: ', batch_indices)
+                device = assignProcssToDevice(nums_of_devices, i)
+                # print(device)
+                print('Process {}: Before Training Waiting time: {}'.format(i, datetime.now() - epochStart)) 
 
-            # print("Process ", i, dir(train_sampler), train_sampler.total_size)
-            # print("Process ", i, dir(train_loader), type(train_loader.batch_sampler))
-            # print("Process ", i, list(train_loader.batch_sampler))
+                p = mp.Process(target = train, args=(device, epoch, i, results, args))
+                # p = multiprocessing.Process(target = task)
 
-            # for i, batch_indices in enumerate(train_loader.batch_sampler):
-            #     print(f'Batch #{i} indices: ', batch_indices)
-            device = assignProcssToDevice(nums_of_devices, i)
-            # print(device)
-            print('Process {}: Before Training Waiting time: {}'.format(i, datetime.now() - epochStart)) 
+                p.start()
+                processes.append(p)
+    
+            # Joins all the processes 
+            for p in processes:
+                p.join()
+            
+            processDeleteStart = datetime.now()
+            for p in processes:
+                p.terminate()
+            print('Time to delete process : {}'.format(datetime.now() - processDeleteStart)) 
 
-            p = mp.Process(target = train, args=(device, epoch, i, results, args))
-            # p = multiprocessing.Process(target = task)
-
-            p.start()
-            processes.append(p)
-   
-        # Joins all the processes 
-        for p in processes:
-            p.join()
-        
-        processDeleteStart = datetime.now()
-        for p in processes:
-            p.terminate()
-        print('Time to delete process : {}'.format(datetime.now() - processDeleteStart)) 
-
-        modelAverageStart = datetime.now()
-        model = model_weight_average(parallelism)
-        torch.save(model.state_dict(), f"model_resnet34.pt")
-        print('Time to avergage and save models : {}'.format(datetime.now() - modelAverageStart)) 
-        print('Time to finish one epoch : {}'.format(datetime.now() - epochStart)) 
-        model_averging_time.append((datetime.now() - modelAverageStart).total_seconds())
-        epoch_time.append((datetime.now() - start).total_seconds())
-
-
+            modelAverageStart = datetime.now()
+            model = model_weight_average(parallelism)
+            torch.save(model.state_dict(), f"{path}/tmp/model_resnet34.pt")
+            print('Time to avergage and save models : {}'.format(datetime.now() - modelAverageStart)) 
+            print('Time to finish one epoch : {}'.format(datetime.now() - epochStart)) 
+            model_averging_time.append((datetime.now() - modelAverageStart).total_seconds())
+            epoch_time.append((datetime.now() - start).total_seconds())
 
 
 
 
-    print("Training Completion Time: ", (datetime.now() - start).total_seconds())
-    finish_time = time.perf_counter()
-    validation_start = datetime.now()
-    validate(model, device)
-    print('Validiation done, time is: ', datetime.now() - validation_start)
-    print(f"Program finished in {finish_time-start_time} seconds")
-    print(f"Epoch time in seconds")
-    print(epoch_time)
 
-    results = np.genfromtxt('{}/results.csv'.format(os.getcwd()), delimiter=',')
-    print(['data_loading', 'model_loading', 'model_update', 'model_saving', 'total'])
-    print(np.mean(results, axis=0))
-    print(['model_saving_average'])
-    print(sum(model_averging_time) / float(len(model_averging_time)))
-    os.remove('{}/results.csv'.format(os.getcwd()))
+        print("Training Completion Time: ", (datetime.now() - start).total_seconds())
+        finish_time = time.perf_counter()
+        validation_start = datetime.now()
+        validate(model, device)
+        print('Validiation done, time is: ', datetime.now() - validation_start)
+        print(f"Program finished in {finish_time-start_time} seconds")
+        print(f"Epoch time in seconds")
+        print(epoch_time)
+
+        results = np.genfromtxt(f'{path}/results.csv', delimiter=',')
+        print(['data_loading', 'model_loading', 'model_update', 'model_saving', 'total'])
+        time_measurement = np.mean(results, axis=0)
+        print("Time measurement:", time_measurement)
+        print(['model_average'])
+        model_average = sum(model_averging_time) / float(len(model_averging_time))
+        print(model_average)
+        time_measurement = np.append(time_measurement, model_average)
+        os.remove(f'{path}/results.csv'.format())
+
+        with open(f'{path}/{experiment_name}-results.csv', 'a', encoding='UTF8') as f:
+            writer = csv.writer(f)
+            writer.writerow(time_measurement)
+        #clean up model and the results.csv is kept
+        shutil.rmtree(f'{path}/tmp')
+
+
+    print("*"*100)
+    print(['data_loading', 'model_loading', 'model_update', 'model_saving',  'epoch', 'model_average'])
+    multi_test_results = np.genfromtxt(f'{path}/{experiment_name}-results.csv', delimiter=',')
+    print(np.mean(multi_test_results, axis=0))
+    print("*"*100)
+    os.remove(f'{path}/{experiment_name}-results.csv')
