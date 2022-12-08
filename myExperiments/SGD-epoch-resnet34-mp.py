@@ -300,7 +300,7 @@ if __name__ == "__main__":
         results = np.genfromtxt(f'{path}/results.csv', delimiter=',')
         print(['data_loading', 'model_loading', 'model_update', 'model_saving', 'total'])
         time_measurement = np.mean(results, axis=0)
-        print("Time measurement:", time_measurement)
+        #print("Time measurement:", time_measurement)
         print(['model_average'])
         model_average = sum(model_averging_time) / float(len(model_averging_time))
         print(model_average)
