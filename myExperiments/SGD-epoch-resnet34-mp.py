@@ -37,7 +37,34 @@ def task():
     time.sleep(0.5)
     print('Finished sleeping')
 
-def train(device, epoch, i, results, args) -> float:
+def save_model(model, i, layerwise_store):
+    if layerwise_store:
+        for key in model.state_dict().keys():
+            storage_key = f'{i},{key}'
+            np.save(f"{path}/tmp/{storage_key}", model.state_dict()[key].cpu().numpy())
+    else:
+        storage_key = f'model_{i}'
+        torch.save(model.state_dict(), f"{path}/tmp/{storage_key}.pt")
+
+
+
+def load_model(i, layerwise_store):
+    loaded_model = models.resnet34(pretrained= False)
+    if layerwise_store:
+        for key in loaded_model.state_dict().keys():
+                #print(name)
+            storage_key = f'{i},{key}'
+            layer_weight_copied = np.load(f"{path}/tmp/{storage_key}") #np.copy(layer_weight)
+            #print(type(classes))
+            #counter += 1
+            #print(classes.shape)
+            loaded_model.state_dict()[key].copy_(torch.from_numpy(layer_weight_copied))
+    else:
+        storage_key = f'model_{i}'
+        loaded_model.load_state_dict(torch.load(f"{path}/tmp/{storage_key}.pt"))
+    return loaded_model
+
+def train(device, epoch, i,  args) -> float:
     """Loop used to train the network"""
     torch.manual_seed(42) 
     dataLoadTime = 0
@@ -51,7 +78,7 @@ def train(device, epoch, i, results, args) -> float:
     # create optimizer
     if epoch > 0:
         # load the global averaged model
-        model.load_state_dict(torch.load(f"{path}/tmp/model_resnet34.pt"))
+        model = load_model('average', layerwise_store)
  
     model.to(device)
 
@@ -110,7 +137,7 @@ def train(device, epoch, i, results, args) -> float:
     # save the optimizer state
     checkPointStart = datetime.now()
     save_state(optimizer, i)
-    torch.save(model.state_dict(), f"{path}/tmp/model_{i}.pt")
+    save_model(model, str(i), args.layerwise)
     print('Process: {}, Time to save checkpoint: {}'.format(i, datetime.now() - checkPointStart))
     print('Process: {}, Time of one train epoch: {}'.format(i, datetime.now() - trainStart))
     modelSaveTime = (datetime.now() - checkPointStart).total_seconds()
@@ -176,7 +203,7 @@ def load_state(optimizer, i):
     else:
         print('no state found')
 
-def model_weight_average(parallelism):
+def model_weight_average(parallelism, layerwise):
     model = models.resnet34(pretrained = False)
     cur_model = models.resnet34(pretrained = False)
 
@@ -184,7 +211,7 @@ def model_weight_average(parallelism):
 
     beta = 1.0/parallelism 
     for i in range(parallelism):
-        cur_model.load_state_dict(torch.load(f"{path}/tmp/model_{i}.pt"))
+        cur_model = load_model(i, layerwise)
         for key in cur_model.state_dict():
             if i == 0:
                 sd_avg[key] = (cur_model.state_dict()[key]) / parallelism
@@ -204,14 +231,16 @@ if __name__ == "__main__":
     parser.add_argument('-p', '--parallelism', default=2, type=int,
                         help='number of functions')                        
     parser.add_argument('-e','--epochs', default=10, type=int, metavar='N',
-                        help='number of total epochs to run')
+                        help='number of total epochs to run')            
     parser.add_argument('-n','--number_of_tests', default=1, type=int, metavar='N',
-                    help='number of tests to repeat')                         
+                        help='number of tests to repeat')  
+    parser.add_argument('--layerwise', default=False, action="store_true",
+                    help='layerwise store')                        
     args = parser.parse_args()
 
 
-    keys = ['data_loading', 'model_loading', 'model_update', 'model_saving', 'total']
-    results = dict([(key, []) for key in keys])
+    # keys = ['data_loading', 'model_loading', 'model_update', 'model_saving', 'total']
+    # results = dict([(key, []) for key in keys])
 
 
     
@@ -261,7 +290,7 @@ if __name__ == "__main__":
                 # print(device)
                 print('Process {}: Before Training Waiting time: {}'.format(i, datetime.now() - epochStart)) 
 
-                p = mp.Process(target = train, args=(device, epoch, i, results, args))
+                p = mp.Process(target = train, args=(device, epoch, i, args))
                 # p = multiprocessing.Process(target = task)
 
                 p.start()
@@ -277,8 +306,8 @@ if __name__ == "__main__":
             print('Time to delete process : {}'.format(datetime.now() - processDeleteStart)) 
 
             modelAverageStart = datetime.now()
-            model = model_weight_average(parallelism)
-            torch.save(model.state_dict(), f"{path}/tmp/model_resnet34.pt")
+            model = model_weight_average(parallelism, args.layerwise)
+            save_model(model, 'average', args.layerwise)
             print('Time to avergage and save models : {}'.format(datetime.now() - modelAverageStart)) 
             print('Time to finish one epoch : {}'.format(datetime.now() - epochStart)) 
             model_averging_time.append((datetime.now() - modelAverageStart).total_seconds())
@@ -315,8 +344,11 @@ if __name__ == "__main__":
 
 
     print("*"*100)
-    print(['data_loading', 'model_loading', 'model_update', 'model_saving',  'epoch', 'model_average'])
+    print(['data_loading', 'model_loading', 'traning', 'model_saving',  'training_total', 'model_average', 'iteration_total'])
     multi_test_results = np.genfromtxt(f'{path}/{experiment_name}-results.csv', delimiter=',')
+    total_time = multi_test_results[:,-1] + multi_test_results[:,-2]
+    total_time = total_time.reshape(-1, 1)
+    multi_test_results = np.append(multi_test_results, total_time, 1)
     print(np.mean(multi_test_results, axis=0))
     print("*"*100)
     os.remove(f'{path}/{experiment_name}-results.csv')
