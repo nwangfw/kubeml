@@ -1,3 +1,8 @@
+# docker command
+# changed port number since there is another redisAI container running at port 6379
+# docker run -d --name redis-stack-server -p 10000:6379 redis/redis-stack-server:latest
+
+
 import multiprocessing as mp
 import time
 import pandas as pd
@@ -16,17 +21,25 @@ from torchvision import transforms
 from torchvision import models
 import torch.utils.data as tdata
 from torch.nn.functional import nll_loss, cross_entropy
+import redis 
+import shutil
 
 from torch import optim
 from datetime import datetime
-import shutil
 
 import warnings
 warnings.filterwarnings("ignore")
 
-#experimental setting
-experiment_name ="resnet34"
+
+# experiment configuration
+con = redis.Redis(
+    host="localhost",
+    port=10000)
+
 path = os.getcwd()
+experiment_name ="resnet34-redis"
+
+
 
 def assignProcssToDevice(nums_of_devices, id):
     return 'cuda:' + str(id % nums_of_devices)
@@ -37,34 +50,55 @@ def task():
     time.sleep(0.5)
     print('Finished sleeping')
 
-def save_model(model, i, layerwise_store):
+def save_model(con, model, i, layerwise_store):
     if layerwise_store:
         for key in model.state_dict().keys():
-            storage_key = f'{i}_{key}'
-            np.save(f"{path}/tmp/{storage_key}", model.state_dict()[key].cpu().numpy())
+            redis_key = f'{i},{key}'
+            pickled_val  = pickle.dumps(model.state_dict()[key].cpu().numpy())
+            con.set(redis_key, pickled_val)
     else:
-        storage_key = f'model_{i}'
-        torch.save(model.state_dict(), f"{path}/tmp/{storage_key}.pt")
+        redis_key = f'{i}'
+        pickled_val  = pickle.dumps(model.state_dict())
+        con.set(redis_key, pickled_val)
 
 
 
-def load_model(i, layerwise_store):
+def load_model(con, i, layerwise_store):
     loaded_model = models.resnet34(pretrained= False)
     if layerwise_store:
         for key in loaded_model.state_dict().keys():
                 #print(name)
-            storage_key = f'{i}_{key}'
-            layer_weight_copied = np.load(f"{path}/tmp/{storage_key}.npy") #np.copy(layer_weight)
+            pickled_val = con.get(f'{i},{key}')
+            layer_weight_copied = pickle.loads(pickled_val)  #np.copy(layer_weight)
             #print(type(classes))
             #counter += 1
             #print(classes.shape)
             loaded_model.state_dict()[key].copy_(torch.from_numpy(layer_weight_copied))
     else:
-        storage_key = f'model_{i}'
-        loaded_model.load_state_dict(torch.load(f"{path}/tmp/{storage_key}.pt"))
+        pickled_val = con.get(f'{i}')
+        model_states = pickle.loads(pickled_val)  #np.copy(layer_weight)
+        loaded_model.load_state_dict(model_states)
     return loaded_model
 
-def train(device, epoch, i,  args) -> float:
+def save_state(optimizer, i):
+    isExist = os.path.exists(f'{path}/tmp/')
+    if not isExist:
+        os.makedirs(f'{path}/tmp/')
+    with open(f'{path}/tmp/optimizer_state_{i}.pkl', 'wb') as f:
+        #print(optimizer.state_dict()['state'])
+        pickle.dump(optimizer.state_dict(), f)
+    #print('saving optimizer state done, time is: ', datetime.now() - start)
+def load_state(optimizer, i):
+    if os.path.isfile(f'{path}/tmp/optimizer_state_{i}.pkl'):
+        with open(f'{path}/tmp/optimizer_state_{i}.pkl', 'rb') as f:
+            state = pickle.load(f)
+            optimizer.load_state_dict(state)
+            #update_state(optimizer, state)
+        #print('loading optimizer state done, time is: ', datetime.now() - start)
+    else:
+        print('no state found')
+
+def train(device, epoch, i, args) -> float:
     """Loop used to train the network"""
     torch.manual_seed(42) 
     dataLoadTime = 0
@@ -74,11 +108,13 @@ def train(device, epoch, i,  args) -> float:
     trainEpochTime = 0
 
     trainStart = datetime.now()
-    model = models.resnet34(pretrained= False)
     # create optimizer
     if epoch > 0:
         # load the global averaged model
-        model = load_model('average', args.layerwise)
+        model = load_model(con, 'average', args.layerwise)
+    else:
+        model = models.resnet34(pretrained= False)
+
  
     model.to(device)
 
@@ -137,7 +173,7 @@ def train(device, epoch, i,  args) -> float:
     # save the optimizer state
     checkPointStart = datetime.now()
     save_state(optimizer, i)
-    save_model(model, str(i), args.layerwise)
+    save_model(con, model, str(i), args.layerwise)
     print('Process: {}, Time to save checkpoint: {}'.format(i, datetime.now() - checkPointStart))
     print('Process: {}, Time of one train epoch: {}'.format(i, datetime.now() - trainStart))
     modelSaveTime = (datetime.now() - checkPointStart).total_seconds()
@@ -185,23 +221,7 @@ def validate(model, device) -> (float, float):
         100. * correct / len(val_loader.dataset)))
     return accuracy, test_loss
 
-def save_state(optimizer, i):
-    isExist = os.path.exists(f'{path}/tmp/')
-    if not isExist:
-        os.makedirs(f'{path}/tmp/')    
-    with open(f'{path}/tmp/optimizer_state_{i}.pkl', 'wb') as f:
-        #print(optimizer.state_dict()['state'])
-        pickle.dump(optimizer.state_dict(), f)
-    #print('saving optimizer state done, time is: ', datetime.now() - start)
-def load_state(optimizer, i):
-    if os.path.isfile(f'{path}/tmp/optimizer_state_{i}.pkl'):
-        with open(f'{path}/tmp/optimizer_state_{i}.pkl', 'rb') as f:
-            state = pickle.load(f)
-            optimizer.load_state_dict(state)
-            #update_state(optimizer, state)
-        #print('loading optimizer state done, time is: ', datetime.now() - start)
-    else:
-        print('no state found')
+
 
 def model_weight_average(parallelism, layerwise):
     model = models.resnet34(pretrained = False)
@@ -211,7 +231,7 @@ def model_weight_average(parallelism, layerwise):
 
     beta = 1.0/parallelism 
     for i in range(parallelism):
-        cur_model = load_model(i, layerwise)
+        cur_model = load_model(con, i, layerwise)
         for key in cur_model.state_dict():
             if i == 0:
                 sd_avg[key] = (cur_model.state_dict()[key]) / parallelism
@@ -235,42 +255,35 @@ if __name__ == "__main__":
     parser.add_argument('-n','--number_of_tests', default=1, type=int, metavar='N',
                         help='number of tests to repeat')  
     parser.add_argument('--layerwise', default=False, action="store_true",
-                    help='layerwise store')                        
+                        help='layerwise store')    
     args = parser.parse_args()
+
+
+
+
+
+
 
 
     # keys = ['data_loading', 'model_loading', 'model_update', 'model_saving', 'total']
     # results = dict([(key, []) for key in keys])
-
-
     
 
-    #train_loader = torch.utils.data.DataLoader(trainset, batch_size=256)
-
-    # May have to create our own dataloader
-    # cifar10_x_train = trainset.data
-    # cifar10_y_train = trainset.targets
-    # cifar10_x_test = valset.data
-    # cifar10_y_test = valset.targets
-
-    # print(len(cifar10_x_train))
-    # print(len(cifar10_y_train))
-    # print(len(cifar10_x_test))
-    # print(len(cifar10_y_test))
+   # print(args.layerwise)
 
 
     nums_of_devices = torch.cuda.device_count()
-
-
     torch.multiprocessing.set_start_method('spawn')#
+
+
+
     for _ in range(args.number_of_tests):
-        start = datetime.now()
+
         start_time = time.perf_counter()
+        start = datetime.now()
+        parallelism = args.parallelism
         epoch_time = []
         model_averging_time = []
-
-        parallelism = args.parallelism
-
         for epoch in range(args.epochs):
             print('\nEpoch', epoch)
             processes = []
@@ -290,7 +303,7 @@ if __name__ == "__main__":
                 # print(device)
                 print('Process {}: Before Training Waiting time: {}'.format(i, datetime.now() - epochStart)) 
 
-                p = mp.Process(target = train, args=(device, epoch, i, args))
+                p = mp.Process(target = train, args=(device, epoch, i,  args))
                 # p = multiprocessing.Process(target = task)
 
                 p.start()
@@ -307,11 +320,12 @@ if __name__ == "__main__":
 
             modelAverageStart = datetime.now()
             model = model_weight_average(parallelism, args.layerwise)
-            save_model(model, 'average', args.layerwise)
+            save_model(con, model, 'average', args.layerwise)
             print('Time to avergage and save models : {}'.format(datetime.now() - modelAverageStart)) 
             print('Time to finish one epoch : {}'.format(datetime.now() - epochStart)) 
             model_averging_time.append((datetime.now() - modelAverageStart).total_seconds())
             epoch_time.append((datetime.now() - start).total_seconds())
+
 
 
 
@@ -327,9 +341,9 @@ if __name__ == "__main__":
         print(epoch_time)
 
         results = np.genfromtxt(f'{path}/results.csv', delimiter=',')
-        print(['data_loading', 'model_loading', 'model_update', 'model_saving', 'total'])
+        print(['data_loading', 'model_loading', 'traing', 'model_saving', 'training_total'])
         time_measurement = np.mean(results, axis=0)
-        #print("Time measurement:", time_measurement)
+        print(time_measurement)
         print(['model_average'])
         model_average = sum(model_averging_time) / float(len(model_averging_time))
         print(model_average)
@@ -342,7 +356,6 @@ if __name__ == "__main__":
         #clean up model and the results.csv is kept
         shutil.rmtree(f'{path}/tmp')
 
-
     print("*"*100)
     print(['data_loading', 'model_loading', 'traning', 'model_saving',  'training_total', 'model_average', 'iteration_total'])
     multi_test_results = np.genfromtxt(f'{path}/{experiment_name}-results.csv', delimiter=',')
@@ -352,3 +365,4 @@ if __name__ == "__main__":
     print(np.mean(multi_test_results, axis=0))
     print("*"*100)
     os.remove(f'{path}/{experiment_name}-results.csv')
+
