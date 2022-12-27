@@ -1,9 +1,9 @@
 package train
 
 import (
-	"github.com/diegostock12/kubeml/ml/pkg/api"
-	kerror "github.com/diegostock12/kubeml/ml/pkg/error"
-	"github.com/diegostock12/kubeml/ml/pkg/util"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
+	kerror "github.com/nwangfw/kubeml/ml/pkg/error"
+	"github.com/nwangfw/kubeml/ml/pkg/util"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 	"net/http"

@@ -2,11 +2,11 @@ package train
 
 import (
 	"fmt"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
-	"github.com/diegostock12/kubeml/ml/pkg/model"
-	psClient "github.com/diegostock12/kubeml/ml/pkg/ps/client"
-	schedulerClient "github.com/diegostock12/kubeml/ml/pkg/scheduler/client"
-	"github.com/diegostock12/kubeml/ml/pkg/util"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
+	"github.com/nwangfw/kubeml/ml/pkg/model"
+	psClient "github.com/nwangfw/kubeml/ml/pkg/ps/client"
+	schedulerClient "github.com/nwangfw/kubeml/ml/pkg/scheduler/client"
+	"github.com/nwangfw/kubeml/ml/pkg/util"
 	"github.com/gomodule/redigo/redis"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -166,6 +166,7 @@ func (job *TrainJob) Train() {
 		job.clearTensors()
 		job.redisPool.Close()
 		job.logger.Debug("closing job", zap.Error(job.exitErr))
+		job.logger.Debug("testing for Golong code update", zap.Error(job.exitErr))
 		job.ps.JobFinished(job.jobId, job.exitErr)
 	}()
 

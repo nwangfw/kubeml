@@ -3,7 +3,7 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	kubemlClient "github.com/diegostock12/kubeml/ml/pkg/controller/client"
+	kubemlClient "github.com/nwangfw/kubeml/ml/pkg/controller/client"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"math"

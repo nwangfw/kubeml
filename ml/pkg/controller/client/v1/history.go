@@ -2,8 +2,8 @@ package v1
 
 import (
 	"encoding/json"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
-	kerror "github.com/diegostock12/kubeml/ml/pkg/error"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
+	kerror "github.com/nwangfw/kubeml/ml/pkg/error"
 	"github.com/pkg/errors"
 	"io/ioutil"
 	"net/http"

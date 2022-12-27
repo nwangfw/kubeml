@@ -2,9 +2,9 @@ package client
 
 import (
 	"fmt"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
-	v1 "github.com/diegostock12/kubeml/ml/pkg/controller/client/v1"
-	"github.com/diegostock12/kubeml/ml/pkg/util"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
+	v1 "github.com/nwangfw/kubeml/ml/pkg/controller/client/v1"
+	"github.com/nwangfw/kubeml/ml/pkg/util"
 )
 
 // TODO change this to read the config file from kubernetes

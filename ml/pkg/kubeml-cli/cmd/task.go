@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	kubemlClient "github.com/diegostock12/kubeml/ml/pkg/controller/client"
+	kubemlClient "github.com/nwangfw/kubeml/ml/pkg/controller/client"
 	"github.com/fission/fission/pkg/crd"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"

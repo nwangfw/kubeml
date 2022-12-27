@@ -3,7 +3,7 @@ package old
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
 	"github.com/pkg/errors"
 	"io/ioutil"
 )

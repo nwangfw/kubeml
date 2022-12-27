@@ -3,8 +3,8 @@ package cmd
 import (
 	"errors"
 	"fmt"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
-	kubemlClient "github.com/diegostock12/kubeml/ml/pkg/controller/client"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
+	kubemlClient "github.com/nwangfw/kubeml/ml/pkg/controller/client"
 	"github.com/fission/fission/pkg/crd"
 	"github.com/hashicorp/go-multierror"
 	"github.com/spf13/cobra"

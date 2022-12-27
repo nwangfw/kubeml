@@ -3,7 +3,7 @@ package train
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"
 	"io/ioutil"

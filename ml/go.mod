@@ -5,6 +5,7 @@ go 1.12
 require (
 	github.com/RedisAI/redisai-go v1.0.1
 	github.com/coreos/go-systemd v0.0.0-20190719114852-fd7a80b32e1f // indirect
+	github.com/diegostock12/kubeml/ml v0.0.0-20210430162103-9f00eee8249d // indirect
 	github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815
 	github.com/fission/fission v1.8.1-0.20210208054438-6f9bad3d05f8
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect

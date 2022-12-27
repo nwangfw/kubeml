@@ -2,8 +2,8 @@ package model
 
 import (
 	"github.com/RedisAI/redisai-go/redisai"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
-	"github.com/diegostock12/kubeml/ml/pkg/util"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
+	"github.com/nwangfw/kubeml/ml/pkg/util"
 	"github.com/gomodule/redigo/redis"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"

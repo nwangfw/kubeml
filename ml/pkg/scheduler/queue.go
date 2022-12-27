@@ -3,7 +3,7 @@ package scheduler
 import (
 	"container/list"
 	"fmt"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
 	"sync"
 )
 

@@ -105,7 +105,7 @@ class KubeModel(ABC):
         optimizer = self.configure_optimizers()
         self.optimizer = optimizer
         # TODO here the state loaded should be the averaged one not the saved from earlier
-
+        # right now, there is no averaging 
         # self._load_optimizer_state()
 
     def _load_optimizer_state(self):
@@ -214,14 +214,18 @@ class KubeModel(ABC):
         :return:
         """
         self.__load_model()
-        self._reset_optimizer_state()
-
+        # not sure why we need to reset_optimizer state, instead, you might want to load the state if possible
+        #self._reset_optimizer_state()
+        self._load_optimizer_state()
+        
     def _on_iteration_end(self):
         """
         Called at the end of each iteration
         :return:
         """
         self.__save_model()
+        # you also need to save optimizer state
+        self._save_optimizer_state()
 
     def _batch_to_device(self, batch: Union[torch.Tensor, Iterable[torch.Tensor]]):
         """

@@ -2,7 +2,7 @@ package ps
 
 import (
 	"fmt"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
 	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
