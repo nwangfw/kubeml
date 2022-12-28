@@ -9,9 +9,13 @@ controllerServiceType: LoadBalancer
 
 ## KubeML image
 image: centaurusinfra/kubeml
-kubemlVersion: "latest"
+kubemlVersion: "test"
 
-#kubemlVersion: "0.1.9"
+# work for the following command
+#kubemlVersion: "latest"
+
+#imageVersion: "0.2"
+
 
 ## Storage service image
 storageImage: centaurusinfra/kubeml-storage-svc

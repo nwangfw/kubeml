@@ -166,7 +166,7 @@ func (job *TrainJob) Train() {
 		job.clearTensors()
 		job.redisPool.Close()
 		job.logger.Debug("closing job", zap.Error(job.exitErr))
-		job.logger.Debug("testing for Golong code update", zap.Error(job.exitErr))
+		job.logger.Debug("testing for Golang code update", zap.Error(job.exitErr))
 		job.ps.JobFinished(job.jobId, job.exitErr)
 	}()
 
