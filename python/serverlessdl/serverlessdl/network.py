@@ -132,10 +132,41 @@ class KubeModel(ABC):
         Saves the optimizer state to be loaded again in
         the following epochs
         """
+        #TODO: use file name {job_id}-opt.pkl instead
         self.logger.debug('saving optimizer state')
         with open('opt.pkl', 'wb') as f:
             pickle.dump(self.optimizer.state_dict(), f)
         print('saved state')
+
+    def _save_optimizer_redis(self):
+        """
+        Saves the optimizer to the redis
+        """
+        job_id = self.args._job_id
+        func_id = self.args._func_id
+
+        self.logger.debug("Saving optimizer to the database")
+
+        weight_key = f'{job_id}:optimizer:{func_id}' 
+        pickled_val  = pickle.dumps(self.optimizer.state_dict())
+        self._redis_client.set(weight_key, pickled_val)
+
+        self.logger.debug('Saved optimizer to the database')
+
+    def _load_optimizer_redis(self):
+        """
+        Checks for a previously saved state of the optimizer and loads it from redis
+        """
+
+        if self.epoch > 0:
+            job_id = self.args._job_id
+            func_id = self.args._func_id
+            weight_key = f'{job_id}:optimizer:{func_id}' 
+            pickled_val = self._redis_client.get(weight_key)
+            opt_states = pickle.loads(pickled_val)  
+            self.optimizer.load_state_dict(opt_states)
+
+
 
     def _get_logger(self):
         """
@@ -204,6 +235,7 @@ class KubeModel(ABC):
         """
         pass
         # self._save_optimizer_state()
+        # TODO: delete optimizer file in the end of each job?
 
     def _on_iteration_start(self):
         """
@@ -216,7 +248,7 @@ class KubeModel(ABC):
         self.__load_model()
         # not sure why we need to reset_optimizer state, instead, you might want to load the state if possible
         #self._reset_optimizer_state()
-        self._load_optimizer_state()
+        self._load_optimizer_redis()
         
     def _on_iteration_end(self):
         """
@@ -225,7 +257,7 @@ class KubeModel(ABC):
         """
         self.__save_model()
         # you also need to save optimizer state
-        self._save_optimizer_state()
+        self._save_optimizer_redis()
 
     def _batch_to_device(self, batch: Union[torch.Tensor, Iterable[torch.Tensor]]):
         """
