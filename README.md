@@ -310,3 +310,61 @@ Other options include setting the parallelism `--parallelism`, `--static`, which
 
 To test in your computer some options tested are MiniKube or MicroK8s. MicroK8s makes it easier to turn on GPU suppost
 by doing `microk8s enable gpu`. The only thing needed are NVIDIA Drivers build for CUDA 10.1+. 
+
+
+## Code Modification
+
+In order to modify the code, you need to follow the following steps.
+
+Step 1. Update serverlessdl python library (Skip Steps 1-2 if there is no python code update):  Go to the $HOME/repo/kubeml/python/serverlessdl/serverlessdl folder and update the python code accordlingly. Once done, you can run the following command to publish your code to Python Package Index (PyPi). Note that you may want to create a new version number.
+
+
+```bash
+$ cd  $HOME/repo/kubeml/python/serverlessdl/
+# update version number in setup.py
+python setup.py sdist bdist_wheel
+twine upload dist/*
+# ask for your user name and password
+username
+password
+```
+
+
+Step 2. Update KubeML/Fission python environment: Go to $HOME/repo/kubeml/ml/environment/ folder and modify Dockerfile with the new serverlessdl verision number. Publish the new python environment to docker hub.
+
+```bash
+$ cd  $HOME/repo/kubeml/ml/environment/
+# update version number in Dockerfile
+sudo docker build -f Dockerfile . -t centaurusinfra/serverless-python-env:0.3.1
+sudo docker push centaurusinfra/serverless-python-env:0.3
+```
+
+
+Step 3: Update the Go code (Skip this step if there is no Go code update): First, you need to modify the Go code in  $HOME/repo/kubeml/ml/pkg. Second, you need to update the Dockerfile in $HOME/repo/kubeml/ml/ and push it to docker hub by using the following command.
+
+```bash
+cd /home/ning/repo/kubeml/ml
+# push your modified code to your github repo
+$ sudo docker build -f Dockerfile . -t centaurusinfra/kubeml:test
+sudo docker push centaurusinfra/kubeml:test
+#
+```
+
+
+Step 4: You need to update the two new images you created and re-configure your Kubernetes cluster in $HOME/repo/kubeml/ml/charts
+
+```bash
+$ cd $HOME/repo/kubeml/
+$ export KUBEML_NAMESPACE=kubeml
+$ kubectl create namespace $KUBEML_NAMESPACE
+# update version number in value.yaml
+$ helm upgrade kubeml ./ml/charts/kubeml --namespace $KUBEML_NAMESPACE
+```
+
+Done! Check if the corresponding pods have restarted or not.
+
+```bash
+$ cd $HOME/repo/kubeml/ml/pkg/kubeml-cli
+
+```
+

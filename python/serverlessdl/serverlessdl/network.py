@@ -104,8 +104,10 @@ class KubeModel(ABC):
         """
         optimizer = self.configure_optimizers()
         self.optimizer = optimizer
+        self._load_optimizer_redis()
+  
         # TODO here the state loaded should be the averaged one not the saved from earlier
-        # right now, there is no averaging 
+
         # self._load_optimizer_state()
 
     def _load_optimizer_state(self):
@@ -132,7 +134,6 @@ class KubeModel(ABC):
         Saves the optimizer state to be loaded again in
         the following epochs
         """
-        #TODO: use file name {job_id}-opt.pkl instead
         self.logger.debug('saving optimizer state')
         with open('opt.pkl', 'wb') as f:
             pickle.dump(self.optimizer.state_dict(), f)
@@ -158,15 +159,14 @@ class KubeModel(ABC):
         Checks for a previously saved state of the optimizer and loads it from redis
         """
 
-        if self.epoch > 0:
-            job_id = self.args._job_id
-            func_id = self.args._func_id
-            weight_key = f'{job_id}:optimizer:{func_id}' 
+        job_id = self.args._job_id
+        func_id = self.args._func_id
+        weight_key = f'{job_id}:optimizer:{func_id}' 
+
+        if  self._redis_client.exists(weight_key):
             pickled_val = self._redis_client.get(weight_key)
             opt_states = pickle.loads(pickled_val)  
             self.optimizer.load_state_dict(opt_states)
-
-
 
     def _get_logger(self):
         """
@@ -210,6 +210,7 @@ class KubeModel(ABC):
         """
         try:
             self.init()
+            # according to the comments, it is nothing to do with the training process.
             self.__save_model()
 
         except RedisError as re:
@@ -227,15 +228,19 @@ class KubeModel(ABC):
         self._set_device()
         self._network.train()
         self._config_optimizer()
+        self.__load_model()
+        self._load_optimizer_redis()
 
     def _on_train_end(self):
         """
         Executed after the end of the training loop
         :return:
         """
-        pass
+        #self.__save_model()
+        self.__save_model()
+        self._save_optimizer_redis()
+        #pass
         # self._save_optimizer_state()
-        # TODO: delete optimizer file in the end of each job?
 
     def _on_iteration_start(self):
         """
@@ -246,18 +251,17 @@ class KubeModel(ABC):
         :return:
         """
         self.__load_model()
-        # not sure why we need to reset_optimizer state, instead, you might want to load the state if possible
-        #self._reset_optimizer_state()
         self._load_optimizer_redis()
-        
+        #self._reset_optimizer_state()
+
     def _on_iteration_end(self):
         """
         Called at the end of each iteration
         :return:
         """
         self.__save_model()
-        # you also need to save optimizer state
         self._save_optimizer_redis()
+
 
     def _batch_to_device(self, batch: Union[torch.Tensor, Iterable[torch.Tensor]]):
         """
@@ -292,6 +296,7 @@ class KubeModel(ABC):
 
         :return: The loss of the epoch, as returned by the user function
         """
+
         self._on_train_start()
 
         # Determine the batches that we need to train on and the first subset id
@@ -321,7 +326,7 @@ class KubeModel(ABC):
 
             # load the reference model, train and save
             try:
-                self._on_iteration_start()
+                #self._on_iteration_start()
 
                 for idx, batch in enumerate(loader):
                     # send the batch to the appropriate device
@@ -329,7 +334,7 @@ class KubeModel(ABC):
                     loss += self.train(batch, idx)
                     self.logger.debug(f'loss is {loss}, iterations are {num_iterations}')
 
-                self._on_iteration_end()
+                #self._on_iteration_end()
             except RedisError as re:
                 raise StorageError(re)
             finally:
