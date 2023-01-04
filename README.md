@@ -362,7 +362,7 @@ $ kubectl create namespace $KUBEML_NAMESPACE
 $ helm upgrade kubeml ./ml/charts/kubeml --namespace $KUBEML_NAMESPACE
 ```
 
-Done! Check if the corresponding pods have restarted or not. You can also run the follwoing test script to create a new training job.
+Done! Check if the corresponding poolmgr-torch-default-XXXXX_XXXXXXX_XXX pods have restarted or not. You can also run the follwoing test script to create a new training job.
 
 
 ```bash
