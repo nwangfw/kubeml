@@ -358,7 +358,7 @@ Step 4: You need to update the two new images you created and re-configure your 
 $ cd $HOME/repo/kubeml/
 $ export KUBEML_NAMESPACE=kubeml
 $ kubectl create namespace $KUBEML_NAMESPACE
-# update kubeml and serverless-python-env images version number in $HOME/repo/kubeml/ml/charts/kubeml/values.yaml
+# update kubeml and serverless-python-env images version numbers created in Steps 2 and 3 in the $HOME/repo/kubeml/ml/charts/kubeml/values.yaml
 $ helm upgrade kubeml ./ml/charts/kubeml --namespace $KUBEML_NAMESPACE
 ```
 
