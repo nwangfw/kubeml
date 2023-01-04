@@ -343,7 +343,7 @@ sudo docker push centaurusinfra/serverless-python-env:0.3
 Step 3: Update the Go code (Skip this step if there is no Go code update): First, you need to modify the Go code in  $HOME/repo/kubeml/ml/pkg. Second, you need to update the Dockerfile in $HOME/repo/kubeml/ml/ and push it to docker hub by using the following command.
 
 ```bash
-cd /home/ning/repo/kubeml/ml
+cd $HOME/repo/kubeml/ml
 # push your modified code to your github repo
 $ sudo docker build -f Dockerfile . -t centaurusinfra/kubeml:test
 sudo docker push centaurusinfra/kubeml:test
@@ -357,14 +357,15 @@ Step 4: You need to update the two new images you created and re-configure your 
 $ cd $HOME/repo/kubeml/
 $ export KUBEML_NAMESPACE=kubeml
 $ kubectl create namespace $KUBEML_NAMESPACE
-# update version number in value.yaml
+# update version number in $HOME/repo/kubeml/ml/charts/kubeml/values.yaml
 $ helm upgrade kubeml ./ml/charts/kubeml --namespace $KUBEML_NAMESPACE
 ```
 
-Done! Check if the corresponding pods have restarted or not.
+Done! Check if the corresponding pods have restarted or not. You can also run the follwoing test script to create a new training job.
+
 
 ```bash
 $ cd $HOME/repo/kubeml/ml/pkg/kubeml-cli
-
+$ ./myKubeml train     --function resnet34-4     --dataset cifar10     --epochs 10     --batch 256 --lr 0.01 --parallelism 4 --static
 ```
 
