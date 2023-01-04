@@ -44,7 +44,8 @@ training jobs with just a single command.
     * [Deploy a Function](#deploying-a-function)
     * [Upload a dataset](#uploading-a-dataset)
     * [Start Training](#starting-the-training)
-    
+ * [Code modification](#code-modification) 
+
 
 ## Components
 
