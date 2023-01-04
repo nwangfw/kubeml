@@ -340,7 +340,7 @@ sudo docker push centaurusinfra/serverless-python-env:0.3
 ```
 
 
-Step 3: Update the Go code (Skip this step if there is no Go code update): First, you need to modify the Go code in  $HOME/repo/kubeml/ml/pkg. Second, you need to update the Dockerfile in $HOME/repo/kubeml/ml/ and push it to docker hub by using the following command.
+Step 3: Update the Go code (Skip this step if there is no Go code update): First, you need to modify the Go scripts in  $HOME/repo/kubeml/ml/pkg. Second, you need to update the Dockerfile in $HOME/repo/kubeml/ml/ and push it to docker hub by using the following command.
 
 ```bash
 cd $HOME/repo/kubeml/ml
@@ -357,7 +357,7 @@ Step 4: You need to update the two new images you created and re-configure your 
 $ cd $HOME/repo/kubeml/
 $ export KUBEML_NAMESPACE=kubeml
 $ kubectl create namespace $KUBEML_NAMESPACE
-# update version number in $HOME/repo/kubeml/ml/charts/kubeml/values.yaml
+# update kubeml and serverless-python-env images version number in $HOME/repo/kubeml/ml/charts/kubeml/values.yaml
 $ helm upgrade kubeml ./ml/charts/kubeml --namespace $KUBEML_NAMESPACE
 ```
 
