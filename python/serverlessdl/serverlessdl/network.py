@@ -104,7 +104,6 @@ class KubeModel(ABC):
         """
         optimizer = self.configure_optimizers()
         self.optimizer = optimizer
-        self._load_optimizer_redis()
   
         # TODO here the state loaded should be the averaged one not the saved from earlier
 
@@ -161,6 +160,9 @@ class KubeModel(ABC):
 
         job_id = self.args._job_id
         func_id = self.args._func_id
+
+        self.logger.debug("Load optimizer from the database")
+
         weight_key = f'{job_id}:optimizer:{func_id}' 
 
         if  self._redis_client.exists(weight_key):
@@ -228,18 +230,16 @@ class KubeModel(ABC):
         self._set_device()
         self._network.train()
         self._config_optimizer()
-        self.__load_model()
-        self._load_optimizer_redis()
+
 
     def _on_train_end(self):
         """
         Executed after the end of the training loop
         :return:
         """
-        #self.__save_model()
-        self.__save_model()
-        self._save_optimizer_redis()
-        #pass
+        # self.__save_model()
+        # self._save_optimizer_redis()
+        pass
         # self._save_optimizer_state()
 
     def _on_iteration_start(self):
@@ -326,7 +326,7 @@ class KubeModel(ABC):
 
             # load the reference model, train and save
             try:
-                #self._on_iteration_start()
+                self._on_iteration_start()
 
                 for idx, batch in enumerate(loader):
                     # send the batch to the appropriate device
@@ -334,7 +334,7 @@ class KubeModel(ABC):
                     loss += self.train(batch, idx)
                     self.logger.debug(f'loss is {loss}, iterations are {num_iterations}')
 
-                #self._on_iteration_end()
+                self._on_iteration_end()
             except RedisError as re:
                 raise StorageError(re)
             finally:
