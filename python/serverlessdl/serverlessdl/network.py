@@ -115,7 +115,7 @@ class KubeModel(ABC):
         """
         if os.path.isfile('opt.pkl'):
             self.logger.debug('Loading optimizer state')
-            with open('opt.pkl', 'rb') as f:
+            with open('test/opt.pkl', 'rb') as f:
                 state = pickle.load(f)
                 self.optimizer.load_state_dict(state)
 
@@ -134,7 +134,7 @@ class KubeModel(ABC):
         the following epochs
         """
         self.logger.debug('saving optimizer state')
-        with open('opt.pkl', 'wb') as f:
+        with open('test/opt.pkl', 'wb') as f:
             pickle.dump(self.optimizer.state_dict(), f)
         print('saved state')
 
@@ -149,9 +149,11 @@ class KubeModel(ABC):
 
         weight_key = f'{job_id}:optimizer:{func_id}' 
         pickled_val  = pickle.dumps(self.optimizer.state_dict())
+
+        self.logger.debug(f"Optimizer value {pickled_val}")
+
         self._redis_client.set(weight_key, pickled_val)
 
-        self.logger.debug('Saved optimizer to the database')
 
     def _load_optimizer_redis(self):
         """
@@ -166,9 +168,46 @@ class KubeModel(ABC):
         weight_key = f'{job_id}:optimizer:{func_id}' 
 
         if  self._redis_client.exists(weight_key):
+            epoch = self.args.epoch
+            weight_key_print = f'{job_id}:print:{func_id}' 
+            value = f'{job_id}:print:{func_id}/{epoch}' 
+            self._redis_client.set(weight_key_print, value)
+
             pickled_val = self._redis_client.get(weight_key)
             opt_states = pickle.loads(pickled_val)  
             self.optimizer.load_state_dict(opt_states)
+
+
+
+    def _save_redis_test(self):
+        """
+        Saves the optimizer to the redis
+        """
+        job_id = self.args._job_id
+        func_id = self.args._func_id
+        epoch = self.args.epoch
+
+        self.logger.debug("Saving test case to the database")
+
+        weight_key = f'{job_id}:test:{func_id}' 
+        value = f'{job_id}:test:{func_id}/{epoch}' 
+        self._redis_client.set(weight_key, value)
+
+
+    def _load_redis_test(self):
+        """
+        Checks for a previously saved state of the optimizer and loads it from redis
+        """
+
+        job_id = self.args._job_id
+        func_id = self.args._func_id
+
+        self.logger.debug("Load test case from the database")
+
+        weight_key = f'{job_id}:test:{func_id}' 
+        pickled_val = self._redis_client.get(weight_key)
+        self.logger.debug(f"loading value:  {pickled_val}")
+
 
     def _get_logger(self):
         """
@@ -252,6 +291,9 @@ class KubeModel(ABC):
         """
         self.__load_model()
         self._load_optimizer_redis()
+        self._load_redis_test()
+        #self._load_optimizer_state()
+
         #self._reset_optimizer_state()
 
     def _on_iteration_end(self):
@@ -261,7 +303,8 @@ class KubeModel(ABC):
         """
         self.__save_model()
         self._save_optimizer_redis()
-
+        self._save_redis_test()
+        #self._save_optimizer_state()
 
     def _batch_to_device(self, batch: Union[torch.Tensor, Iterable[torch.Tensor]]):
         """

@@ -19,7 +19,7 @@ RUN pip3 install -r requirements.txt
 # Run the special pytorch download
 RUN pip3 install torch==1.7.1+cu101 torchvision==0.8.2+cu101 \
  -f https://download.pytorch.org/whl/torch_stable.html
-RUN pip3 install serverlessdl==0.4.11
+RUN pip3 install serverlessdl==0.4.21
 
 
 # Copy the server and start
@@ -28,5 +28,6 @@ COPY . /app
 # Start a gunicorn server with only one worker to ensure
 # isolation on a function basis
 # and offer more performance than the default server
-CMD ["gunicorn", "-b", "0.0.0.0:8888", "-t", "2000", "-w 1", "server:app"]
+#CMD ["gunicorn", "--log-level", "debug", "--access-logfile", "-", "-b", "0.0.0.0:8888", "-t", "2000", "-w 1", "server:app"]
 
+CMD ["gunicorn", "--log-level", "debug", "-b", "0.0.0.0:8888", "-t", "2000", "-w 1", "server:app"]

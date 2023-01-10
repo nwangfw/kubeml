@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name='serverlessdl',
-    version='0.4.11',
+    version='0.4.21',
     description='Python tools for training Neural Networks in a serverless setup',
     author='Ning Wang',
     author_email="nwang@futurewei.com",

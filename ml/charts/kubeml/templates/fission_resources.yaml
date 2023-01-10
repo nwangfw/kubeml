@@ -5,6 +5,7 @@ metadata:
   namespace: default
 spec:
   poolsize: {{.Values.environment.poolsize}}
+
   resources:
     limits:
       cpu: {{.Values.environment.cpuMax}}
@@ -12,5 +13,20 @@ spec:
       cpu: {{.Values.environment.cpuMin}}
   runtime:
     image: "{{.Values.environment.image}}:{{.Values.environment.imageVersion}}"
+    # lines 16- 20 added for python print show in kubernetes log, 22 - 30 is to mounted path but the volume type is not defined
+    container:
+      name: {{.Values.environment.defaultName}}
+      env:
+        - name: PYTSHONUNBUFFERED 
+          value: "0"
+      volumeMounts:
+        - name: test
+          mountPath: /test
+    podspec:
+      containers:
+        - name: {{.Values.environment.defaultName}}
+      volumes:
+      - name: test
+        emptyDir: {}
   terminationGracePeriod: {{.Values.environment.gracePeriod}}
   version: {{.Values.environment.version}}
