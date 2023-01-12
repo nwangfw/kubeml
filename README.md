@@ -367,6 +367,6 @@ Done! Check if the corresponding poolmgr-torch-default-XXXXX_XXXXXXX_XXX pods ha
 
 ```bash
 $ cd $HOME/repo/kubeml/ml/pkg/kubeml-cli
-$ ./myKubeml train     --function resnet34-4     --dataset cifar10     --epochs 10     --batch 256 --lr 0.01 --parallelism 4 --static
+$ ./kubeml train     --function resnet34-4     --dataset cifar10     --epochs 10     --batch 256 --lr 0.01 --parallelism 4 --static
 ```
 
