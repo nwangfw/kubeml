@@ -14,6 +14,7 @@ from torch.utils.data import DataLoader
 from .dataset import _KubeArgs, KubeDataset
 from .exceptions import *
 from .util import *
+import os
 
 # Load from environment the values from th MONGO IP and PORT
 try:
@@ -115,7 +116,8 @@ class KubeModel(ABC):
         """
         if os.path.isfile('opt.pkl'):
             self.logger.debug('Loading optimizer state')
-            with open('test/opt.pkl', 'rb') as f:
+            with open('opt.pkl', 'rb') as f:
+                self.logger.debug('Loading optimizer state, epoch: {self.epoch}')
                 state = pickle.load(f)
                 self.optimizer.load_state_dict(state)
 
@@ -133,8 +135,11 @@ class KubeModel(ABC):
         Saves the optimizer state to be loaded again in
         the following epochs
         """
+        
         self.logger.debug('saving optimizer state')
-        with open('test/opt.pkl', 'wb') as f:
+
+        with open('opt.pkl', 'wb') as f:
+            self.logger.debug('saving optimizer state, epoch: {self.epoch}')
             pickle.dump(self.optimizer.state_dict(), f)
         print('saved state')
 
@@ -145,7 +150,7 @@ class KubeModel(ABC):
         job_id = self.args._job_id
         func_id = self.args._func_id
 
-        self.logger.debug("Saving optimizer to the database")
+        self.logger.debug("Saving optimizer to the redis")
 
         weight_key = f'{job_id}:optimizer:{func_id}' 
         pickled_val  = pickle.dumps(self.optimizer.state_dict())
@@ -163,7 +168,7 @@ class KubeModel(ABC):
         job_id = self.args._job_id
         func_id = self.args._func_id
 
-        self.logger.debug("Load optimizer from the database")
+        self.logger.debug("Load optimizer from the redis")
 
         weight_key = f'{job_id}:optimizer:{func_id}' 
 
@@ -187,7 +192,7 @@ class KubeModel(ABC):
         func_id = self.args._func_id
         epoch = self.args.epoch
 
-        self.logger.debug("Saving test case to the database")
+        self.logger.debug("Saving test case to the redis")
 
         weight_key = f'{job_id}:test:{func_id}' 
         value = f'{job_id}:test:{func_id}/{epoch}' 
@@ -202,7 +207,7 @@ class KubeModel(ABC):
         job_id = self.args._job_id
         func_id = self.args._func_id
 
-        self.logger.debug("Load test case from the database")
+        self.logger.debug("Load test case from the redis")
 
         weight_key = f'{job_id}:test:{func_id}' 
         pickled_val = self._redis_client.get(weight_key)
@@ -375,7 +380,7 @@ class KubeModel(ABC):
                     # send the batch to the appropriate device
                     batch = self._batch_to_device(batch)
                     loss += self.train(batch, idx)
-                    self.logger.debug(f'loss is {loss}, iterations are {num_iterations}')
+                    # self.logger.debug(f'loss is {loss}, iterations are {num_iterations}')
 
                 self._on_iteration_end()
             except RedisError as re:
@@ -520,7 +525,7 @@ class KubeModel(ABC):
             # set the weight
             state[weight_key[len(job_id) + 1:]] = torch.from_numpy(w)
 
-        self.logger.debug(f'Layers are {state.keys()}')
+        #self.logger.debug(f'Layers are {state.keys()}')
 
         return state
 

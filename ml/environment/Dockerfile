@@ -30,4 +30,10 @@ COPY . /app
 # and offer more performance than the default server
 #CMD ["gunicorn", "--log-level", "debug", "--access-logfile", "-", "-b", "0.0.0.0:8888", "-t", "2000", "-w 1", "server:app"]
 
-CMD ["gunicorn", "--log-level", "debug", "-b", "0.0.0.0:8888", "-t", "2000", "-w 1", "server:app"]
+#CMD ["gunicorn", "--log-level", "debug", "-b", "0.0.0.0:8888", "-t", "2000", "-w 1", "server:app"]
+
+#CMD ["gunicorn", "--log-level", "debug", "-b", "0.0.0.0:8888", "-t", "2000", "-w 1", "server:app"]
+
+ENV PYTHONUNBUFFERED 1
+ENTRYPOINT ["python3"]
+CMD ["server.py"]

@@ -101,4 +101,5 @@ def main():
     resnet = resnet34()
     dataset = Cifar10Dataset()
     kubenet = KubeResnet34(resnet, dataset)
+    print("test")
     return kubenet.start()

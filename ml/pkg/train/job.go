@@ -193,7 +193,25 @@ main:
 			return
 		}
 
-		// If we need, ask the scheduler for updated settings
+
+		// receive signal that the models are merged
+		job.logger.Debug("Waiting for merge to complete...")
+		<-job.merged
+
+		// Trigger validation if configured
+		if job.validateEvery != 0 &&
+			job.epoch%job.validateEvery == 0 &&
+			job.epoch != job.task.Parameters.Epochs {
+
+			err = job.validate()
+			if err != nil {
+				job.logger.Error("error performing validation",
+					zap.Error(err))
+			}
+		}
+
+
+		// If we need, ask the scheduler for updated settings		
 		if !job.static && job.epoch < job.task.Parameters.Epochs {
 			err = job.scheduler.UpdateJob(job.task)
 			if err != nil {
@@ -213,22 +231,6 @@ main:
 				job.parallelism = update.Parallelism
 			}
 
-		}
-
-		// receive signal that the models are merged
-		job.logger.Debug("Waiting for merge to complete...")
-		<-job.merged
-
-		// Trigger validation if configured
-		if job.validateEvery != 0 &&
-			job.epoch%job.validateEvery == 0 &&
-			job.epoch != job.task.Parameters.Epochs {
-
-			err = job.validate()
-			if err != nil {
-				job.logger.Error("error performing validation",
-					zap.Error(err))
-			}
 		}
 
 		// check if the validation returned and we reached the goal average

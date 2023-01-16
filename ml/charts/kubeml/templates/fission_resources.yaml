@@ -17,7 +17,7 @@ spec:
     container:
       name: {{.Values.environment.defaultName}}
       env:
-        - name: PYTSHONUNBUFFERED 
+        - name: PYTHONUNBUFFERED 
           value: "0"
       volumeMounts:
         - name: test

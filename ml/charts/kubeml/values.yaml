@@ -9,7 +9,7 @@ controllerServiceType: LoadBalancer
 
 ## KubeML image
 image: centaurusinfra/kubeml
-kubemlVersion: "test"
+kubemlVersion: "test.0.1.0"
 
 # work for the following command
 #kubemlVersion: "latest"
@@ -31,7 +31,7 @@ environment:
   cpuMin: 100m
   cpuMax: 1000m
   image: centaurusinfra/serverless-python-env
-  imageVersion: "0.4.21"
+  imageVersion: "0.5.2"
   gracePeriod: 5
   version: 3
 
