@@ -367,12 +367,10 @@ Done! Check if the corresponding poolmgr-torch-default-XXXXX_XXXXXXX_XXX pods ha
 
 ```bash
 $ cd $HOME/repo/kubeml/ml/pkg/kubeml-cli
+# create a training job and you should see a job id is returned
 $ ./kubeml train     --function resnet34-4     --dataset cifar10     --epochs 10     --batch 256 --lr 0.01 --parallelism 4 --static
-```
-
-```bash
 #check which pods are selected for this training job
 fission function pod --name=resnet34
 #log into one selected pods to see training details
-kubectl -n fission-function logs poolmgr-torch-default-11838650-5b647ccd69-8chm2 --c torch
+kubectl -n fission-function logs poolmgr-torch-default-11838650-5b647ccd69-8chm2 -c torch
 ```
