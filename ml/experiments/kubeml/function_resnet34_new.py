@@ -59,7 +59,7 @@ class KubeResnet34(KubeModel):
         elif self.epoch > 120:
             self.lr *= 0.01
 
-        sgd = SGD(self.parameters(), lr=self.lr, weight_decay=1e-4)
+        sgd = SGD(self.parameters(), lr=self.lr, momentum=0.9, weight_decay=1e-4)
         return sgd
 
     def train(self, batch, batch_index) -> float:

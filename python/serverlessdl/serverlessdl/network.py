@@ -105,21 +105,36 @@ class KubeModel(ABC):
         """
         optimizer = self.configure_optimizers()
         self.optimizer = optimizer
-  
-        # TODO here the state loaded should be the averaged one not the saved from earlier
+        self.logger.debug(f"Configure optimizer at epoch: {self.epoch}")
 
-        # self._load_optimizer_state()
+
+    # def _load_optimizer_state(self):
+    #     """
+    #     Checks for a previously saved state of the optimizer and loads it
+    #     """
+    #     if os.path.isfile('opt.pkl'):
+    #         self.logger.debug('Loading optimizer state')
+    #         with open('opt.pkl', 'rb') as f:
+    #             self.logger.debug('Loading optimizer state, epoch: {self.epoch}')
+    #             state = pickle.load(f)
+    #             self.optimizer.load_state_dict(state)
+
 
     def _load_optimizer_state(self):
         """
-        Checks for a previously saved state of the optimizer and loads it
+        Saves the optimizer state to be loaded again in
+        the following epochs
         """
-        if os.path.isfile('opt.pkl'):
-            self.logger.debug('Loading optimizer state')
-            with open('opt.pkl', 'rb') as f:
-                self.logger.debug('Loading optimizer state, epoch: {self.epoch}')
+        job_id = self.args._job_id
+        func_id = self.args._func_id
+        if os.path.isfile(f'/output/{job_id}:opt:{func_id}.pkl'):
+            self.logger.debug(f'loading optimizer file from host, path: /output/{job_id}:opt:{func_id}.pkl')
+            with open(f'/output/{job_id}:opt:{func_id}.pkl', 'rb') as f:
+                self.logger.debug(f'loading optimizer file, epoch: {self.epoch}')
                 state = pickle.load(f)
                 self.optimizer.load_state_dict(state)
+                self.logger.debug('optimizer file loaded')
+                print('optimizer file loaded') 
 
     def _reset_optimizer_state(self):
         """
@@ -130,18 +145,63 @@ class KubeModel(ABC):
         if self.optimizer is not None:
             self.optimizer.state = defaultdict(dict)
 
+    # def _save_optimizer_state(self):
+    #     """
+    #     Saves the optimizer state to be loaded again in
+    #     the following epochs
+    #     """
+        
+    #     self.logger.debug('saving optimizer state')
+
+    #     with open('opt.pkl', 'wb') as f:
+    #         self.logger.debug('saving optimizer state, epoch: {self.epoch}')
+    #         pickle.dump(self.optimizer.state_dict(), f)
+    #     print('saved state')
+
     def _save_optimizer_state(self):
         """
         Saves the optimizer state to be loaded again in
         the following epochs
         """
-        
-        self.logger.debug('saving optimizer state')
+        job_id = self.args._job_id
+        func_id = self.args._func_id
+        self.logger.debug('saving optimizer file to host')
 
-        with open('opt.pkl', 'wb') as f:
-            self.logger.debug('saving optimizer state, epoch: {self.epoch}')
+        with open(f'/output/{job_id}:opt:{func_id}.pkl', 'wb') as f:
+            self.logger.debug(f'saving optimizer file to path: /output/{job_id}:opt:{func_id}.pkl , epoch: {self.epoch}')
             pickle.dump(self.optimizer.state_dict(), f)
-        print('saved state')
+            self.logger.debug('optimizer file saved')
+        print('optimizer file saved')   
+
+    def _save_file_test(self):
+        """
+        Saves the optimizer state to be loaded again in
+        the following epochs
+        """
+        job_id = self.args._job_id
+        func_id = self.args._func_id
+        self.logger.debug('saving test file to host')
+
+        with open(f'/output/{job_id}:test:{func_id}.pkl', 'wb') as f:
+            self.logger.debug(f'saving test file to path: /output/{job_id}:test:{func_id}.pkl , epoch: {self.epoch}')
+            pickle.dump('test', f)
+            self.logger.debug('test file saved')
+        print('test file saved')   
+
+    def _load_file_test(self):
+        """
+        Saves the optimizer state to be loaded again in
+        the following epochs
+        """
+        job_id = self.args._job_id
+        func_id = self.args._func_id
+        if os.path.isfile(f'/output/{job_id}:test:{func_id}.pkl'):
+            self.logger.debug(f'loading test file from host, path: /output/{job_id}:test:{func_id}.pkl')
+            with open(f'/output/{job_id}:test:{func_id}.pkl', 'rb') as f:
+                self.logger.debug(f'loading test file, epoch: {self.epoch}')
+                state = pickle.load(f)
+                self.logger.debug(f'file loaded, value: {state}')
+                print('file loaded')    
 
     def _save_optimizer_redis(self):
         """
@@ -155,7 +215,7 @@ class KubeModel(ABC):
         weight_key = f'{job_id}:optimizer:{func_id}' 
         pickled_val  = pickle.dumps(self.optimizer.state_dict())
 
-        self.logger.debug(f"Optimizer value {pickled_val}")
+        #self.logger.debug(f"Saving optimizer value: {pickled_val}")
 
         self._redis_client.set(weight_key, pickled_val)
 
@@ -173,10 +233,11 @@ class KubeModel(ABC):
         weight_key = f'{job_id}:optimizer:{func_id}' 
 
         if  self._redis_client.exists(weight_key):
-            epoch = self.args.epoch
-            weight_key_print = f'{job_id}:print:{func_id}' 
-            value = f'{job_id}:print:{func_id}/{epoch}' 
-            self._redis_client.set(weight_key_print, value)
+            # used for testing redis
+            # epoch = self.args.epoch
+            # weight_key_print = f'{job_id}:print:{func_id}' 
+            # value = f'{job_id}:print:{func_id}/{epoch}' 
+            # self._redis_client.set(weight_key_print, value)
 
             pickled_val = self._redis_client.get(weight_key)
             opt_states = pickle.loads(pickled_val)  
@@ -296,7 +357,10 @@ class KubeModel(ABC):
         """
         self.__load_model()
         self._load_optimizer_redis()
-        self._load_redis_test()
+        # self._load_redis_test()
+        # self._load_file_test()
+        # self._load_optimizer_state()
+
         #self._load_optimizer_state()
 
         #self._reset_optimizer_state()
@@ -308,8 +372,9 @@ class KubeModel(ABC):
         """
         self.__save_model()
         self._save_optimizer_redis()
-        self._save_redis_test()
-        #self._save_optimizer_state()
+        # self._save_redis_test()
+        # self._save_file_test()
+        # self._save_optimizer_state()
 
     def _batch_to_device(self, batch: Union[torch.Tensor, Iterable[torch.Tensor]]):
         """
@@ -344,7 +409,7 @@ class KubeModel(ABC):
 
         :return: The loss of the epoch, as returned by the user function
         """
-
+        self.logger.debug(f"----------------------Epoch: {self.epoch} Starts---------------------------")
         self._on_train_start()
 
         # Determine the batches that we need to train on and the first subset id
