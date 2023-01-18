@@ -108,21 +108,10 @@ class KubeModel(ABC):
         self.logger.debug(f"Configure optimizer at epoch: {self.epoch}")
 
 
-    # def _load_optimizer_state(self):
-    #     """
-    #     Checks for a previously saved state of the optimizer and loads it
-    #     """
-    #     if os.path.isfile('opt.pkl'):
-    #         self.logger.debug('Loading optimizer state')
-    #         with open('opt.pkl', 'rb') as f:
-    #             self.logger.debug('Loading optimizer state, epoch: {self.epoch}')
-    #             state = pickle.load(f)
-    #             self.optimizer.load_state_dict(state)
-
 
     def _load_optimizer_state(self):
         """
-        Saves the optimizer state to be loaded again in
+        Saves the optimizer state to host machine path /output and it will be loaded again in
         the following epochs
         """
         job_id = self.args._job_id
@@ -145,22 +134,10 @@ class KubeModel(ABC):
         if self.optimizer is not None:
             self.optimizer.state = defaultdict(dict)
 
-    # def _save_optimizer_state(self):
-    #     """
-    #     Saves the optimizer state to be loaded again in
-    #     the following epochs
-    #     """
-        
-    #     self.logger.debug('saving optimizer state')
-
-    #     with open('opt.pkl', 'wb') as f:
-    #         self.logger.debug('saving optimizer state, epoch: {self.epoch}')
-    #         pickle.dump(self.optimizer.state_dict(), f)
-    #     print('saved state')
 
     def _save_optimizer_state(self):
         """
-        Saves the optimizer state to be loaded again in
+        Saves the optimizer state to host machine path /output and it will be loaded again in
         the following epochs
         """
         job_id = self.args._job_id
@@ -175,7 +152,7 @@ class KubeModel(ABC):
 
     def _save_file_test(self):
         """
-        Saves the optimizer state to be loaded again in
+        Saves the test file to be loaded again in
         the following epochs
         """
         job_id = self.args._job_id
@@ -190,7 +167,7 @@ class KubeModel(ABC):
 
     def _load_file_test(self):
         """
-        Saves the optimizer state to be loaded again in
+        Saves the file state to be loaded again in
         the following epochs
         """
         job_id = self.args._job_id
