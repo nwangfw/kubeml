@@ -167,6 +167,8 @@ func (job *TrainJob) Train() {
 		job.redisPool.Close()
 		job.logger.Debug("closing job", zap.Error(job.exitErr))
 		job.logger.Debug("testing for Golang code update", zap.Error(job.exitErr))
+		job.logger.Debug("total job time", zap.Float64("total time", time.Since(job.startTime).Seconds()))
+
 		job.ps.JobFinished(job.jobId, job.exitErr)
 	}()
 
