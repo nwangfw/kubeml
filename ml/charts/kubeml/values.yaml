@@ -9,7 +9,9 @@ controllerServiceType: LoadBalancer
 
 ## KubeML image
 image: centaurusinfra/kubeml
-kubemlVersion: "test.0.1.1"
+kubemlVersion: "test.0.1.4"
+
+
 
 # work for the following command
 #kubemlVersion: "latest"
