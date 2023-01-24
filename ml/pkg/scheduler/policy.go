@@ -1,14 +1,15 @@
 package scheduler
 
 import (
+	"sync"
+
 	"github.com/nwangfw/kubeml/ml/pkg/api"
 	"go.uber.org/zap"
-	"sync"
 )
 
 const (
-	ThroughPutScaleDownThreshold = 1.2
-	ThroughputScaleUpThreshold   = 1.05
+	SpeedScaleDownThreshold = 1
+	SpeedScaleUpThreshold   = 1
 )
 
 // SchedulerPolicy defines the methods needed to be implemented by the scheduler
@@ -21,24 +22,28 @@ type (
 		taskFinished(taskId string)
 	}
 
-	ThroughputBasedPolicy struct {
+	SpeedBasedPolicy struct {
 		logger *zap.Logger
 
 		// timeCache saves the throughput from previous epochs
 		// of the different jobs and is used to reactively scale up or down
 		// the parallelism when we see that the time elapsed for an epoch
 		// increases or decreases
-		timeCache map[string]float64
+		timeCache           map[string]float64
+		timeBestCache       map[string]float64
+		timeBestParallelism map[string]int
 
 		mu *sync.RWMutex
 	}
 )
 
-func makeThroughputPolicy(logger *zap.Logger) ThroughputBasedPolicy {
-	return ThroughputBasedPolicy{
-		logger:    logger.Named("throughput-policy"),
-		timeCache: make(map[string]float64),
-		mu:        &sync.RWMutex{},
+func makeSpeedPolicy(logger *zap.Logger) SpeedBasedPolicy {
+	return SpeedBasedPolicy{
+		logger:              logger.Named("speed-policy"),
+		timeCache:           make(map[string]float64),
+		timeBestCache:       make(map[string]float64),
+		timeBestParallelism: make(map[string]int),
+		mu:                  &sync.RWMutex{},
 	}
 }
 
@@ -47,18 +52,18 @@ func makeThroughputPolicy(logger *zap.Logger) ThroughputBasedPolicy {
 // down if the performance is much worse.
 //
 // In between those thresholds the parallelism is kept untouched
-func (tp ThroughputBasedPolicy) calculateParallelism(task api.TrainTask) (parallelism int, op TaskOperation) {
+func (sp SpeedBasedPolicy) calculateParallelism(task api.TrainTask) (parallelism int, op TaskOperation) {
 
-	tp.mu.RLock()
-	prevTime, exists := tp.timeCache[task.Job.JobId]
-	tp.mu.RUnlock()
+	sp.mu.RLock()
+	prevTime, exists := sp.timeCache[task.Job.JobId]
+	sp.mu.RUnlock()
 
 	// If it is the first epoch and we do not have a history
 	// of this task, simply return the debug parallelism
 	if !exists {
-		tp.mu.Lock()
-		tp.timeCache[task.Job.JobId] = 0
-		tp.mu.Unlock()
+		sp.mu.Lock()
+		sp.timeCache[task.Job.JobId] = 0
+		sp.mu.Unlock()
 
 		return task.Parameters.Options.DefaultParallelism, CreateTask
 
@@ -66,26 +71,30 @@ func (tp ThroughputBasedPolicy) calculateParallelism(task api.TrainTask) (parall
 
 		switch {
 		case prevTime == 0:
-			tp.logger.Debug("No previous time, increasing parallelism")
-			tp.timeCache[task.Job.JobId] = task.Job.State.ElapsedTime
-			return task.Job.State.Parallelism + 1, UpdateTask
+			sp.logger.Debug("No previous time, increasing parallelism")
+			sp.timeCache[task.Job.JobId] = task.Job.State.ElapsedTime
+			sp.timeBestCache[task.Job.JobId] = task.Job.State.ElapsedTime
+			sp.timeBestParallelism[task.Job.JobId] = task.Job.State.Parallelism
+			return task.Job.State.Parallelism + 2, UpdateTask
 
 		// If the new time is better than the prevTime
 		// always scale up and set a new reference time
-		case task.Job.State.ElapsedTime <= prevTime*ThroughputScaleUpThreshold:
-			tp.logger.Debug("Time is better, scaling up")
-			tp.timeCache[task.Job.JobId] = task.Job.State.ElapsedTime
-			return task.Job.State.Parallelism + 1, UpdateTask
+		case task.Job.State.ElapsedTime-prevTime <= SpeedScaleUpThreshold*sp.timeBestCache[task.Job.JobId]:
+			sp.logger.Debug("Time is better, scaling up")
+			sp.timeCache[task.Job.JobId] = task.Job.State.ElapsedTime
+			sp.timeBestCache[task.Job.JobId] = task.Job.State.ElapsedTime - prevTime
+			sp.timeBestParallelism[task.Job.JobId] = task.Job.State.Parallelism
+			return task.Job.State.Parallelism + 2, UpdateTask
 
 		// If the performance is much worse (20%) than the reference
 		// time, downscale and set a new reference time
-		case task.Job.State.ElapsedTime >= prevTime*ThroughPutScaleDownThreshold:
-			tp.logger.Debug("Time is worse, scaling down")
-			tp.timeCache[task.Job.JobId] = task.Job.State.ElapsedTime
-			return task.Job.State.Parallelism - 1, UpdateTask
+		case task.Job.State.ElapsedTime-prevTime >= SpeedScaleDownThreshold*sp.timeBestCache[task.Job.JobId]:
+			sp.logger.Debug("Time is worse, scaling down")
+			sp.timeCache[task.Job.JobId] = task.Job.State.ElapsedTime
+			return sp.timeBestParallelism[task.Job.JobId], UpdateTask
 
 		default:
-			tp.logger.Debug("Time is worse within the limits, keeping parallelism")
+			sp.logger.Debug("Time is worse within the limits, keeping parallelism")
 			return task.Job.State.Parallelism, UpdateTask
 		}
 
@@ -95,8 +104,10 @@ func (tp ThroughputBasedPolicy) calculateParallelism(task api.TrainTask) (parall
 
 // taskFinished handles the finish of the task, here simply deletes it from
 // the time cache
-func (tp ThroughputBasedPolicy) taskFinished(taskId string) {
-	tp.mu.Lock()
-	defer tp.mu.Unlock()
-	delete(tp.timeCache, taskId)
+func (sp SpeedBasedPolicy) taskFinished(taskId string) {
+	sp.mu.Lock()
+	defer sp.mu.Unlock()
+	delete(sp.timeCache, taskId)
+	delete(sp.timeBestCache, taskId)
+	delete(sp.timeBestParallelism, taskId)
 }

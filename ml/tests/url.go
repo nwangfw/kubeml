@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/diegostock12/kubeml/ml/pkg/api"
 	"net/url"
+
+	"github.com/nwangfw/kubeml/ml/pkg/api"
 )
 
-func main(){
-	u, _ := url.Parse(api.StorageUrl +"/dataset/test")
+func main() {
+	u, _ := url.Parse(api.StorageUrl + "/dataset/test")
 	fmt.Println(u.Host, u.Scheme, u.User, u.Path)
 
 }

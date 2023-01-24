@@ -30,6 +30,11 @@ func (psgd ParallelSGD) Average(m *Model, num int) error {
 	var err error
 	for _, layer := range m.StateDict {
 		// divide the sum of the layer weights by the
+		// psgd.logger.Info("Layer",
+		// 	zap.String("name", name),
+		// 	zap.Any("average shape", layer.Weights.Shape()),
+		// )
+
 		switch layer.Dtype {
 		case redisai.TypeFloat32:
 			layer.Weights, err = layer.Weights.DivScalar(float32(num), true)

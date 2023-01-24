@@ -1,14 +1,15 @@
 package model
 
 import (
+	"sync"
+
 	"github.com/RedisAI/redisai-go/redisai"
+	"github.com/gomodule/redigo/redis"
 	"github.com/nwangfw/kubeml/ml/pkg/api"
 	"github.com/nwangfw/kubeml/ml/pkg/util"
-	"github.com/gomodule/redigo/redis"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 	"gorgonia.org/tensor"
-	"sync"
 )
 
 const (
@@ -142,7 +143,7 @@ func (m *Model) Save() error {
 	// start the transaction in the redis client
 	redisClient.DoOrSend("MULTI", nil, nil)
 	for name, layer := range m.StateDict {
-		m.logger.Debug("Setting layer", zap.String("name", name))
+		//m.logger.Debug("Setting layer", zap.String("name", name))
 		err := m.setLayer(redisClient, name, layer)
 		if err != nil {
 			return err

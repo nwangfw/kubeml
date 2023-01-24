@@ -336,8 +336,8 @@ Step 2. Update KubeML/Fission python environment: Go to $HOME/repo/kubeml/ml/env
 ```bash
 $ cd  $HOME/repo/kubeml/ml/environment/
 # update version number in Dockerfile
-sudo docker build -f Dockerfile . -t centaurusinfra/serverless-python-env:0.3.1
-sudo docker push centaurusinfra/serverless-python-env:0.3
+sudo docker build -f Dockerfile . -t centaurusinfra/serverless-python-env:<your version number>
+sudo docker push centaurusinfra/serverless-python-env:<your version number>
 ```
 
 
@@ -346,8 +346,8 @@ Step 3: Update the Go code (Skip this step if there is no Go code update): First
 ```bash
 cd $HOME/repo/kubeml/ml
 # push your modified code to your github repo
-$ sudo docker build -f Dockerfile . -t centaurusinfra/kubeml:test
-sudo docker push centaurusinfra/kubeml:test
+$ sudo docker build -f Dockerfile . -t centaurusinfra/kubeml:<your version number>
+sudo docker push centaurusinfra/kubeml: <your version number>
 #
 ```
 
@@ -368,7 +368,7 @@ Done! Check if the corresponding poolmgr-torch-default-XXXXX_XXXXXXX_XXX pods ha
 ```bash
 $ cd $HOME/repo/kubeml/ml/pkg/kubeml-cli
 # create a training job and you should see a job id is returned
-$ ./kubeml train     --function resnet34-4     --dataset cifar10     --epochs 10     --batch 256 --lr 0.01 --parallelism 4 --static
+$ ./kubeml train     --function resnet34     --dataset cifar10     --epochs 10     --batch 256 --lr 0.01 --parallelism 4 --static
 #check which pods are selected for this training job
 fission function pod --name=resnet34
 #log into one selected pods to see python training details

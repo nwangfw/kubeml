@@ -1,14 +1,10 @@
 package scheduler
 
 import (
+	"time"
+
 	psClient "github.com/nwangfw/kubeml/ml/pkg/ps/client"
 	"go.uber.org/zap"
-	"time"
-)
-
-const (
-	scaleDownLimit = 1.2
-	scaleUpLimit   = 1.05
 )
 
 type (
@@ -49,7 +45,6 @@ func (s *Scheduler) scheduleTasks() {
 	s.logger.Info("Scheduler started satisfying the requests from the Parameter Servers")
 
 	for {
-
 		// Wait until there is an element in the queue
 		task, err := s.queue.popTask()
 		if err != nil {
@@ -105,7 +100,7 @@ func Start(logger *zap.Logger, port int, psUrl string) {
 
 	// set the ps client
 	s.ps = psClient.MakeClient(s.logger, psUrl)
-	s.policy = makeThroughputPolicy(s.logger)
+	s.policy = makeSpeedPolicy(s.logger)
 
 	// Train consuming metrics and also listening for requests
 	go s.consumeMetrics()

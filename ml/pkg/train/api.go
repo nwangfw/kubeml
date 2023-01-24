@@ -3,12 +3,14 @@ package train
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/nwangfw/kubeml/ml/pkg/api"
-	"github.com/gorilla/mux"
-	"go.uber.org/zap"
 	"io/ioutil"
 	"net/http"
 	"strconv"
+	"time"
+
+	"github.com/gorilla/mux"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
+	"go.uber.org/zap"
 )
 
 // finishNotification is received by the merger
@@ -91,8 +93,6 @@ func (job TrainJob) updateTask(w http.ResponseWriter, r *http.Request) {
 	job.schedulerCh <- &state
 	w.WriteHeader(http.StatusOK)
 
-
-
 }
 
 // nextIteration receives updates from the functions, and waits for all of the
@@ -106,8 +106,12 @@ func (job *TrainJob) nextIteration(w http.ResponseWriter, r *http.Request) {
 	respChan := make(chan MergeResult, 1)
 	job.finishCh <- &finishNotification{funcId, respChan}
 
+	updateStart := time.Now()
+	job.logger.Debug("Updating model starts")
 	// trigger model update
 	job.model.Update(funcId)
+	job.logger.Debug("Model updated", zap.Float64("model updating time", time.Since(updateStart).Seconds()))
+
 	job.wgIteration.Done()
 	result := <-respChan
 
@@ -132,7 +136,6 @@ func (job *TrainJob) stop(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 
 }
-
 
 func (job *TrainJob) handleHealth(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)

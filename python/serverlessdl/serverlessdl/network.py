@@ -10,6 +10,7 @@ import requests
 from flask import request, jsonify, current_app
 from redis.exceptions import RedisError
 from torch.utils.data import DataLoader
+from datetime import datetime
 
 from .dataset import _KubeArgs, KubeDataset
 from .exceptions import *
@@ -332,8 +333,13 @@ class KubeModel(ABC):
         reset optimizer state
         :return:
         """
+        startModelLoading = datetime.now()
         self.__load_model()
+        self.logger.debug(f"Model loading Time, {datetime.now() - startModelLoading}")
+        startOptimizerLoading = datetime.now()
         self._load_optimizer_redis()
+        self.logger.debug(f"Optimizer loading Time, {datetime.now() - startOptimizerLoading}")
+
         # self._load_redis_test()
         # self._load_file_test()
         # self._load_optimizer_state()
@@ -347,8 +353,12 @@ class KubeModel(ABC):
         Called at the end of each iteration
         :return:
         """
+        startModelSaving = datetime.now()
         self.__save_model()
+        self.logger.debug(f"Model saving Time, {datetime.now() - startModelSaving}")
+        startoptimizerSaving = datetime.now()
         self._save_optimizer_redis()
+        self.logger.debug(f"Optimizer saving Time, {datetime.now() - startoptimizerSaving}")
         # self._save_redis_test()
         # self._save_file_test()
         # self._save_optimizer_state()
@@ -389,23 +399,32 @@ class KubeModel(ABC):
         self.logger.debug(f"----------------------Epoch: {self.epoch} Starts---------------------------")
         self._on_train_start()
 
+
+
         # Determine the batches that we need to train on and the first subset id
         assigned_subsets = split_minibatches(range(self._dataset.num_docs),
                                              self.args._N)[self.args._func_id]
 
         # calculate the number of subsets that we need to train on
         # per epoch
+
+        startDataLPrepartion = datetime.now()
+
         subsets_per_iter = get_subset_period(self.args._K,
                                              self.args.batch_size,
                                              assigned_subsets)
         self.logger.debug(f"Subsets per iteration: {subsets_per_iter}")
         intervals = range(assigned_subsets.start, assigned_subsets.stop, subsets_per_iter)
 
+        self.logger.debug(f"Data prepartion Time, {datetime.now() - startDataLPrepartion}")
+
         # the loss will be added cross intervals, each interval will have one loader, whose length
         # will determine the number of losses added.
         loss = 0
         num_iterations = 0
         for i in intervals:
+
+            startDataLoading = datetime.now()
 
             self.logger.debug(f"Starting iteration {i}")
             self._dataset._load_train_data(start=i, end=min(assigned_subsets.stop, i + subsets_per_iter))
@@ -414,15 +433,21 @@ class KubeModel(ABC):
             loader = DataLoader(self._dataset, batch_size=self.batch_size)
             num_iterations += len(loader)
 
+            self.logger.debug(f"Data Loading Time, {datetime.now() - startDataLoading}")
+
             # load the reference model, train and save
             try:
                 self._on_iteration_start()
+
+                startTraining = datetime.now()
 
                 for idx, batch in enumerate(loader):
                     # send the batch to the appropriate device
                     batch = self._batch_to_device(batch)
                     loss += self.train(batch, idx)
                     # self.logger.debug(f'loss is {loss}, iterations are {num_iterations}')
+
+                self.logger.debug(f"Training Time, {datetime.now() - startTraining}")
 
                 self._on_iteration_end()
             except RedisError as re:

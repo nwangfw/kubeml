@@ -326,7 +326,8 @@ func (job *TrainJob) train() error {
 	elapsed := time.Since(start)
 	job.task.Job.State.ElapsedTime = elapsed.Seconds()
 
-	job.logger.Info("Epoch finished")
+	job.logger.Info("Epoch training finished")
+	job.logger.Debug("One epoch training", zap.Float64("time", elapsed.Seconds()))
 
 	// update the training metrics
 	err = job.updateTrainMetrics(loss, time.Since(job.startTime))
@@ -415,6 +416,7 @@ func (job *TrainJob) mergeModel() {
 				break
 			}
 			job.logger.Debug("Merge and save took", zap.Float64("time", time.Since(mergeStart).Seconds()))
+
 
 			finished := atomic.LoadInt64(&job.finishedFuncs)
 			job.logger.Debug("finished funcs are", zap.Int64("num", finished))
