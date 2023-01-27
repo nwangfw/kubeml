@@ -2,14 +2,15 @@ package cmd
 
 import (
 	"fmt"
-	kubemlClient "github.com/nwangfw/kubeml/ml/pkg/controller/client"
-	"github.com/fission/fission/pkg/crd"
-	"github.com/pkg/errors"
-	"github.com/spf13/cobra"
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"os"
 	"strings"
 	"text/tabwriter"
+
+	"github.com/fission/fission/pkg/crd"
+	kubemlClient "github.com/nwangfw/kubeml/ml/pkg/controller/client"
+	"github.com/pkg/errors"
+	"github.com/spf13/cobra"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 const KubemlNamespace = "kubeml"

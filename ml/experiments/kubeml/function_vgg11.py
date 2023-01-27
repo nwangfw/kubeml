@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.utils.data as data
 import torchvision.transforms as transforms
 from kubeml import KubeModel, KubeDataset
-from torch.optim import Adam
+from torch.optim import Adam, SGD
 from torchvision.models.vgg import vgg11
 
 
@@ -26,7 +26,12 @@ class Cifar10Dataset(KubeDataset):
 
         self.transf = transforms.Compose([
             transforms.ToTensor(),
-            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
+        ])
+
+        self.val_transf = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
         ])
 
     def __getitem__(self, index):
@@ -42,56 +47,49 @@ class Cifar10Dataset(KubeDataset):
 class KubeVGG(KubeModel):
 
     def __init__(self, network, dataset: Cifar10Dataset):
-        super(KubeVGG, self).__init__(network, dataset)
+        super(KubeVGG, self).__init__(network, dataset, gpu=True)
 
-    def init(self, model: nn.Module):
-        pass
+    # seems that there is some issues
+    # def configure_optimizers(self) -> torch.optim.Optimizer:
+    #     adam = Adam(self.parameters(), lr=self.lr, betas=(0.9, 0.999), eps=1e-08, weight_decay=0)
+    #     return adam
 
-    def train(self, model: nn.Module, dataset: Cifar10Dataset) -> float:
+    def configure_optimizers(self) -> torch.optim.Optimizer:
+        sgd = SGD(self.parameters(), lr=self.lr, momentum=0.9, weight_decay=1e-4)
 
-        loader = data.DataLoader(dataset, batch_size=self.args.batch_size)
+        return sgd
+
+    def train(self, batch, batch_index) -> float:
+
         criterion = nn.CrossEntropyLoss()
-        optimizer = Adam(model.parameters(), lr=self.args.lr)
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        # get the targets and labels from the batch
+        x, y = batch
 
-        model.train()
-        total_loss = 0
-        for i, (inputs, labels) in enumerate(loader):
-            inputs, labels = inputs.to(device), labels.to(device)
+        self.optimizer.zero_grad()
+        output = self(x)
+        loss = criterion(output, y) 
 
-            optimizer.zero_grad()
-            output = model(inputs)
-            loss = criterion(output, labels)
+        loss.backward()
+        self.optimizer.step()
 
-            loss.backward()
-            optimizer.step()
+        if batch_index % 10 == 0:
+            logging.info(f"Index {batch_index}, error: {loss.item()}")
 
-            total_loss += loss.item()
-            if i % 10 == 0:
-                logging.info(f"Index {i}, error: {loss.item}")
+        return loss.item()
 
-        return total_loss / len(loader)
+    def validate(self, batch, batch_index) -> Tuple[float, float]:
 
-    def validate(self, model: nn.Module, dataset: Cifar10Dataset) -> Tuple[float, float]:
 
-        loader = data.DataLoader(dataset, batch_size=self.args.batch_size)
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+
         criterion = nn.CrossEntropyLoss()
-
-        model.eval()
-        total = 0
-        correct = 0
-        test_loss = 0
-        for i, (inputs, labels) in enumerate(loader):
-            inputs, labels = inputs.to(device), labels.to(device)
-            output = model(inputs)
-            _, predicted = torch.max(output.data, 1)
-            test_loss += criterion(output, labels).item()
-            total += labels.size(0)
-            correct += predicted.eq(labels).sum().item()
-
-        accuracy = correct / total * 100
-        test_loss /= len(loader)
+        x, y = batch
+        output = self(x)
+        _, predicted = torch.max(output.data, 1)
+        test_loss = criterion(output, y).item()
+        correct = predicted.eq(y).sum().item()
+        accuracy = correct * 100 / self.batch_size
 
         return accuracy, test_loss
 

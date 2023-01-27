@@ -3,10 +3,11 @@ package cmd
 import (
 	"errors"
 	"fmt"
-	"github.com/nwangfw/kubeml/ml/pkg/api"
-	kubemlClient "github.com/nwangfw/kubeml/ml/pkg/controller/client"
+
 	"github.com/fission/fission/pkg/crd"
 	"github.com/hashicorp/go-multierror"
+	"github.com/nwangfw/kubeml/ml/pkg/api"
+	kubemlClient "github.com/nwangfw/kubeml/ml/pkg/controller/client"
 	"github.com/spf13/cobra"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -54,7 +55,7 @@ func train(_ *cobra.Command, _ []string) error {
 	}
 
 	req := api.TrainRequest{
-		ModelType:    "example",
+		ModelType:    "test",
 		BatchSize:    batchSize,
 		Epochs:       epochs,
 		Dataset:      dataset,

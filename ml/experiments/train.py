@@ -4,14 +4,15 @@ import argparse
 import time
 from multiprocessing import Process
 from typing import Tuple
-
+import os
 from common.experiment import *
 from common.metrics import start_api
 from common.utils import *
 
-output_folder = './tests/'
+#output_folder = './tests/'
+output_folder = './results/'
 
-EPOCHS = 30
+EPOCHS = 10
 
 
 def run_lenet(k: int, batch: int, parallelism: int):
@@ -26,7 +27,7 @@ def run_lenet(k: int, batch: int, parallelism: int):
             default_parallelism=parallelism,
             static_parallelism=True,
             k=k,
-            validate_every=1,
+            validate_every=0,
             goal_accuracy=100
         )
     )
@@ -34,23 +35,43 @@ def run_lenet(k: int, batch: int, parallelism: int):
     exp = KubemlExperiment(get_title(req), req)
     exp.run()
     # exp._fake_history()
+    exp.save(output_folder,'lenet')
 
-    exp.save(output_folder)
+def run_lenet_old(k: int, batch: int, parallelism: int):
+    req = TrainRequest(
+        model_type='lenet',
+        batch_size=batch,
+        epochs=EPOCHS,
+        dataset='mnist',
+        lr=0.01,
+        function_name='lenet-old',
+        options=TrainOptions(
+            default_parallelism=parallelism,
+            static_parallelism=True,
+            k=k,
+            validate_every=0,
+            goal_accuracy=100
+        )
+    )
 
+    exp = KubemlExperiment(get_title(req), req)
+    exp.run()
+    # exp._fake_history()
+    exp.save(output_folder,'lenet_old')
 
-def run_resnet(k: int, batch: int, parallelism: int):
+def run_resnet34(k: int, batch: int, parallelism: int):
     req = TrainRequest(
         model_type='resnet34',
         batch_size=batch,
         epochs=EPOCHS,
         dataset='cifar10',
         lr=0.1,
-        function_name='resnet',
+        function_name='resnet34',
         options=TrainOptions(
             default_parallelism=parallelism,
             static_parallelism=True,
             k=k,
-            validate_every=1,
+            validate_every=0,
             goal_accuracy=100
         )
     )
@@ -58,8 +79,29 @@ def run_resnet(k: int, batch: int, parallelism: int):
     exp = KubemlExperiment(get_title(req), req)
     exp.run()
     # print(exp.to_dataframe())
-    exp.save(output_folder)
+    exp.save(output_folder,'resnet34')
 
+def run_resnet34_old(k: int, batch: int, parallelism: int):
+    req = TrainRequest(
+        model_type='resnet34',
+        batch_size=batch,
+        epochs=EPOCHS,
+        dataset='cifar10',
+        lr=0.1,
+        function_name='resnet34-old',
+        options=TrainOptions(
+            default_parallelism=parallelism,
+            static_parallelism=True,
+            k=k,
+            validate_every=0,
+            goal_accuracy=100
+        )
+    )
+
+    exp = KubemlExperiment(get_title(req), req)
+    exp.run()
+    # print(exp.to_dataframe())
+    exp.save(output_folder,'resnet34_old')
 
 def run_api(path=None) -> Process:
     """Starts the API for setting the metrics"""
@@ -75,7 +117,7 @@ def run_api(path=None) -> Process:
 
 def full_parameter_grid(network: str) -> List[Tuple[int, int, int]]:
     """Generator for the full experiments"""
-    if network == 'lenet':
+    if network == 'lenet' or 'lenet-old':
         grid = lenet_grid
     else:
         grid = resnet_grid
@@ -102,7 +144,7 @@ def check_folder(path: str) -> bool:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--network', help='Network type for the experiments from [lenet, resnet]')
+    parser.add_argument('--network', help='Network type for the experiments from [lenet, resnet34, lenet-old, resnet34-old]')
     parser.add_argument('--resume', dest='resume', action='store_true',
                         help='''Whether to check for missing experiments and just run those 
                                 (best in case of errors preventing the execution of part of the experiments)''')
@@ -119,7 +161,7 @@ if __name__ == '__main__':
     if not net:
         print("Network not set")
         exit(-1)
-    elif net not in ('lenet', 'resnet'):
+    elif net not in ('lenet', 'resnet34', 'lenet-old', 'resnet34-old'):
         print('Network', net, 'not among accepted (lenet, resnet)')
         exit(-1)
 
@@ -163,7 +205,14 @@ if __name__ == '__main__':
         time.sleep(5)
 
         # based on the arg determine the function
-        func = run_resnet if net == 'resnet' else run_lenet
+        if net == 'resnet34':
+            func = run_resnet34
+        elif net == 'resnet34-old':
+            func = run_resnet34_old
+        elif net == 'lenet':
+            func = run_lenet
+        elif net == 'lenet-old':
+            func = run_lenet_old
         print('Using func', func)
 
         replications = args.r

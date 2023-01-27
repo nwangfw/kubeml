@@ -3,13 +3,14 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	kubemlClient "github.com/nwangfw/kubeml/ml/pkg/controller/client"
-	"github.com/pkg/errors"
-	"github.com/spf13/cobra"
 	"math"
 	"os"
 	"strings"
 	"text/tabwriter"
+
+	kubemlClient "github.com/nwangfw/kubeml/ml/pkg/controller/client"
+	"github.com/pkg/errors"
+	"github.com/spf13/cobra"
 )
 
 var (

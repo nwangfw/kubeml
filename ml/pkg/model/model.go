@@ -64,7 +64,7 @@ func NewModel(
 
 	return &Model{
 		logger:     logger.Named("model"),
-		Name:       task.ModelType,
+		Name:       task.FunctionName,
 		jobId:      jobId,
 		layerNames: layerNames,
 		StateDict:  make(map[string]*Layer),

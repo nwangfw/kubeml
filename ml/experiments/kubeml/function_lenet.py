@@ -72,7 +72,7 @@ class MnistDataset(KubeDataset):
 class KubeLeNet(KubeModel):
 
     def __init__(self, network: nn.Module, dataset: MnistDataset):
-        super().__init__(network, dataset)
+        super().__init__(network, dataset, gpu=True)
 
     def configure_optimizers(self) -> torch.optim.Optimizer:
         sgd = SGD(self.parameters(), lr=self.lr, momentum=0.9, weight_decay=1e-4)

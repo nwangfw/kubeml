@@ -9,22 +9,34 @@ from typing import List
 import pandas as pd
 import pickle5 as pickle
 
+# lenet_grid = {
+#     'batch': [128, 64, 32, 16],
+#     'k': [-1, 32, 16, 8],
+#     'parallelism': [1, 2, 4, 8]
+# }
+
+# resnet_grid = {
+#     'batch': [256, 128, 64, 32],
+#     'k': [-1, 32, 16, 8],
+#     'parallelism': [2, 4]
+# }
+
+# resnet_grid = {
+#     'batch': [256, 128, 64, 32],
+#     'k': [-1],
+#     'parallelism': [8]
+# }
+
 lenet_grid = {
-    'batch': [128, 64, 32, 16],
-    'k': [-1, 32, 16, 8],
-    'parallelism': [1, 2, 4, 8]
-}
-
-resnet_grid = {
-    'batch': [256, 128, 64, 32],
-    'k': [-1, 32, 16, 8],
-    'parallelism': [2, 4]
-}
-
-resnet_grid = {
-    'batch': [256, 128, 64, 32],
+    'batch': [256, 128, 64],
     'k': [-1],
-    'parallelism': [8]
+    'parallelism': [1, 2, 4, 6]
+}
+
+resnet_grid = {
+    'batch': [256, 128, 64],
+    'k': [-1],
+    'parallelism': [1, 2, 4, 6]
 }
 
 
