@@ -34,9 +34,9 @@ lenet_grid = {
 }
 
 resnet_grid = {
-    'batch': [256, 128, 64],
+    'batch': [256],
     'k': [-1],
-    'parallelism': [1, 2, 4, 6]
+    'parallelism': [4]
 }
 
 

@@ -27,7 +27,7 @@ def run_lenet(k: int, batch: int, parallelism: int):
             default_parallelism=parallelism,
             static_parallelism=True,
             k=k,
-            validate_every=0,
+            validate_every=1,
             goal_accuracy=100
         )
     )
@@ -49,7 +49,7 @@ def run_lenet_old(k: int, batch: int, parallelism: int):
             default_parallelism=parallelism,
             static_parallelism=True,
             k=k,
-            validate_every=0,
+            validate_every=1,
             goal_accuracy=100
         )
     )
@@ -65,13 +65,13 @@ def run_resnet34(k: int, batch: int, parallelism: int):
         batch_size=batch,
         epochs=EPOCHS,
         dataset='cifar10',
-        lr=0.1,
+        lr=0.01,
         function_name='resnet34',
         options=TrainOptions(
             default_parallelism=parallelism,
             static_parallelism=True,
             k=k,
-            validate_every=0,
+            validate_every=1,
             goal_accuracy=100
         )
     )
@@ -87,13 +87,13 @@ def run_resnet34_old(k: int, batch: int, parallelism: int):
         batch_size=batch,
         epochs=EPOCHS,
         dataset='cifar10',
-        lr=0.1,
+        lr=0.01,
         function_name='resnet34-old',
         options=TrainOptions(
             default_parallelism=parallelism,
             static_parallelism=True,
             k=k,
-            validate_every=0,
+            validate_every=1,
             goal_accuracy=100
         )
     )
@@ -117,11 +117,10 @@ def run_api(path=None) -> Process:
 
 def full_parameter_grid(network: str) -> List[Tuple[int, int, int]]:
     """Generator for the full experiments"""
-    if network == 'lenet' or 'lenet-old':
+    if network == 'lenet' or network == 'lenet-old':
         grid = lenet_grid
     else:
         grid = resnet_grid
-
     exps = []
 
     for b in grid['batch']:

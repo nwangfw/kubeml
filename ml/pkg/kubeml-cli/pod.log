@@ -1,0 +1,1055 @@
+[2023-01-20 15:42:41,120] INFO in socket_tracker: Websocket tracker initialized
+2023-01-20 15:42:41,120 - INFO - Websocket tracker initialized
+[2023-01-20 15:42:41,123] INFO in server: Starting bjoern based server
+[2023-01-20 15:42:41,123] DEBUG in server: Starting bjoern based server
+2023-01-20 15:42:41,123 - INFO - Starting bjoern based server
+2023-01-20 15:42:41,123 - DEBUG - Starting bjoern based server
+[2023-01-20 15:48:12,532] INFO in server: specialize called with  filepath = "/userfunc/deployarchive"   handler = ""
+2023-01-20 15:48:12,532 - INFO - specialize called with  filepath = "/userfunc/deployarchive"   handler = ""
+[2023-01-20 15:48:12,532] DEBUG in server: moduleName = "main"    funcName = "main"
+2023-01-20 15:48:12,532 - DEBUG - moduleName = "main"    funcName = "main"
+DEBUG:root:Could not find mongo configuration in env, using defaults
+DEBUG:root:Could not find redis configuration in env, using defaults
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:13,503] DEBUG in network: ----------------------Epoch: 1 Starts---------------------------
+2023-01-20 15:48:13,503 - DEBUG - ----------------------Epoch: 1 Starts---------------------------
+DEBUG:server:----------------------Epoch: 1 Starts---------------------------
+DEBUG:root:Setting GPU_ID to 0 in function 2
+2023-01-20 15:48:16,042 - DEBUG - Set device to cuda:0
+[2023-01-20 15:48:16,042] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:16,042] DEBUG in network: Configure optimizer at epoch: 1
+2023-01-20 15:48:16,042 - DEBUG - Configure optimizer at epoch: 1
+DEBUG:server:Configure optimizer at epoch: 1
+[2023-01-20 15:48:16,042] DEBUG in network: Subsets per iteration: 234
+2023-01-20 15:48:16,042 - DEBUG - Subsets per iteration: 234
+DEBUG:server:Subsets per iteration: 234
+[2023-01-20 15:48:16,043] DEBUG in network: Data prepartion Time, 0:00:00.000194
+2023-01-20 15:48:16,043 - DEBUG - Data prepartion Time, 0:00:00.000194
+DEBUG:server:Data prepartion Time, 0:00:00.000194
+[2023-01-20 15:48:16,043] DEBUG in network: Starting iteration 470
+2023-01-20 15:48:16,043 - DEBUG - Starting iteration 470
+DEBUG:server:Starting iteration 470
+DEBUG:root:Loading minibatches range(470, 704)
+[2023-01-20 15:48:16,223] DEBUG in network: Data Loading Time, 0:00:00.180295
+DEBUG:server:Data Loading Time, 0:00:00.180295
+2023-01-20 15:48:16,223 - DEBUG - Data Loading Time, 0:00:00.180295
+/usr/local/lib/python3.6/dist-packages/serverlessdl/network.py:593: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+  state[weight_key[len(job_id) + 1:]] = torch.from_numpy(w)
+[2023-01-20 15:48:16,274] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:16,274 - DEBUG - Loaded state dict from redis
+2023-01-20 15:48:16,274 - DEBUG - Model loading Time, 0:00:00.050768
+[2023-01-20 15:48:16,274] DEBUG in network: Model loading Time, 0:00:00.050768
+DEBUG:server:Model loading Time, 0:00:00.050768
+[2023-01-20 15:48:16,274] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:16,274 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:16,274] DEBUG in network: Optimizer loading Time, 0:00:00.000246
+2023-01-20 15:48:16,274 - DEBUG - Optimizer loading Time, 0:00:00.000246
+DEBUG:server:Optimizer loading Time, 0:00:00.000246
+INFO:root:Index 0, error: 2.300818920135498
+INFO:root:Index 10, error: 2.295596122741699
+INFO:root:Index 20, error: 2.2849087715148926
+INFO:root:Index 30, error: 2.264169692993164
+INFO:root:Index 40, error: 2.2270398139953613
+INFO:root:Index 50, error: 2.1675989627838135
+2023-01-20 15:48:17,664 - DEBUG - Training Time, 0:00:01.389124
+2023-01-20 15:48:17,664 - DEBUG - Saving model to the database
+[2023-01-20 15:48:17,664] DEBUG in network: Training Time, 0:00:01.389124
+DEBUG:server:Training Time, 0:00:01.389124
+[2023-01-20 15:48:17,664] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:17,666] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:17,666] DEBUG in network: Model saving Time, 0:00:00.002238
+2023-01-20 15:48:17,666 - DEBUG - Saved model to the database
+2023-01-20 15:48:17,666 - DEBUG - Model saving Time, 0:00:00.002238
+DEBUG:server:Model saving Time, 0:00:00.002238
+[2023-01-20 15:48:17,666] DEBUG in network: Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+2023-01-20 15:48:17,666 - DEBUG - Saving optimizer to the redis
+[2023-01-20 15:48:17,668] DEBUG in network: Optimizer saving Time, 0:00:00.001730
+DEBUG:server:Optimizer saving Time, 0:00:00.001730
+2023-01-20 15:48:17,668 - DEBUG - Optimizer saving Time, 0:00:00.001730
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:17,969] DEBUG in network: ----------------------Epoch: 2 Starts---------------------------
+2023-01-20 15:48:17,969 - DEBUG - ----------------------Epoch: 2 Starts---------------------------
+DEBUG:server:----------------------Epoch: 2 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 2
+[2023-01-20 15:48:17,970] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:17,970 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:17,971] DEBUG in network: Configure optimizer at epoch: 2
+2023-01-20 15:48:17,971 - DEBUG - Configure optimizer at epoch: 2
+DEBUG:server:Configure optimizer at epoch: 2
+[2023-01-20 15:48:17,971] DEBUG in network: Subsets per iteration: 234
+2023-01-20 15:48:17,971 - DEBUG - Subsets per iteration: 234
+DEBUG:server:Subsets per iteration: 234
+[2023-01-20 15:48:17,972] DEBUG in network: Data prepartion Time, 0:00:00.000190
+2023-01-20 15:48:17,972 - DEBUG - Data prepartion Time, 0:00:00.000190
+DEBUG:server:Data prepartion Time, 0:00:00.000190
+[2023-01-20 15:48:17,972] DEBUG in network: Starting iteration 470
+2023-01-20 15:48:17,972 - DEBUG - Starting iteration 470
+DEBUG:server:Starting iteration 470
+DEBUG:root:Loading minibatches range(470, 704)
+2023-01-20 15:48:18,234 - DEBUG - Data Loading Time, 0:00:00.261694
+[2023-01-20 15:48:18,234] DEBUG in network: Data Loading Time, 0:00:00.261694
+DEBUG:server:Data Loading Time, 0:00:00.261694
+[2023-01-20 15:48:18,286] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:18,286 - DEBUG - Loaded state dict from redis
+[2023-01-20 15:48:18,286] DEBUG in network: Model loading Time, 0:00:00.052307
+2023-01-20 15:48:18,286 - DEBUG - Model loading Time, 0:00:00.052307
+DEBUG:server:Model loading Time, 0:00:00.052307
+[2023-01-20 15:48:18,286] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:18,286 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:18,291] DEBUG in network: Optimizer loading Time, 0:00:00.004571
+DEBUG:server:Optimizer loading Time, 0:00:00.004571
+2023-01-20 15:48:18,291 - DEBUG - Optimizer loading Time, 0:00:00.004571
+INFO:root:Index 0, error: 1.8859472274780273
+INFO:root:Index 10, error: 1.5142371654510498
+INFO:root:Index 20, error: 1.2898246049880981
+INFO:root:Index 30, error: 1.2562642097473145
+INFO:root:Index 40, error: 1.142655611038208
+INFO:root:Index 50, error: 1.1966838836669922
+[2023-01-20 15:48:19,609] DEBUG in network: Training Time, 0:00:01.317702
+2023-01-20 15:48:19,609 - DEBUG - Training Time, 0:00:01.317702
+DEBUG:server:Training Time, 0:00:01.317702
+[2023-01-20 15:48:19,609] DEBUG in network: Saving model to the database
+2023-01-20 15:48:19,609 - DEBUG - Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:19,613] DEBUG in network: Saved model to the database
+2023-01-20 15:48:19,613 - DEBUG - Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:19,614] DEBUG in network: Model saving Time, 0:00:00.004311
+2023-01-20 15:48:19,614 - DEBUG - Model saving Time, 0:00:00.004311
+DEBUG:server:Model saving Time, 0:00:00.004311
+[2023-01-20 15:48:19,614] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:19,614 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:19,616] DEBUG in network: Optimizer saving Time, 0:00:00.002237
+2023-01-20 15:48:19,616 - DEBUG - Optimizer saving Time, 0:00:00.002237
+DEBUG:server:Optimizer saving Time, 0:00:00.002237
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:19,829] DEBUG in network: ----------------------Epoch: 3 Starts---------------------------
+2023-01-20 15:48:19,829 - DEBUG - ----------------------Epoch: 3 Starts---------------------------
+DEBUG:server:----------------------Epoch: 3 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 3
+[2023-01-20 15:48:19,830] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:19,830 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:19,831] DEBUG in network: Configure optimizer at epoch: 3
+2023-01-20 15:48:19,831 - DEBUG - Configure optimizer at epoch: 3
+DEBUG:server:Configure optimizer at epoch: 3
+[2023-01-20 15:48:19,831] DEBUG in network: Subsets per iteration: 234
+2023-01-20 15:48:19,831 - DEBUG - Subsets per iteration: 234
+DEBUG:server:Subsets per iteration: 234
+[2023-01-20 15:48:19,831] DEBUG in network: Data prepartion Time, 0:00:00.000205
+2023-01-20 15:48:19,831 - DEBUG - Data prepartion Time, 0:00:00.000205
+DEBUG:server:Data prepartion Time, 0:00:00.000205
+[2023-01-20 15:48:19,831] DEBUG in network: Starting iteration 704
+2023-01-20 15:48:19,831 - DEBUG - Starting iteration 704
+DEBUG:server:Starting iteration 704
+DEBUG:root:Loading minibatches range(704, 938)
+[2023-01-20 15:48:20,090] DEBUG in network: Data Loading Time, 0:00:00.258549
+DEBUG:server:Data Loading Time, 0:00:00.258549
+2023-01-20 15:48:20,090 - DEBUG - Data Loading Time, 0:00:00.258549
+[2023-01-20 15:48:20,140] DEBUG in network: Loaded state dict from redis
+2023-01-20 15:48:20,140 - DEBUG - Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-20 15:48:20,141] DEBUG in network: Model loading Time, 0:00:00.050659
+2023-01-20 15:48:20,141 - DEBUG - Model loading Time, 0:00:00.050659
+DEBUG:server:Model loading Time, 0:00:00.050659
+[2023-01-20 15:48:20,141] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:20,141 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:22,063] DEBUG in network: Optimizer loading Time, 0:00:01.922141
+DEBUG:server:Optimizer loading Time, 0:00:01.922141
+2023-01-20 15:48:22,063 - DEBUG - Optimizer loading Time, 0:00:01.922141
+INFO:root:Index 0, error: 0.9352865219116211
+INFO:root:Index 10, error: 0.8079688549041748
+INFO:root:Index 20, error: 0.8440470695495605
+INFO:root:Index 30, error: 1.0025856494903564
+INFO:root:Index 40, error: 0.6960622072219849
+INFO:root:Index 50, error: 0.5547221899032593
+[2023-01-20 15:48:23,370] DEBUG in network: Training Time, 0:00:01.306600
+DEBUG:server:Training Time, 0:00:01.306600
+[2023-01-20 15:48:23,370] DEBUG in network: Saving model to the database
+2023-01-20 15:48:23,370 - DEBUG - Training Time, 0:00:01.306600
+2023-01-20 15:48:23,370 - DEBUG - Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-20 15:48:23,372 - DEBUG - Saved model to the database
+2023-01-20 15:48:23,372 - DEBUG - Model saving Time, 0:00:00.002151
+2023-01-20 15:48:23,372 - DEBUG - Saving optimizer to the redis
+[2023-01-20 15:48:23,372] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:23,372] DEBUG in network: Model saving Time, 0:00:00.002151
+DEBUG:server:Model saving Time, 0:00:00.002151
+[2023-01-20 15:48:23,372] DEBUG in network: Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:23,373] DEBUG in network: Optimizer saving Time, 0:00:00.001026
+DEBUG:server:Optimizer saving Time, 0:00:00.001026
+2023-01-20 15:48:23,373 - DEBUG - Optimizer saving Time, 0:00:00.001026
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:23,534] DEBUG in network: ----------------------Epoch: 4 Starts---------------------------
+2023-01-20 15:48:23,534 - DEBUG - ----------------------Epoch: 4 Starts---------------------------
+DEBUG:server:----------------------Epoch: 4 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 3
+[2023-01-20 15:48:23,535] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-20 15:48:23,535 - DEBUG - Set device to cuda:0
+2023-01-20 15:48:23,536 - DEBUG - Configure optimizer at epoch: 4
+[2023-01-20 15:48:23,536] DEBUG in network: Configure optimizer at epoch: 4
+DEBUG:server:Configure optimizer at epoch: 4
+[2023-01-20 15:48:23,536] DEBUG in network: Subsets per iteration: 234
+2023-01-20 15:48:23,536 - DEBUG - Subsets per iteration: 234
+DEBUG:server:Subsets per iteration: 234
+2023-01-20 15:48:23,536 - DEBUG - Data prepartion Time, 0:00:00.000091
+[2023-01-20 15:48:23,536] DEBUG in network: Data prepartion Time, 0:00:00.000091
+DEBUG:server:Data prepartion Time, 0:00:00.000091
+[2023-01-20 15:48:23,536] DEBUG in network: Starting iteration 704
+2023-01-20 15:48:23,536 - DEBUG - Starting iteration 704
+DEBUG:server:Starting iteration 704
+DEBUG:root:Loading minibatches range(704, 938)
+2023-01-20 15:48:23,799 - DEBUG - Data Loading Time, 0:00:00.263276
+[2023-01-20 15:48:23,799] DEBUG in network: Data Loading Time, 0:00:00.263276
+DEBUG:server:Data Loading Time, 0:00:00.263276
+[2023-01-20 15:48:23,849] DEBUG in network: Loaded state dict from redis
+2023-01-20 15:48:23,849 - DEBUG - Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-20 15:48:23,850] DEBUG in network: Model loading Time, 0:00:00.050120
+2023-01-20 15:48:23,850 - DEBUG - Model loading Time, 0:00:00.050120
+DEBUG:server:Model loading Time, 0:00:00.050120
+[2023-01-20 15:48:23,850] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:23,850 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:23,854] DEBUG in network: Optimizer loading Time, 0:00:00.004333
+2023-01-20 15:48:23,854 - DEBUG - Optimizer loading Time, 0:00:00.004333
+DEBUG:server:Optimizer loading Time, 0:00:00.004333
+INFO:root:Index 0, error: 0.49354347586631775
+INFO:root:Index 10, error: 0.3812212646007538
+INFO:root:Index 20, error: 0.6621276140213013
+INFO:root:Index 30, error: 0.6101444959640503
+INFO:root:Index 40, error: 0.4403722584247589
+INFO:root:Index 50, error: 0.3623991012573242
+2023-01-20 15:48:25,192 - DEBUG - Training Time, 0:00:01.337975
+2023-01-20 15:48:25,193 - DEBUG - Saving model to the database
+[2023-01-20 15:48:25,192] DEBUG in network: Training Time, 0:00:01.337975
+DEBUG:server:Training Time, 0:00:01.337975
+[2023-01-20 15:48:25,193] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:25,195] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+2023-01-20 15:48:25,195 - DEBUG - Saved model to the database
+[2023-01-20 15:48:25,195] DEBUG in network: Model saving Time, 0:00:00.002259
+2023-01-20 15:48:25,195 - DEBUG - Model saving Time, 0:00:00.002259
+DEBUG:server:Model saving Time, 0:00:00.002259
+[2023-01-20 15:48:25,195] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:25,195 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:25,196] DEBUG in network: Optimizer saving Time, 0:00:00.000923
+DEBUG:server:Optimizer saving Time, 0:00:00.000923
+2023-01-20 15:48:25,196 - DEBUG - Optimizer saving Time, 0:00:00.000923
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:25,332] DEBUG in network: ----------------------Epoch: 5 Starts---------------------------
+2023-01-20 15:48:25,332 - DEBUG - ----------------------Epoch: 5 Starts---------------------------
+DEBUG:server:----------------------Epoch: 5 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 1
+[2023-01-20 15:48:25,333] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:25,333 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:25,334] DEBUG in network: Configure optimizer at epoch: 5
+2023-01-20 15:48:25,334 - DEBUG - Configure optimizer at epoch: 5
+DEBUG:server:Configure optimizer at epoch: 5
+[2023-01-20 15:48:25,334] DEBUG in network: Subsets per iteration: 235
+2023-01-20 15:48:25,334 - DEBUG - Subsets per iteration: 235
+DEBUG:server:Subsets per iteration: 235
+[2023-01-20 15:48:25,334] DEBUG in network: Data prepartion Time, 0:00:00.000204
+2023-01-20 15:48:25,334 - DEBUG - Data prepartion Time, 0:00:00.000204
+DEBUG:server:Data prepartion Time, 0:00:00.000204
+[2023-01-20 15:48:25,334] DEBUG in network: Starting iteration 235
+2023-01-20 15:48:25,334 - DEBUG - Starting iteration 235
+DEBUG:server:Starting iteration 235
+DEBUG:root:Loading minibatches range(235, 470)
+[2023-01-20 15:48:25,616] DEBUG in network: Data Loading Time, 0:00:00.281546
+DEBUG:server:Data Loading Time, 0:00:00.281546
+2023-01-20 15:48:25,616 - DEBUG - Data Loading Time, 0:00:00.281546
+[2023-01-20 15:48:25,666] DEBUG in network: Loaded state dict from redis
+2023-01-20 15:48:25,666 - DEBUG - Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-20 15:48:25,666] DEBUG in network: Model loading Time, 0:00:00.050513
+2023-01-20 15:48:25,666 - DEBUG - Model loading Time, 0:00:00.050513
+DEBUG:server:Model loading Time, 0:00:00.050513
+[2023-01-20 15:48:25,667] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-20 15:48:25,667 - DEBUG - Load optimizer from the redis
+[2023-01-20 15:48:25,672] DEBUG in network: Optimizer loading Time, 0:00:00.005102
+2023-01-20 15:48:25,672 - DEBUG - Optimizer loading Time, 0:00:00.005102
+DEBUG:server:Optimizer loading Time, 0:00:00.005102
+INFO:root:Index 0, error: 0.3540027141571045
+INFO:root:Index 10, error: 0.4892088770866394
+INFO:root:Index 20, error: 0.472454309463501
+INFO:root:Index 30, error: 0.3104404807090759
+INFO:root:Index 40, error: 0.36353933811187744
+INFO:root:Index 50, error: 0.2941029369831085
+2023-01-20 15:48:27,012 - DEBUG - Training Time, 0:00:01.340418
+2023-01-20 15:48:27,013 - DEBUG - Saving model to the database
+[2023-01-20 15:48:27,012] DEBUG in network: Training Time, 0:00:01.340418
+DEBUG:server:Training Time, 0:00:01.340418
+[2023-01-20 15:48:27,013] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:27,016] DEBUG in network: Saved model to the database
+2023-01-20 15:48:27,016 - DEBUG - Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:27,016] DEBUG in network: Model saving Time, 0:00:00.003209
+2023-01-20 15:48:27,016 - DEBUG - Model saving Time, 0:00:00.003209
+DEBUG:server:Model saving Time, 0:00:00.003209
+[2023-01-20 15:48:27,016] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:27,016 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:27,018] DEBUG in network: Optimizer saving Time, 0:00:00.001769
+2023-01-20 15:48:27,018 - DEBUG - Optimizer saving Time, 0:00:00.001769
+DEBUG:server:Optimizer saving Time, 0:00:00.001769
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:27,181] DEBUG in network: ----------------------Epoch: 6 Starts---------------------------
+2023-01-20 15:48:27,181 - DEBUG - ----------------------Epoch: 6 Starts---------------------------
+DEBUG:server:----------------------Epoch: 6 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 1
+[2023-01-20 15:48:27,183] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:27,183 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:27,183] DEBUG in network: Configure optimizer at epoch: 6
+2023-01-20 15:48:27,183 - DEBUG - Configure optimizer at epoch: 6
+DEBUG:server:Configure optimizer at epoch: 6
+[2023-01-20 15:48:27,184] DEBUG in network: Subsets per iteration: 235
+2023-01-20 15:48:27,184 - DEBUG - Subsets per iteration: 235
+DEBUG:server:Subsets per iteration: 235
+[2023-01-20 15:48:27,184] DEBUG in network: Data prepartion Time, 0:00:00.000202
+2023-01-20 15:48:27,184 - DEBUG - Data prepartion Time, 0:00:00.000202
+DEBUG:server:Data prepartion Time, 0:00:00.000202
+[2023-01-20 15:48:27,184] DEBUG in network: Starting iteration 235
+2023-01-20 15:48:27,184 - DEBUG - Starting iteration 235
+DEBUG:server:Starting iteration 235
+DEBUG:root:Loading minibatches range(235, 470)
+2023-01-20 15:48:27,462 - DEBUG - Data Loading Time, 0:00:00.277622
+[2023-01-20 15:48:27,462] DEBUG in network: Data Loading Time, 0:00:00.277622
+DEBUG:server:Data Loading Time, 0:00:00.277622
+[2023-01-20 15:48:27,513] DEBUG in network: Loaded state dict from redis
+2023-01-20 15:48:27,513 - DEBUG - Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-20 15:48:27,514] DEBUG in network: Model loading Time, 0:00:00.051599
+2023-01-20 15:48:27,514 - DEBUG - Model loading Time, 0:00:00.051599
+DEBUG:server:Model loading Time, 0:00:00.051599
+[2023-01-20 15:48:27,514] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:27,514 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:27,518] DEBUG in network: Optimizer loading Time, 0:00:00.004517
+2023-01-20 15:48:27,518 - DEBUG - Optimizer loading Time, 0:00:00.004517
+DEBUG:server:Optimizer loading Time, 0:00:00.004517
+INFO:root:Index 0, error: 0.3146235942840576
+INFO:root:Index 10, error: 0.44438233971595764
+INFO:root:Index 20, error: 0.43740928173065186
+INFO:root:Index 30, error: 0.27957913279533386
+INFO:root:Index 40, error: 0.327660471200943
+INFO:root:Index 50, error: 0.27974626421928406
+[2023-01-20 15:48:28,929] DEBUG in network: Training Time, 0:00:01.410689
+2023-01-20 15:48:28,929 - DEBUG - Training Time, 0:00:01.410689
+DEBUG:server:Training Time, 0:00:01.410689
+[2023-01-20 15:48:28,929] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-20 15:48:28,929 - DEBUG - Saving model to the database
+[2023-01-20 15:48:28,931] DEBUG in network: Saved model to the database
+2023-01-20 15:48:28,931 - DEBUG - Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:28,931] DEBUG in network: Model saving Time, 0:00:00.002019
+2023-01-20 15:48:28,931 - DEBUG - Model saving Time, 0:00:00.002019
+DEBUG:server:Model saving Time, 0:00:00.002019
+[2023-01-20 15:48:28,931] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:28,931 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:28,932] DEBUG in network: Optimizer saving Time, 0:00:00.000904
+DEBUG:server:Optimizer saving Time, 0:00:00.000904
+2023-01-20 15:48:28,932 - DEBUG - Optimizer saving Time, 0:00:00.000904
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:30,916] DEBUG in network: ----------------------Epoch: 7 Starts---------------------------
+2023-01-20 15:48:30,916 - DEBUG - ----------------------Epoch: 7 Starts---------------------------
+DEBUG:server:----------------------Epoch: 7 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 1
+[2023-01-20 15:48:30,918] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:30,918 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:30,919] DEBUG in network: Configure optimizer at epoch: 7
+2023-01-20 15:48:30,919 - DEBUG - Configure optimizer at epoch: 7
+DEBUG:server:Configure optimizer at epoch: 7
+[2023-01-20 15:48:30,919] DEBUG in network: Subsets per iteration: 235
+2023-01-20 15:48:30,919 - DEBUG - Subsets per iteration: 235
+DEBUG:server:Subsets per iteration: 235
+[2023-01-20 15:48:30,919] DEBUG in network: Data prepartion Time, 0:00:00.000165
+2023-01-20 15:48:30,919 - DEBUG - Data prepartion Time, 0:00:00.000165
+DEBUG:server:Data prepartion Time, 0:00:00.000165
+[2023-01-20 15:48:30,919] DEBUG in network: Starting iteration 235
+2023-01-20 15:48:30,919 - DEBUG - Starting iteration 235
+DEBUG:server:Starting iteration 235
+DEBUG:root:Loading minibatches range(235, 470)
+2023-01-20 15:48:31,164 - DEBUG - Data Loading Time, 0:00:00.245396
+[2023-01-20 15:48:31,164] DEBUG in network: Data Loading Time, 0:00:00.245396
+DEBUG:server:Data Loading Time, 0:00:00.245396
+[2023-01-20 15:48:31,216] DEBUG in network: Loaded state dict from redis
+2023-01-20 15:48:31,216 - DEBUG - Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-20 15:48:31,216] DEBUG in network: Model loading Time, 0:00:00.051547
+2023-01-20 15:48:31,216 - DEBUG - Model loading Time, 0:00:00.051547
+DEBUG:server:Model loading Time, 0:00:00.051547
+[2023-01-20 15:48:31,216] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:31,216 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:31,219] DEBUG in network: Optimizer loading Time, 0:00:00.003005
+DEBUG:server:Optimizer loading Time, 0:00:00.003005
+2023-01-20 15:48:31,219 - DEBUG - Optimizer loading Time, 0:00:00.003005
+INFO:root:Index 0, error: 0.2850984036922455
+INFO:root:Index 10, error: 0.41706448793411255
+INFO:root:Index 20, error: 0.4106366038322449
+INFO:root:Index 30, error: 0.2689971923828125
+INFO:root:Index 40, error: 0.3153831958770752
+INFO:root:Index 50, error: 0.26959770917892456
+[2023-01-20 15:48:32,559] DEBUG in network: Training Time, 0:00:01.338843
+DEBUG:server:Training Time, 0:00:01.338843
+2023-01-20 15:48:32,559 - DEBUG - Training Time, 0:00:01.338843
+[2023-01-20 15:48:32,559] DEBUG in network: Saving model to the database
+2023-01-20 15:48:32,559 - DEBUG - Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:32,561] DEBUG in network: Saved model to the database
+2023-01-20 15:48:32,561 - DEBUG - Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:32,561] DEBUG in network: Model saving Time, 0:00:00.002332
+DEBUG:server:Model saving Time, 0:00:00.002332
+2023-01-20 15:48:32,561 - DEBUG - Model saving Time, 0:00:00.002332
+[2023-01-20 15:48:32,561] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:32,561 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:32,562] DEBUG in network: Optimizer saving Time, 0:00:00.000971
+DEBUG:server:Optimizer saving Time, 0:00:00.000971
+2023-01-20 15:48:32,562 - DEBUG - Optimizer saving Time, 0:00:00.000971
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:32,796] DEBUG in network: ----------------------Epoch: 8 Starts---------------------------
+2023-01-20 15:48:32,796 - DEBUG - ----------------------Epoch: 8 Starts---------------------------
+DEBUG:server:----------------------Epoch: 8 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 2
+[2023-01-20 15:48:32,798] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:32,798 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:32,799] DEBUG in network: Configure optimizer at epoch: 8
+2023-01-20 15:48:32,799 - DEBUG - Configure optimizer at epoch: 8
+DEBUG:server:Configure optimizer at epoch: 8
+[2023-01-20 15:48:32,799] DEBUG in network: Subsets per iteration: 234
+2023-01-20 15:48:32,799 - DEBUG - Subsets per iteration: 234
+DEBUG:server:Subsets per iteration: 234
+[2023-01-20 15:48:32,799] DEBUG in network: Data prepartion Time, 0:00:00.000283
+DEBUG:server:Data prepartion Time, 0:00:00.000283
+2023-01-20 15:48:32,799 - DEBUG - Data prepartion Time, 0:00:00.000283
+[2023-01-20 15:48:32,799] DEBUG in network: Starting iteration 470
+2023-01-20 15:48:32,799 - DEBUG - Starting iteration 470
+DEBUG:server:Starting iteration 470
+DEBUG:root:Loading minibatches range(470, 704)
+[2023-01-20 15:48:33,052] DEBUG in network: Data Loading Time, 0:00:00.252535
+DEBUG:server:Data Loading Time, 0:00:00.252535
+2023-01-20 15:48:33,052 - DEBUG - Data Loading Time, 0:00:00.252535
+[2023-01-20 15:48:33,102] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:33,102 - DEBUG - Loaded state dict from redis
+[2023-01-20 15:48:33,103] DEBUG in network: Model loading Time, 0:00:00.050607
+2023-01-20 15:48:33,103 - DEBUG - Model loading Time, 0:00:00.050607
+DEBUG:server:Model loading Time, 0:00:00.050607
+[2023-01-20 15:48:33,103] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-20 15:48:33,103 - DEBUG - Load optimizer from the redis
+2023-01-20 15:48:33,107 - DEBUG - Optimizer loading Time, 0:00:00.004057
+[2023-01-20 15:48:33,107] DEBUG in network: Optimizer loading Time, 0:00:00.004057
+DEBUG:server:Optimizer loading Time, 0:00:00.004057
+INFO:root:Index 0, error: 0.3530435562133789
+INFO:root:Index 10, error: 0.3304504156112671
+INFO:root:Index 20, error: 0.3160219192504883
+INFO:root:Index 30, error: 0.315202534198761
+INFO:root:Index 40, error: 0.2968432605266571
+INFO:root:Index 50, error: 0.38325372338294983
+[2023-01-20 15:48:34,468] DEBUG in network: Training Time, 0:00:01.360980
+DEBUG:server:Training Time, 0:00:01.360980
+[2023-01-20 15:48:34,468] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-20 15:48:34,468 - DEBUG - Training Time, 0:00:01.360980
+2023-01-20 15:48:34,468 - DEBUG - Saving model to the database
+[2023-01-20 15:48:34,471] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+2023-01-20 15:48:34,471 - DEBUG - Saved model to the database
+[2023-01-20 15:48:34,471] DEBUG in network: Model saving Time, 0:00:00.002609
+2023-01-20 15:48:34,471 - DEBUG - Model saving Time, 0:00:00.002609
+DEBUG:server:Model saving Time, 0:00:00.002609
+[2023-01-20 15:48:34,471] DEBUG in network: Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+2023-01-20 15:48:34,471 - DEBUG - Saving optimizer to the redis
+[2023-01-20 15:48:34,472] DEBUG in network: Optimizer saving Time, 0:00:00.000959
+DEBUG:server:Optimizer saving Time, 0:00:00.000959
+2023-01-20 15:48:34,472 - DEBUG - Optimizer saving Time, 0:00:00.000959
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:34,647] DEBUG in network: ----------------------Epoch: 9 Starts---------------------------
+2023-01-20 15:48:34,647 - DEBUG - ----------------------Epoch: 9 Starts---------------------------
+DEBUG:server:----------------------Epoch: 9 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 3
+[2023-01-20 15:48:34,649] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-20 15:48:34,649 - DEBUG - Set device to cuda:0
+[2023-01-20 15:48:34,649] DEBUG in network: Configure optimizer at epoch: 9
+2023-01-20 15:48:34,649 - DEBUG - Configure optimizer at epoch: 9
+DEBUG:server:Configure optimizer at epoch: 9
+[2023-01-20 15:48:34,650] DEBUG in network: Subsets per iteration: 234
+2023-01-20 15:48:34,650 - DEBUG - Subsets per iteration: 234
+DEBUG:server:Subsets per iteration: 234
+[2023-01-20 15:48:34,650] DEBUG in network: Data prepartion Time, 0:00:00.000271
+2023-01-20 15:48:34,650 - DEBUG - Data prepartion Time, 0:00:00.000271
+DEBUG:server:Data prepartion Time, 0:00:00.000271
+[2023-01-20 15:48:34,650] DEBUG in network: Starting iteration 704
+2023-01-20 15:48:34,650 - DEBUG - Starting iteration 704
+DEBUG:server:Starting iteration 704
+DEBUG:root:Loading minibatches range(704, 938)
+[2023-01-20 15:48:34,906] DEBUG in network: Data Loading Time, 0:00:00.256076
+DEBUG:server:Data Loading Time, 0:00:00.256076
+2023-01-20 15:48:34,906 - DEBUG - Data Loading Time, 0:00:00.256076
+[2023-01-20 15:48:34,957] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:34,957 - DEBUG - Loaded state dict from redis
+[2023-01-20 15:48:34,958] DEBUG in network: Model loading Time, 0:00:00.051123
+2023-01-20 15:48:34,958 - DEBUG - Model loading Time, 0:00:00.051123
+DEBUG:server:Model loading Time, 0:00:00.051123
+[2023-01-20 15:48:34,958] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:34,958 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:34,962] DEBUG in network: Optimizer loading Time, 0:00:00.004523
+2023-01-20 15:48:34,962 - DEBUG - Optimizer loading Time, 0:00:00.004523
+DEBUG:server:Optimizer loading Time, 0:00:00.004523
+INFO:root:Index 0, error: 0.33051902055740356
+INFO:root:Index 10, error: 0.2581018805503845
+INFO:root:Index 20, error: 0.39699530601501465
+INFO:root:Index 30, error: 0.37742727994918823
+INFO:root:Index 40, error: 0.3264389634132385
+INFO:root:Index 50, error: 0.2762994170188904
+[2023-01-20 15:48:36,315] DEBUG in network: Training Time, 0:00:01.352518
+DEBUG:server:Training Time, 0:00:01.352518
+2023-01-20 15:48:36,315 - DEBUG - Training Time, 0:00:01.352518
+[2023-01-20 15:48:36,315] DEBUG in network: Saving model to the database
+2023-01-20 15:48:36,315 - DEBUG - Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:36,319] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+2023-01-20 15:48:36,319 - DEBUG - Saved model to the database
+[2023-01-20 15:48:36,319] DEBUG in network: Model saving Time, 0:00:00.003888
+2023-01-20 15:48:36,319 - DEBUG - Model saving Time, 0:00:00.003888
+DEBUG:server:Model saving Time, 0:00:00.003888
+[2023-01-20 15:48:36,319] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:36,319 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:36,321] DEBUG in network: Optimizer saving Time, 0:00:00.001805
+2023-01-20 15:48:36,321 - DEBUG - Optimizer saving Time, 0:00:00.001805
+DEBUG:server:Optimizer saving Time, 0:00:00.001805
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:36,443] DEBUG in network: ----------------------Epoch: 10 Starts---------------------------
+2023-01-20 15:48:36,443 - DEBUG - ----------------------Epoch: 10 Starts---------------------------
+DEBUG:server:----------------------Epoch: 10 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 0
+[2023-01-20 15:48:36,444] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:36,444 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:36,445] DEBUG in network: Configure optimizer at epoch: 10
+2023-01-20 15:48:36,445 - DEBUG - Configure optimizer at epoch: 10
+DEBUG:server:Configure optimizer at epoch: 10
+[2023-01-20 15:48:36,445] DEBUG in network: Subsets per iteration: 235
+2023-01-20 15:48:36,445 - DEBUG - Subsets per iteration: 235
+DEBUG:server:Subsets per iteration: 235
+[2023-01-20 15:48:36,446] DEBUG in network: Data prepartion Time, 0:00:00.000200
+2023-01-20 15:48:36,446 - DEBUG - Data prepartion Time, 0:00:00.000200
+DEBUG:server:Data prepartion Time, 0:00:00.000200
+[2023-01-20 15:48:36,446] DEBUG in network: Starting iteration 0
+2023-01-20 15:48:36,446 - DEBUG - Starting iteration 0
+DEBUG:server:Starting iteration 0
+DEBUG:root:Loading minibatches range(0, 235)
+2023-01-20 15:48:36,722 - DEBUG - Data Loading Time, 0:00:00.276265
+[2023-01-20 15:48:36,722] DEBUG in network: Data Loading Time, 0:00:00.276265
+DEBUG:server:Data Loading Time, 0:00:00.276265
+2023-01-20 15:48:36,773 - DEBUG - Loaded state dict from redis
+[2023-01-20 15:48:36,773] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-20 15:48:36,774] DEBUG in network: Model loading Time, 0:00:00.051138
+2023-01-20 15:48:36,774 - DEBUG - Model loading Time, 0:00:00.051138
+DEBUG:server:Model loading Time, 0:00:00.051138
+[2023-01-20 15:48:36,774] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:36,774 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:36,778] DEBUG in network: Optimizer loading Time, 0:00:00.004571
+DEBUG:server:Optimizer loading Time, 0:00:00.004571
+2023-01-20 15:48:36,778 - DEBUG - Optimizer loading Time, 0:00:00.004571
+INFO:root:Index 0, error: 0.32265523076057434
+INFO:root:Index 10, error: 0.34117719531059265
+INFO:root:Index 20, error: 0.2884044647216797
+INFO:root:Index 30, error: 0.27582457661628723
+INFO:root:Index 40, error: 0.29142114520072937
+INFO:root:Index 50, error: 0.29675596952438354
+[2023-01-20 15:48:38,094] DEBUG in network: Training Time, 0:00:01.315234
+DEBUG:server:Training Time, 0:00:01.315234
+[2023-01-20 15:48:38,094] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-20 15:48:38,094 - DEBUG - Training Time, 0:00:01.315234
+2023-01-20 15:48:38,094 - DEBUG - Saving model to the database
+[2023-01-20 15:48:38,096] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+2023-01-20 15:48:38,096 - DEBUG - Saved model to the database
+[2023-01-20 15:48:38,096] DEBUG in network: Model saving Time, 0:00:00.002307
+2023-01-20 15:48:38,096 - DEBUG - Model saving Time, 0:00:00.002307
+DEBUG:server:Model saving Time, 0:00:00.002307
+[2023-01-20 15:48:38,096] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:38,096 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:38,097] DEBUG in network: Optimizer saving Time, 0:00:00.001042
+DEBUG:server:Optimizer saving Time, 0:00:00.001042
+2023-01-20 15:48:38,097 - DEBUG - Optimizer saving Time, 0:00:00.001042
+DEBUG:root:Num docs: 938, Num val docs: 157
+DEBUG:root:ENV is set, using gpu 0 in function 2
+[2023-01-20 15:48:38,315] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:38,315 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+DEBUG:root:Loading minibatches range(79, 118)
+[2023-01-20 15:48:38,376] DEBUG in network: Loaded state dict from redis
+2023-01-20 15:48:38,376 - DEBUG - Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-20 15:48:38,400] DEBUG in deployarchive: accuracy 89.0625
+DEBUG:server:accuracy 89.0625
+2023-01-20 15:48:38,400 - DEBUG - accuracy 89.0625
+[2023-01-20 15:48:38,419] DEBUG in deployarchive: accuracy 89.0625
+DEBUG:server:accuracy 89.0625
+2023-01-20 15:48:38,419 - DEBUG - accuracy 89.0625
+[2023-01-20 15:48:38,449] DEBUG in deployarchive: accuracy 89.84375
+2023-01-20 15:48:38,449 - DEBUG - accuracy 89.84375
+DEBUG:server:accuracy 89.84375
+[2023-01-20 15:48:38,477] DEBUG in deployarchive: accuracy 87.5
+DEBUG:server:accuracy 87.5
+2023-01-20 15:48:38,477 - DEBUG - accuracy 87.5
+[2023-01-20 15:48:38,496] DEBUG in deployarchive: accuracy 88.28125
+DEBUG:server:accuracy 88.28125
+2023-01-20 15:48:38,496 - DEBUG - accuracy 88.28125
+[2023-01-20 15:48:38,516] DEBUG in deployarchive: accuracy 89.0625
+DEBUG:server:accuracy 89.0625
+2023-01-20 15:48:38,516 - DEBUG - accuracy 89.0625
+[2023-01-20 15:48:38,535] DEBUG in deployarchive: accuracy 88.671875
+DEBUG:server:accuracy 88.671875
+2023-01-20 15:48:38,535 - DEBUG - accuracy 88.671875
+[2023-01-20 15:48:38,554] DEBUG in deployarchive: accuracy 87.5
+DEBUG:server:accuracy 87.5
+2023-01-20 15:48:38,554 - DEBUG - accuracy 87.5
+[2023-01-20 15:48:38,573] DEBUG in deployarchive: accuracy 92.578125
+DEBUG:server:accuracy 92.578125
+2023-01-20 15:48:38,573 - DEBUG - accuracy 92.578125
+[2023-01-20 15:48:38,588] DEBUG in deployarchive: accuracy 66.796875
+DEBUG:server:accuracy 66.796875
+2023-01-20 15:48:38,588 - DEBUG - accuracy 66.796875
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:47,507] DEBUG in network: ----------------------Epoch: 1 Starts---------------------------
+2023-01-20 15:48:47,507 - DEBUG - ----------------------Epoch: 1 Starts---------------------------
+DEBUG:server:----------------------Epoch: 1 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 2
+[2023-01-20 15:48:47,509] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-20 15:48:47,509 - DEBUG - Set device to cuda:0
+[2023-01-20 15:48:47,510] DEBUG in network: Configure optimizer at epoch: 1
+DEBUG:server:Configure optimizer at epoch: 1
+2023-01-20 15:48:47,510 - DEBUG - Configure optimizer at epoch: 1
+[2023-01-20 15:48:47,510] DEBUG in network: Subsets per iteration: 234
+DEBUG:server:Subsets per iteration: 234
+2023-01-20 15:48:47,510 - DEBUG - Subsets per iteration: 234
+2023-01-20 15:48:47,510 - DEBUG - Data prepartion Time, 0:00:00.000129
+[2023-01-20 15:48:47,510] DEBUG in network: Data prepartion Time, 0:00:00.000129
+DEBUG:server:Data prepartion Time, 0:00:00.000129
+[2023-01-20 15:48:47,510] DEBUG in network: Starting iteration 470
+2023-01-20 15:48:47,510 - DEBUG - Starting iteration 470
+DEBUG:server:Starting iteration 470
+DEBUG:root:Loading minibatches range(470, 704)
+[2023-01-20 15:48:47,785] DEBUG in network: Data Loading Time, 0:00:00.274810
+DEBUG:server:Data Loading Time, 0:00:00.274810
+2023-01-20 15:48:47,785 - DEBUG - Data Loading Time, 0:00:00.274810
+[2023-01-20 15:48:47,836] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:47,836 - DEBUG - Loaded state dict from redis
+2023-01-20 15:48:47,837 - DEBUG - Model loading Time, 0:00:00.051277
+[2023-01-20 15:48:47,837] DEBUG in network: Model loading Time, 0:00:00.051277
+DEBUG:server:Model loading Time, 0:00:00.051277
+[2023-01-20 15:48:47,837] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:47,837 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:47,837] DEBUG in network: Optimizer loading Time, 0:00:00.000277
+DEBUG:server:Optimizer loading Time, 0:00:00.000277
+2023-01-20 15:48:47,837 - DEBUG - Optimizer loading Time, 0:00:00.000277
+INFO:root:Index 0, error: 2.300818920135498
+INFO:root:Index 10, error: 2.295596122741699
+INFO:root:Index 20, error: 2.2849087715148926
+INFO:root:Index 30, error: 2.264169692993164
+INFO:root:Index 40, error: 2.2270398139953613
+INFO:root:Index 50, error: 2.1675989627838135
+2023-01-20 15:48:49,181 - DEBUG - Training Time, 0:00:01.343987
+2023-01-20 15:48:49,181 - DEBUG - Saving model to the database
+[2023-01-20 15:48:49,181] DEBUG in network: Training Time, 0:00:01.343987
+DEBUG:server:Training Time, 0:00:01.343987
+[2023-01-20 15:48:49,181] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:49,185] DEBUG in network: Saved model to the database
+2023-01-20 15:48:49,185 - DEBUG - Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:49,185] DEBUG in network: Model saving Time, 0:00:00.003722
+2023-01-20 15:48:49,185 - DEBUG - Model saving Time, 0:00:00.003722
+DEBUG:server:Model saving Time, 0:00:00.003722
+[2023-01-20 15:48:49,185] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:49,185 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:49,187] DEBUG in network: Optimizer saving Time, 0:00:00.002262
+2023-01-20 15:48:49,187 - DEBUG - Optimizer saving Time, 0:00:00.002262
+DEBUG:server:Optimizer saving Time, 0:00:00.002262
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:49,344] DEBUG in network: ----------------------Epoch: 2 Starts---------------------------
+2023-01-20 15:48:49,344 - DEBUG - ----------------------Epoch: 2 Starts---------------------------
+DEBUG:server:----------------------Epoch: 2 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 0
+[2023-01-20 15:48:49,346] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-20 15:48:49,346 - DEBUG - Set device to cuda:0
+[2023-01-20 15:48:49,346] DEBUG in network: Configure optimizer at epoch: 2
+DEBUG:server:Configure optimizer at epoch: 2
+2023-01-20 15:48:49,346 - DEBUG - Configure optimizer at epoch: 2
+[2023-01-20 15:48:49,347] DEBUG in network: Subsets per iteration: 235
+2023-01-20 15:48:49,347 - DEBUG - Subsets per iteration: 235
+DEBUG:server:Subsets per iteration: 235
+[2023-01-20 15:48:49,347] DEBUG in network: Data prepartion Time, 0:00:00.000083
+2023-01-20 15:48:49,347 - DEBUG - Data prepartion Time, 0:00:00.000083
+DEBUG:server:Data prepartion Time, 0:00:00.000083
+[2023-01-20 15:48:49,347] DEBUG in network: Starting iteration 0
+2023-01-20 15:48:49,347 - DEBUG - Starting iteration 0
+DEBUG:server:Starting iteration 0
+DEBUG:root:Loading minibatches range(0, 235)
+2023-01-20 15:48:49,607 - DEBUG - Data Loading Time, 0:00:00.260633
+[2023-01-20 15:48:49,607] DEBUG in network: Data Loading Time, 0:00:00.260633
+DEBUG:server:Data Loading Time, 0:00:00.260633
+[2023-01-20 15:48:49,658] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:49,658 - DEBUG - Loaded state dict from redis
+[2023-01-20 15:48:49,659] DEBUG in network: Model loading Time, 0:00:00.051090
+2023-01-20 15:48:49,659 - DEBUG - Model loading Time, 0:00:00.051090
+DEBUG:server:Model loading Time, 0:00:00.051090
+[2023-01-20 15:48:49,659] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:49,659 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:49,662] DEBUG in network: Optimizer loading Time, 0:00:00.003524
+2023-01-20 15:48:49,662 - DEBUG - Optimizer loading Time, 0:00:00.003524
+DEBUG:server:Optimizer loading Time, 0:00:00.003524
+INFO:root:Index 0, error: 1.836270809173584
+INFO:root:Index 10, error: 1.4443086385726929
+INFO:root:Index 20, error: 1.1583330631256104
+INFO:root:Index 30, error: 1.299829125404358
+INFO:root:Index 40, error: 1.2511712312698364
+INFO:root:Index 50, error: 1.155326008796692
+[2023-01-20 15:48:51,020] DEBUG in network: Training Time, 0:00:01.357449
+DEBUG:server:Training Time, 0:00:01.357449
+2023-01-20 15:48:51,020 - DEBUG - Training Time, 0:00:01.357449
+[2023-01-20 15:48:51,020] DEBUG in network: Saving model to the database
+2023-01-20 15:48:51,020 - DEBUG - Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:51,022] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+2023-01-20 15:48:51,022 - DEBUG - Saved model to the database
+[2023-01-20 15:48:51,022] DEBUG in network: Model saving Time, 0:00:00.002132
+2023-01-20 15:48:51,022 - DEBUG - Model saving Time, 0:00:00.002132
+DEBUG:server:Model saving Time, 0:00:00.002132
+[2023-01-20 15:48:51,022] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:51,022 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:51,023] DEBUG in network: Optimizer saving Time, 0:00:00.000845
+DEBUG:server:Optimizer saving Time, 0:00:00.000845
+2023-01-20 15:48:51,023 - DEBUG - Optimizer saving Time, 0:00:00.000845
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:51,207] DEBUG in network: ----------------------Epoch: 3 Starts---------------------------
+2023-01-20 15:48:51,207 - DEBUG - ----------------------Epoch: 3 Starts---------------------------
+DEBUG:server:----------------------Epoch: 3 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 1
+[2023-01-20 15:48:51,208] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:51,208 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:51,209] DEBUG in network: Configure optimizer at epoch: 3
+2023-01-20 15:48:51,209 - DEBUG - Configure optimizer at epoch: 3
+DEBUG:server:Configure optimizer at epoch: 3
+[2023-01-20 15:48:51,209] DEBUG in network: Subsets per iteration: 235
+DEBUG:server:Subsets per iteration: 235
+2023-01-20 15:48:51,209 - DEBUG - Subsets per iteration: 235
+[2023-01-20 15:48:51,210] DEBUG in network: Data prepartion Time, 0:00:00.000195
+2023-01-20 15:48:51,210 - DEBUG - Data prepartion Time, 0:00:00.000195
+DEBUG:server:Data prepartion Time, 0:00:00.000195
+[2023-01-20 15:48:51,210] DEBUG in network: Starting iteration 235
+2023-01-20 15:48:51,210 - DEBUG - Starting iteration 235
+DEBUG:server:Starting iteration 235
+DEBUG:root:Loading minibatches range(235, 470)
+[2023-01-20 15:48:51,458] DEBUG in network: Data Loading Time, 0:00:00.248768
+DEBUG:server:Data Loading Time, 0:00:00.248768
+2023-01-20 15:48:51,458 - DEBUG - Data Loading Time, 0:00:00.248768
+[2023-01-20 15:48:51,509] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:51,509 - DEBUG - Loaded state dict from redis
+[2023-01-20 15:48:51,509] DEBUG in network: Model loading Time, 0:00:00.050819
+2023-01-20 15:48:51,509 - DEBUG - Model loading Time, 0:00:00.050819
+DEBUG:server:Model loading Time, 0:00:00.050819
+[2023-01-20 15:48:51,510] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:51,510 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:51,514] DEBUG in network: Optimizer loading Time, 0:00:00.004515
+DEBUG:server:Optimizer loading Time, 0:00:00.004515
+2023-01-20 15:48:51,514 - DEBUG - Optimizer loading Time, 0:00:00.004515
+INFO:root:Index 0, error: 0.9780339002609253
+INFO:root:Index 10, error: 1.076745629310608
+INFO:root:Index 20, error: 1.0331227779388428
+INFO:root:Index 30, error: 0.5830133557319641
+INFO:root:Index 40, error: 0.6167824864387512
+INFO:root:Index 50, error: 0.40312060713768005
+[2023-01-20 15:48:52,806] DEBUG in network: Training Time, 0:00:01.291506
+DEBUG:server:Training Time, 0:00:01.291506
+2023-01-20 15:48:52,806 - DEBUG - Training Time, 0:00:01.291506
+2023-01-20 15:48:52,806 - DEBUG - Saving model to the database
+[2023-01-20 15:48:52,806] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:52,808] DEBUG in network: Saved model to the database
+2023-01-20 15:48:52,808 - DEBUG - Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:52,808] DEBUG in network: Model saving Time, 0:00:00.002325
+DEBUG:server:Model saving Time, 0:00:00.002325
+2023-01-20 15:48:52,808 - DEBUG - Model saving Time, 0:00:00.002325
+[2023-01-20 15:48:52,808] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:52,808 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:52,809] DEBUG in network: Optimizer saving Time, 0:00:00.000936
+2023-01-20 15:48:52,809 - DEBUG - Optimizer saving Time, 0:00:00.000936
+DEBUG:server:Optimizer saving Time, 0:00:00.000936
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:53,151] DEBUG in network: ----------------------Epoch: 4 Starts---------------------------
+2023-01-20 15:48:53,151 - DEBUG - ----------------------Epoch: 4 Starts---------------------------
+DEBUG:server:----------------------Epoch: 4 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 1
+2023-01-20 15:48:53,152 - DEBUG - Set device to cuda:0
+[2023-01-20 15:48:53,152] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:53,152] DEBUG in network: Configure optimizer at epoch: 4
+DEBUG:server:Configure optimizer at epoch: 4
+2023-01-20 15:48:53,152 - DEBUG - Configure optimizer at epoch: 4
+[2023-01-20 15:48:53,152] DEBUG in network: Subsets per iteration: 235
+DEBUG:server:Subsets per iteration: 235
+2023-01-20 15:48:53,152 - DEBUG - Subsets per iteration: 235
+[2023-01-20 15:48:53,152] DEBUG in network: Data prepartion Time, 0:00:00.000112
+2023-01-20 15:48:53,152 - DEBUG - Data prepartion Time, 0:00:00.000112
+DEBUG:server:Data prepartion Time, 0:00:00.000112
+[2023-01-20 15:48:53,153] DEBUG in network: Starting iteration 235
+2023-01-20 15:48:53,153 - DEBUG - Starting iteration 235
+DEBUG:server:Starting iteration 235
+DEBUG:root:Loading minibatches range(235, 470)
+[2023-01-20 15:48:53,398] DEBUG in network: Data Loading Time, 0:00:00.245008
+DEBUG:server:Data Loading Time, 0:00:00.245008
+2023-01-20 15:48:53,398 - DEBUG - Data Loading Time, 0:00:00.245008
+[2023-01-20 15:48:53,447] DEBUG in network: Loaded state dict from redis
+2023-01-20 15:48:53,447 - DEBUG - Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-20 15:48:53,448] DEBUG in network: Model loading Time, 0:00:00.049786
+2023-01-20 15:48:53,448 - DEBUG - Model loading Time, 0:00:00.049786
+DEBUG:server:Model loading Time, 0:00:00.049786
+[2023-01-20 15:48:53,448] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:53,448 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:53,452] DEBUG in network: Optimizer loading Time, 0:00:00.003701
+2023-01-20 15:48:53,452 - DEBUG - Optimizer loading Time, 0:00:00.003701
+DEBUG:server:Optimizer loading Time, 0:00:00.003701
+INFO:root:Index 0, error: 0.4586296081542969
+INFO:root:Index 10, error: 0.6114501953125
+INFO:root:Index 20, error: 0.5446654558181763
+INFO:root:Index 30, error: 0.3693616986274719
+INFO:root:Index 40, error: 0.4040805697441101
+INFO:root:Index 50, error: 0.32886677980422974
+[2023-01-20 15:48:54,752] DEBUG in network: Training Time, 0:00:01.300128
+DEBUG:server:Training Time, 0:00:01.300128
+2023-01-20 15:48:54,752 - DEBUG - Training Time, 0:00:01.300128
+2023-01-20 15:48:54,752 - DEBUG - Saving model to the database
+[2023-01-20 15:48:54,752] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:54,754] DEBUG in network: Saved model to the database
+2023-01-20 15:48:54,754 - DEBUG - Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:54,754] DEBUG in network: Model saving Time, 0:00:00.002102
+2023-01-20 15:48:54,754 - DEBUG - Model saving Time, 0:00:00.002102
+DEBUG:server:Model saving Time, 0:00:00.002102
+[2023-01-20 15:48:54,754] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:54,754 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:54,755] DEBUG in network: Optimizer saving Time, 0:00:00.000902
+2023-01-20 15:48:54,755 - DEBUG - Optimizer saving Time, 0:00:00.000902
+DEBUG:server:Optimizer saving Time, 0:00:00.000902
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:54,960] DEBUG in network: ----------------------Epoch: 5 Starts---------------------------
+2023-01-20 15:48:54,960 - DEBUG - ----------------------Epoch: 5 Starts---------------------------
+DEBUG:server:----------------------Epoch: 5 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 0
+[2023-01-20 15:48:54,961] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:54,961 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:54,961] DEBUG in network: Configure optimizer at epoch: 5
+2023-01-20 15:48:54,961 - DEBUG - Configure optimizer at epoch: 5
+DEBUG:server:Configure optimizer at epoch: 5
+[2023-01-20 15:48:54,962] DEBUG in network: Subsets per iteration: 235
+2023-01-20 15:48:54,962 - DEBUG - Subsets per iteration: 235
+DEBUG:server:Subsets per iteration: 235
+[2023-01-20 15:48:54,962] DEBUG in network: Data prepartion Time, 0:00:00.000136
+2023-01-20 15:48:54,962 - DEBUG - Data prepartion Time, 0:00:00.000136
+DEBUG:server:Data prepartion Time, 0:00:00.000136
+[2023-01-20 15:48:54,962] DEBUG in network: Starting iteration 0
+2023-01-20 15:48:54,962 - DEBUG - Starting iteration 0
+DEBUG:server:Starting iteration 0
+DEBUG:root:Loading minibatches range(0, 235)
+[2023-01-20 15:48:55,238] DEBUG in network: Data Loading Time, 0:00:00.276026
+2023-01-20 15:48:55,238 - DEBUG - Data Loading Time, 0:00:00.276026
+DEBUG:server:Data Loading Time, 0:00:00.276026
+[2023-01-20 15:48:55,289] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:55,289 - DEBUG - Loaded state dict from redis
+[2023-01-20 15:48:55,289] DEBUG in network: Model loading Time, 0:00:00.050415
+2023-01-20 15:48:55,289 - DEBUG - Model loading Time, 0:00:00.050415
+DEBUG:server:Model loading Time, 0:00:00.050415
+[2023-01-20 15:48:55,289] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:55,289 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-20 15:48:55,293 - DEBUG - Optimizer loading Time, 0:00:00.003548
+[2023-01-20 15:48:55,293] DEBUG in network: Optimizer loading Time, 0:00:00.003548
+DEBUG:server:Optimizer loading Time, 0:00:00.003548
+INFO:root:Index 0, error: 0.40553200244903564
+INFO:root:Index 10, error: 0.41270917654037476
+INFO:root:Index 20, error: 0.4003944993019104
+INFO:root:Index 30, error: 0.36799466609954834
+INFO:root:Index 40, error: 0.3788275122642517
+INFO:root:Index 50, error: 0.4050242304801941
+2023-01-20 15:48:56,640 - DEBUG - Training Time, 0:00:01.347293
+2023-01-20 15:48:56,640 - DEBUG - Saving model to the database
+[2023-01-20 15:48:56,640] DEBUG in network: Training Time, 0:00:01.347293
+DEBUG:server:Training Time, 0:00:01.347293
+[2023-01-20 15:48:56,640] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-20 15:48:56,642] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+2023-01-20 15:48:56,642 - DEBUG - Saved model to the database
+[2023-01-20 15:48:56,643] DEBUG in network: Model saving Time, 0:00:00.002179
+2023-01-20 15:48:56,643 - DEBUG - Model saving Time, 0:00:00.002179
+DEBUG:server:Model saving Time, 0:00:00.002179
+[2023-01-20 15:48:56,643] DEBUG in network: Saving optimizer to the redis
+2023-01-20 15:48:56,643 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:56,644] DEBUG in network: Optimizer saving Time, 0:00:00.001016
+2023-01-20 15:48:56,644 - DEBUG - Optimizer saving Time, 0:00:00.001016
+DEBUG:server:Optimizer saving Time, 0:00:00.001016
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:56,847] DEBUG in network: ----------------------Epoch: 6 Starts---------------------------
+DEBUG:server:----------------------Epoch: 6 Starts---------------------------
+2023-01-20 15:48:56,847 - DEBUG - ----------------------Epoch: 6 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 1
+[2023-01-20 15:48:56,848] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:56,848 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:56,849] DEBUG in network: Configure optimizer at epoch: 6
+DEBUG:server:Configure optimizer at epoch: 6
+2023-01-20 15:48:56,849 - DEBUG - Configure optimizer at epoch: 6
+[2023-01-20 15:48:56,849] DEBUG in network: Subsets per iteration: 235
+2023-01-20 15:48:56,849 - DEBUG - Subsets per iteration: 235
+DEBUG:server:Subsets per iteration: 235
+[2023-01-20 15:48:56,849] DEBUG in network: Data prepartion Time, 0:00:00.000133
+2023-01-20 15:48:56,849 - DEBUG - Data prepartion Time, 0:00:00.000133
+DEBUG:server:Data prepartion Time, 0:00:00.000133
+[2023-01-20 15:48:56,849] DEBUG in network: Starting iteration 235
+2023-01-20 15:48:56,849 - DEBUG - Starting iteration 235
+DEBUG:server:Starting iteration 235
+DEBUG:root:Loading minibatches range(235, 470)
+[2023-01-20 15:48:57,113] DEBUG in network: Data Loading Time, 0:00:00.263428
+DEBUG:server:Data Loading Time, 0:00:00.263428
+2023-01-20 15:48:57,113 - DEBUG - Data Loading Time, 0:00:00.263428
+[2023-01-20 15:48:57,162] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:57,162 - DEBUG - Loaded state dict from redis
+[2023-01-20 15:48:57,162] DEBUG in network: Model loading Time, 0:00:00.048930
+DEBUG:server:Model loading Time, 0:00:00.048930
+2023-01-20 15:48:57,162 - DEBUG - Model loading Time, 0:00:00.048930
+[2023-01-20 15:48:57,162] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-20 15:48:57,162 - DEBUG - Load optimizer from the redis
+[2023-01-20 15:48:57,164] DEBUG in network: Optimizer loading Time, 0:00:00.001890
+DEBUG:server:Optimizer loading Time, 0:00:00.001890
+2023-01-20 15:48:57,164 - DEBUG - Optimizer loading Time, 0:00:00.001890
+INFO:root:Index 0, error: 0.31148794293403625
+INFO:root:Index 10, error: 0.44178152084350586
+INFO:root:Index 20, error: 0.4360918700695038
+INFO:root:Index 30, error: 0.2822914719581604
+INFO:root:Index 40, error: 0.3292556703090668
+INFO:root:Index 50, error: 0.28080177307128906
+[2023-01-20 15:48:58,539] DEBUG in network: Training Time, 0:00:01.375119
+DEBUG:server:Training Time, 0:00:01.375119
+[2023-01-20 15:48:58,539] DEBUG in network: Saving model to the database
+2023-01-20 15:48:58,539 - DEBUG - Training Time, 0:00:01.375119
+2023-01-20 15:48:58,539 - DEBUG - Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-20 15:48:58,541 - DEBUG - Saved model to the database
+2023-01-20 15:48:58,542 - DEBUG - Model saving Time, 0:00:00.002166
+2023-01-20 15:48:58,542 - DEBUG - Saving optimizer to the redis
+[2023-01-20 15:48:58,541] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-20 15:48:58,542] DEBUG in network: Model saving Time, 0:00:00.002166
+DEBUG:server:Model saving Time, 0:00:00.002166
+[2023-01-20 15:48:58,542] DEBUG in network: Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-20 15:48:58,543] DEBUG in network: Optimizer saving Time, 0:00:00.000917
+DEBUG:server:Optimizer saving Time, 0:00:00.000917
+2023-01-20 15:48:58,543 - DEBUG - Optimizer saving Time, 0:00:00.000917
+DEBUG:root:Num docs: 938, Num val docs: 157
+[2023-01-20 15:48:58,715] DEBUG in network: ----------------------Epoch: 7 Starts---------------------------
+2023-01-20 15:48:58,715 - DEBUG - ----------------------Epoch: 7 Starts---------------------------
+DEBUG:server:----------------------Epoch: 7 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 3
+[2023-01-20 15:48:58,718] DEBUG in network: Set device to cuda:0
+2023-01-20 15:48:58,718 - DEBUG - Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-20 15:48:58,719] DEBUG in network: Configure optimizer at epoch: 7
+2023-01-20 15:48:58,719 - DEBUG - Configure optimizer at epoch: 7
+DEBUG:server:Configure optimizer at epoch: 7
+[2023-01-20 15:48:58,719] DEBUG in network: Subsets per iteration: 234
+2023-01-20 15:48:58,719 - DEBUG - Subsets per iteration: 234
+DEBUG:server:Subsets per iteration: 234
+[2023-01-20 15:48:58,719] DEBUG in network: Data prepartion Time, 0:00:00.000290
+2023-01-20 15:48:58,719 - DEBUG - Data prepartion Time, 0:00:00.000290
+DEBUG:server:Data prepartion Time, 0:00:00.000290
+[2023-01-20 15:48:58,719] DEBUG in network: Starting iteration 704
+2023-01-20 15:48:58,719 - DEBUG - Starting iteration 704
+DEBUG:server:Starting iteration 704
+DEBUG:root:Loading minibatches range(704, 938)
+[2023-01-20 15:48:58,970] DEBUG in network: Data Loading Time, 0:00:00.250534
+DEBUG:server:Data Loading Time, 0:00:00.250534
+2023-01-20 15:48:58,970 - DEBUG - Data Loading Time, 0:00:00.250534
+[2023-01-20 15:48:59,019] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-20 15:48:59,019 - DEBUG - Loaded state dict from redis
+[2023-01-20 15:48:59,020] DEBUG in network: Model loading Time, 0:00:00.049384
+2023-01-20 15:48:59,020 - DEBUG - Model loading Time, 0:00:00.049384
+DEBUG:server:Model loading Time, 0:00:00.049384
+[2023-01-20 15:48:59,020] DEBUG in network: Load optimizer from the redis
+2023-01-20 15:48:59,020 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-20 15:48:59,022] DEBUG in network: Optimizer loading Time, 0:00:00.002094
+DEBUG:server:Optimizer loading Time, 0:00:00.002094
+2023-01-20 15:48:59,022 - DEBUG - Optimizer loading Time, 0:00:00.002094
+INFO:root:Index 0, error: 0.3527650833129883
+INFO:root:Index 10, error: 0.27087852358818054
+INFO:root:Index 20, error: 0.46189409494400024
+INFO:root:Index 30, error: 0.435066819190979
+INFO:root:Index 40, error: 0.34116804599761963
+INFO:root:Index 50, error: 0.2935253977775574

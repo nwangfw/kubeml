@@ -1,0 +1,763 @@
+[2023-01-17 00:07:15,313] INFO in socket_tracker: Websocket tracker initialized
+2023-01-17 00:07:15,313 - INFO - Websocket tracker initialized
+[2023-01-17 00:07:15,315] INFO in server: Starting bjoern based server
+2023-01-17 00:07:15,315 - INFO - Starting bjoern based server
+[2023-01-17 00:07:15,315] DEBUG in server: Starting bjoern based server
+2023-01-17 00:07:15,315 - DEBUG - Starting bjoern based server
+[2023-01-17 00:08:10,914] INFO in server: specialize called with  filepath = "/userfunc/deployarchive"   handler = ""
+2023-01-17 00:08:10,914 - INFO - specialize called with  filepath = "/userfunc/deployarchive"   handler = ""
+[2023-01-17 00:08:10,914] DEBUG in server: moduleName = "main"    funcName = "main"
+2023-01-17 00:08:10,914 - DEBUG - moduleName = "main"    funcName = "main"
+DEBUG:root:Could not find mongo configuration in env, using defaults
+DEBUG:root:Could not find redis configuration in env, using defaults
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:08:12,313] DEBUG in network: ----------------------Epoch: 1 Starts---------------------------
+DEBUG:server:----------------------Epoch: 1 Starts---------------------------
+2023-01-17 00:08:12,313 - DEBUG - ----------------------Epoch: 1 Starts---------------------------
+DEBUG:root:Setting GPU_ID to 0 in function 0
+[2023-01-17 00:08:14,783] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:08:14,783 - DEBUG - Set device to cuda:0
+[2023-01-17 00:08:14,784] DEBUG in network: Configure optimizer at epoch: 1
+DEBUG:server:Configure optimizer at epoch: 1
+2023-01-17 00:08:14,784 - DEBUG - Configure optimizer at epoch: 1
+[2023-01-17 00:08:14,785] DEBUG in network: Subsets per iteration: 196
+DEBUG:server:Subsets per iteration: 196
+[2023-01-17 00:08:14,785] DEBUG in network: Starting iteration 0
+2023-01-17 00:08:14,785 - DEBUG - Subsets per iteration: 196
+2023-01-17 00:08:14,785 - DEBUG - Starting iteration 0
+DEBUG:server:Starting iteration 0
+DEBUG:root:Loading minibatches range(0, 196)
+/usr/local/lib/python3.6/dist-packages/serverlessdl/network.py:569: UserWarning: The given NumPy array is not writeable, and PyTorch does not support non-writeable tensors. This means you can write to the underlying (supposedly non-writeable) NumPy array using the tensor. You may want to copy the array to protect its data or make it writeable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at  /pytorch/torch/csrc/utils/tensor_numpy.cpp:141.)
+  state[weight_key[len(job_id) + 1:]] = torch.from_numpy(w)
+[2023-01-17 00:08:15,969] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-17 00:08:15,969 - DEBUG - Loaded state dict from redis
+2023-01-17 00:08:15,975 - DEBUG - Load optimizer from the redis
+[2023-01-17 00:08:15,975] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-17 00:08:15,976] DEBUG in network: Load test case from the redis
+DEBUG:server:Load test case from the redis
+2023-01-17 00:08:15,976 - DEBUG - Load test case from the redis
+[2023-01-17 00:08:15,976] DEBUG in network: loading value:  None
+DEBUG:server:loading value:  None
+2023-01-17 00:08:15,976 - DEBUG - loading value:  None
+INFO:root:Step 0, error: 7.396956920623779
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 3.196600914001465
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 2.457064390182495
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 2.2411181926727295
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 2.165839195251465
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:08:22,123] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-17 00:08:22,123 - DEBUG - Saving model to the database
+[2023-01-17 00:08:22,333] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+2023-01-17 00:08:22,333 - DEBUG - Saved model to the database
+2023-01-17 00:08:22,333 - DEBUG - Saving optimizer to the redis
+[2023-01-17 00:08:22,333] DEBUG in network: Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-17 00:08:22,333] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:08:22,333 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:08:22,333] DEBUG in network: Saving test case to the redis
+2023-01-17 00:08:22,333 - DEBUG - Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+[2023-01-17 00:08:22,333] DEBUG in network: saving test file to host
+2023-01-17 00:08:22,333 - DEBUG - saving test file to host
+DEBUG:server:saving test file to host
+[2023-01-17 00:08:22,334] DEBUG in network: saving test file to path: /output/e72d0ef4:test:0.pkl , epoch: 1
+2023-01-17 00:08:22,334 - DEBUG - saving test file to path: /output/e72d0ef4:test:0.pkl , epoch: 1
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:0.pkl , epoch: 1
+[2023-01-17 00:08:22,334] DEBUG in network: test file saved
+2023-01-17 00:08:22,334 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:08:24,124] DEBUG in network: ----------------------Epoch: 2 Starts---------------------------
+2023-01-17 00:08:24,124 - DEBUG - ----------------------Epoch: 2 Starts---------------------------
+DEBUG:server:----------------------Epoch: 2 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 3
+[2023-01-17 00:08:24,151] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:08:24,151 - DEBUG - Set device to cuda:0
+[2023-01-17 00:08:24,152] DEBUG in network: Configure optimizer at epoch: 2
+DEBUG:server:Configure optimizer at epoch: 2
+2023-01-17 00:08:24,152 - DEBUG - Configure optimizer at epoch: 2
+[2023-01-17 00:08:24,152] DEBUG in network: Subsets per iteration: 195
+2023-01-17 00:08:24,152 - DEBUG - Subsets per iteration: 195
+DEBUG:server:Subsets per iteration: 195
+[2023-01-17 00:08:24,152] DEBUG in network: Starting iteration 587
+DEBUG:server:Starting iteration 587
+2023-01-17 00:08:24,152 - DEBUG - Starting iteration 587
+DEBUG:root:Loading minibatches range(587, 782)
+[2023-01-17 00:08:25,264] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-17 00:08:25,264 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:08:25,265] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-17 00:08:25,265 - DEBUG - Load optimizer from the redis
+[2023-01-17 00:08:25,265] DEBUG in network: Load test case from the redis
+2023-01-17 00:08:25,265 - DEBUG - Load test case from the redis
+DEBUG:server:Load test case from the redis
+[2023-01-17 00:08:25,265] DEBUG in network: loading value:  b'e72d0ef4:test:3/1'
+2023-01-17 00:08:25,265 - DEBUG - loading value:  b'e72d0ef4:test:3/1'
+DEBUG:server:loading value:  b'e72d0ef4:test:3/1'
+[2023-01-17 00:08:25,266] DEBUG in network: loading test file from host, path: /output/e72d0ef4:test:3.pkl
+DEBUG:server:loading test file from host, path: /output/e72d0ef4:test:3.pkl
+2023-01-17 00:08:25,266 - DEBUG - loading test file from host, path: /output/e72d0ef4:test:3.pkl
+[2023-01-17 00:08:25,266] DEBUG in network: loading test file, epoch: 2
+2023-01-17 00:08:25,266 - DEBUG - loading test file, epoch: 2
+DEBUG:server:loading test file, epoch: 2
+[2023-01-17 00:08:25,266] DEBUG in network: file loaded, value: test
+DEBUG:server:file loaded, value: test
+2023-01-17 00:08:25,266 - DEBUG - file loaded, value: test
+file loaded
+INFO:root:Step 0, error: 2.259148359298706
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 2.311941385269165
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 2.2002711296081543
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 2.2032299041748047
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 2.123148202896118
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:08:30,830] DEBUG in network: Saving model to the database
+2023-01-17 00:08:30,830 - DEBUG - Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-17 00:08:30,970 - DEBUG - Saved model to the database
+[2023-01-17 00:08:30,970] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-17 00:08:30,971] DEBUG in network: Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+2023-01-17 00:08:30,971 - DEBUG - Saving optimizer to the redis
+[2023-01-17 00:08:30,971] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:08:30,971 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:08:30,971] DEBUG in network: Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+2023-01-17 00:08:30,971 - DEBUG - Saving test case to the redis
+[2023-01-17 00:08:30,971] DEBUG in network: saving test file to host
+2023-01-17 00:08:30,971 - DEBUG - saving test file to host
+DEBUG:server:saving test file to host
+[2023-01-17 00:08:30,971] DEBUG in network: saving test file to path: /output/e72d0ef4:test:3.pkl , epoch: 2
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:3.pkl , epoch: 2
+2023-01-17 00:08:30,971 - DEBUG - saving test file to path: /output/e72d0ef4:test:3.pkl , epoch: 2
+[2023-01-17 00:08:30,971] DEBUG in network: test file saved
+2023-01-17 00:08:30,971 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:08:33,343] DEBUG in network: ----------------------Epoch: 3 Starts---------------------------
+DEBUG:server:----------------------Epoch: 3 Starts---------------------------
+2023-01-17 00:08:33,343 - DEBUG - ----------------------Epoch: 3 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 2
+[2023-01-17 00:08:33,371] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:08:33,371 - DEBUG - Set device to cuda:0
+2023-01-17 00:08:33,372 - DEBUG - Configure optimizer at epoch: 3
+2023-01-17 00:08:33,372 - DEBUG - Subsets per iteration: 195
+2023-01-17 00:08:33,373 - DEBUG - Starting iteration 392
+[2023-01-17 00:08:33,372] DEBUG in network: Configure optimizer at epoch: 3
+DEBUG:server:Configure optimizer at epoch: 3
+[2023-01-17 00:08:33,372] DEBUG in network: Subsets per iteration: 195
+DEBUG:server:Subsets per iteration: 195
+[2023-01-17 00:08:33,373] DEBUG in network: Starting iteration 392
+DEBUG:server:Starting iteration 392
+DEBUG:root:Loading minibatches range(392, 587)
+[2023-01-17 00:08:34,525] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-17 00:08:34,525 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:08:34,525] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-17 00:08:34,525 - DEBUG - Load optimizer from the redis
+[2023-01-17 00:08:34,526] DEBUG in network: Load test case from the redis
+DEBUG:server:Load test case from the redis
+2023-01-17 00:08:34,526 - DEBUG - Load test case from the redis
+[2023-01-17 00:08:34,526] DEBUG in network: loading value:  b'e72d0ef4:test:2/2'
+DEBUG:server:loading value:  b'e72d0ef4:test:2/2'
+2023-01-17 00:08:34,526 - DEBUG - loading value:  b'e72d0ef4:test:2/2'
+[2023-01-17 00:08:34,526] DEBUG in network: loading test file from host, path: /output/e72d0ef4:test:2.pkl
+2023-01-17 00:08:34,526 - DEBUG - loading test file from host, path: /output/e72d0ef4:test:2.pkl
+DEBUG:server:loading test file from host, path: /output/e72d0ef4:test:2.pkl
+[2023-01-17 00:08:34,526] DEBUG in network: loading test file, epoch: 3
+2023-01-17 00:08:34,526 - DEBUG - loading test file, epoch: 3
+DEBUG:server:loading test file, epoch: 3
+[2023-01-17 00:08:34,526] DEBUG in network: file loaded, value: test
+DEBUG:server:file loaded, value: test
+2023-01-17 00:08:34,526 - DEBUG - file loaded, value: test
+file loaded
+INFO:root:Step 0, error: 2.0047571659088135
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 1.9812743663787842
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 1.9539844989776611
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 1.9548794031143188
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 1.8891105651855469
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:08:40,100 - DEBUG - Saving model to the database
+[2023-01-17 00:08:40,100] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-17 00:08:40,266] DEBUG in network: Saved model to the database
+2023-01-17 00:08:40,266 - DEBUG - Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-17 00:08:40,266] DEBUG in network: Saving optimizer to the redis
+2023-01-17 00:08:40,266 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-17 00:08:40,266] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:08:40,266 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:08:40,287] DEBUG in network: Saving test case to the redis
+2023-01-17 00:08:40,287 - DEBUG - Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+[2023-01-17 00:08:40,287] DEBUG in network: saving test file to host
+DEBUG:server:saving test file to host
+2023-01-17 00:08:40,287 - DEBUG - saving test file to host
+[2023-01-17 00:08:40,287] DEBUG in network: saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 3
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 3
+2023-01-17 00:08:40,287 - DEBUG - saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 3
+[2023-01-17 00:08:40,287] DEBUG in network: test file saved
+2023-01-17 00:08:40,287 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:08:42,365] DEBUG in network: ----------------------Epoch: 4 Starts---------------------------
+DEBUG:server:----------------------Epoch: 4 Starts---------------------------
+2023-01-17 00:08:42,365 - DEBUG - ----------------------Epoch: 4 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 1
+2023-01-17 00:08:42,390 - DEBUG - Set device to cuda:0
+[2023-01-17 00:08:42,390] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+[2023-01-17 00:08:42,391] DEBUG in network: Configure optimizer at epoch: 4
+2023-01-17 00:08:42,391 - DEBUG - Configure optimizer at epoch: 4
+DEBUG:server:Configure optimizer at epoch: 4
+[2023-01-17 00:08:42,392] DEBUG in network: Subsets per iteration: 196
+DEBUG:server:Subsets per iteration: 196
+2023-01-17 00:08:42,392 - DEBUG - Subsets per iteration: 196
+[2023-01-17 00:08:42,392] DEBUG in network: Starting iteration 196
+2023-01-17 00:08:42,392 - DEBUG - Starting iteration 196
+DEBUG:server:Starting iteration 196
+DEBUG:root:Loading minibatches range(196, 392)
+2023-01-17 00:08:43,530 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:08:43,530] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-17 00:08:43,530] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-17 00:08:43,530 - DEBUG - Load optimizer from the redis
+2023-01-17 00:08:43,534 - DEBUG - Load test case from the redis
+[2023-01-17 00:08:43,534] DEBUG in network: Load test case from the redis
+DEBUG:server:Load test case from the redis
+2023-01-17 00:08:43,534 - DEBUG - loading value:  b'e72d0ef4:test:1/3'
+[2023-01-17 00:08:43,534] DEBUG in network: loading value:  b'e72d0ef4:test:1/3'
+DEBUG:server:loading value:  b'e72d0ef4:test:1/3'
+[2023-01-17 00:08:43,534] DEBUG in network: loading test file from host, path: /output/e72d0ef4:test:1.pkl
+2023-01-17 00:08:43,534 - DEBUG - loading test file from host, path: /output/e72d0ef4:test:1.pkl
+DEBUG:server:loading test file from host, path: /output/e72d0ef4:test:1.pkl
+[2023-01-17 00:08:43,534] DEBUG in network: loading test file, epoch: 4
+2023-01-17 00:08:43,534 - DEBUG - loading test file, epoch: 4
+DEBUG:server:loading test file, epoch: 4
+[2023-01-17 00:08:43,534] DEBUG in network: file loaded, value: test
+2023-01-17 00:08:43,534 - DEBUG - file loaded, value: test
+file loaded
+DEBUG:server:file loaded, value: test
+INFO:root:Step 0, error: 1.928432822227478
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 1.8594571352005005
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 1.9762122631072998
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 1.8295512199401855
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 1.8606027364730835
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:08:50,116] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-17 00:08:50,116 - DEBUG - Saving model to the database
+[2023-01-17 00:08:50,250] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-17 00:08:50,250] DEBUG in network: Saving optimizer to the redis
+2023-01-17 00:08:50,250 - DEBUG - Saved model to the database
+2023-01-17 00:08:50,250 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-17 00:08:50,250] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:08:50,250 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:08:50,251] DEBUG in network: Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+2023-01-17 00:08:50,251 - DEBUG - Saving test case to the redis
+[2023-01-17 00:08:50,251] DEBUG in network: saving test file to host
+DEBUG:server:saving test file to host
+2023-01-17 00:08:50,251 - DEBUG - saving test file to host
+[2023-01-17 00:08:50,251] DEBUG in network: saving test file to path: /output/e72d0ef4:test:1.pkl , epoch: 4
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:1.pkl , epoch: 4
+2023-01-17 00:08:50,251 - DEBUG - saving test file to path: /output/e72d0ef4:test:1.pkl , epoch: 4
+[2023-01-17 00:08:50,251] DEBUG in network: test file saved
+2023-01-17 00:08:50,251 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:08:52,113] DEBUG in network: ----------------------Epoch: 5 Starts---------------------------
+DEBUG:server:----------------------Epoch: 5 Starts---------------------------
+2023-01-17 00:08:52,113 - DEBUG - ----------------------Epoch: 5 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 3
+[2023-01-17 00:08:52,138] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:08:52,138 - DEBUG - Set device to cuda:0
+[2023-01-17 00:08:52,139] DEBUG in network: Configure optimizer at epoch: 5
+DEBUG:server:Configure optimizer at epoch: 5
+2023-01-17 00:08:52,139 - DEBUG - Configure optimizer at epoch: 5
+[2023-01-17 00:08:52,139] DEBUG in network: Subsets per iteration: 195
+DEBUG:server:Subsets per iteration: 195
+2023-01-17 00:08:52,139 - DEBUG - Subsets per iteration: 195
+2023-01-17 00:08:52,140 - DEBUG - Starting iteration 587
+[2023-01-17 00:08:52,140] DEBUG in network: Starting iteration 587
+DEBUG:server:Starting iteration 587
+DEBUG:root:Loading minibatches range(587, 782)
+[2023-01-17 00:08:53,227] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-17 00:08:53,227 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:08:53,227] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-17 00:08:53,227 - DEBUG - Load optimizer from the redis
+[2023-01-17 00:08:53,235] DEBUG in network: Load test case from the redis
+DEBUG:server:Load test case from the redis
+2023-01-17 00:08:53,235 - DEBUG - Load test case from the redis
+[2023-01-17 00:08:53,235] DEBUG in network: loading value:  b'e72d0ef4:test:3/4'
+DEBUG:server:loading value:  b'e72d0ef4:test:3/4'
+2023-01-17 00:08:53,235 - DEBUG - loading value:  b'e72d0ef4:test:3/4'
+[2023-01-17 00:08:53,235] DEBUG in network: loading test file from host, path: /output/e72d0ef4:test:3.pkl
+2023-01-17 00:08:53,235 - DEBUG - loading test file from host, path: /output/e72d0ef4:test:3.pkl
+DEBUG:server:loading test file from host, path: /output/e72d0ef4:test:3.pkl
+[2023-01-17 00:08:53,235] DEBUG in network: loading test file, epoch: 5
+2023-01-17 00:08:53,235 - DEBUG - loading test file, epoch: 5
+DEBUG:server:loading test file, epoch: 5
+[2023-01-17 00:08:53,235] DEBUG in network: file loaded, value: test
+2023-01-17 00:08:53,235 - DEBUG - file loaded, value: test
+file loaded
+DEBUG:server:file loaded, value: test
+INFO:root:Step 0, error: 1.8711156845092773
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 1.8758559226989746
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 1.8772655725479126
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 1.8257256746292114
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 1.9603215456008911
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:08:58,987] DEBUG in network: Saving model to the database
+2023-01-17 00:08:58,987 - DEBUG - Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-17 00:08:59,193] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-17 00:08:59,194] DEBUG in network: Saving optimizer to the redis
+2023-01-17 00:08:59,193 - DEBUG - Saved model to the database
+2023-01-17 00:08:59,194 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-17 00:08:59,194] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:08:59,194 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:08:59,194] DEBUG in network: Saving test case to the redis
+2023-01-17 00:08:59,194 - DEBUG - Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+[2023-01-17 00:08:59,195] DEBUG in network: saving test file to host
+2023-01-17 00:08:59,195 - DEBUG - saving test file to host
+DEBUG:server:saving test file to host
+[2023-01-17 00:08:59,195] DEBUG in network: saving test file to path: /output/e72d0ef4:test:3.pkl , epoch: 5
+2023-01-17 00:08:59,195 - DEBUG - saving test file to path: /output/e72d0ef4:test:3.pkl , epoch: 5
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:3.pkl , epoch: 5
+[2023-01-17 00:08:59,195] DEBUG in network: test file saved
+2023-01-17 00:08:59,195 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:09:01,463] DEBUG in network: ----------------------Epoch: 6 Starts---------------------------
+2023-01-17 00:09:01,463 - DEBUG - ----------------------Epoch: 6 Starts---------------------------
+DEBUG:server:----------------------Epoch: 6 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 3
+[2023-01-17 00:09:01,489] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:09:01,489 - DEBUG - Set device to cuda:0
+[2023-01-17 00:09:01,490] DEBUG in network: Configure optimizer at epoch: 6
+DEBUG:server:Configure optimizer at epoch: 6
+[2023-01-17 00:09:01,491] DEBUG in network: Subsets per iteration: 195
+2023-01-17 00:09:01,490 - DEBUG - Configure optimizer at epoch: 6
+2023-01-17 00:09:01,491 - DEBUG - Subsets per iteration: 195
+DEBUG:server:Subsets per iteration: 195
+[2023-01-17 00:09:01,491] DEBUG in network: Starting iteration 587
+2023-01-17 00:09:01,491 - DEBUG - Starting iteration 587
+DEBUG:server:Starting iteration 587
+DEBUG:root:Loading minibatches range(587, 782)
+[2023-01-17 00:09:02,544] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-17 00:09:02,544 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:09:02,544] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-17 00:09:02,544 - DEBUG - Load optimizer from the redis
+[2023-01-17 00:09:02,545] DEBUG in network: Load test case from the redis
+2023-01-17 00:09:02,545 - DEBUG - Load test case from the redis
+DEBUG:server:Load test case from the redis
+[2023-01-17 00:09:02,545] DEBUG in network: loading value:  b'e72d0ef4:test:3/5'
+2023-01-17 00:09:02,545 - DEBUG - loading value:  b'e72d0ef4:test:3/5'
+DEBUG:server:loading value:  b'e72d0ef4:test:3/5'
+[2023-01-17 00:09:02,545] DEBUG in network: loading test file from host, path: /output/e72d0ef4:test:3.pkl
+2023-01-17 00:09:02,545 - DEBUG - loading test file from host, path: /output/e72d0ef4:test:3.pkl
+DEBUG:server:loading test file from host, path: /output/e72d0ef4:test:3.pkl
+[2023-01-17 00:09:02,545] DEBUG in network: loading test file, epoch: 6
+DEBUG:server:loading test file, epoch: 6
+2023-01-17 00:09:02,545 - DEBUG - loading test file, epoch: 6
+[2023-01-17 00:09:02,545] DEBUG in network: file loaded, value: test
+2023-01-17 00:09:02,545 - DEBUG - file loaded, value: test
+file loaded
+DEBUG:server:file loaded, value: test
+INFO:root:Step 0, error: 1.7340118885040283
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 1.8879042863845825
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 1.8096431493759155
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 1.6896641254425049
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 1.906741976737976
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:09:08,022] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-17 00:09:08,022 - DEBUG - Saving model to the database
+[2023-01-17 00:09:08,263] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-17 00:09:08,264] DEBUG in network: Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+2023-01-17 00:09:08,263 - DEBUG - Saved model to the database
+2023-01-17 00:09:08,264 - DEBUG - Saving optimizer to the redis
+[2023-01-17 00:09:08,264] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:09:08,264 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:09:08,265] DEBUG in network: Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+2023-01-17 00:09:08,265 - DEBUG - Saving test case to the redis
+[2023-01-17 00:09:08,265] DEBUG in network: saving test file to host
+2023-01-17 00:09:08,265 - DEBUG - saving test file to host
+DEBUG:server:saving test file to host
+[2023-01-17 00:09:08,265] DEBUG in network: saving test file to path: /output/e72d0ef4:test:3.pkl , epoch: 6
+2023-01-17 00:09:08,265 - DEBUG - saving test file to path: /output/e72d0ef4:test:3.pkl , epoch: 6
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:3.pkl , epoch: 6
+[2023-01-17 00:09:08,265] DEBUG in network: test file saved
+2023-01-17 00:09:08,265 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:09:10,632] DEBUG in network: ----------------------Epoch: 7 Starts---------------------------
+2023-01-17 00:09:10,632 - DEBUG - ----------------------Epoch: 7 Starts---------------------------
+DEBUG:server:----------------------Epoch: 7 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 2
+[2023-01-17 00:09:10,660] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:09:10,660 - DEBUG - Set device to cuda:0
+[2023-01-17 00:09:10,661] DEBUG in network: Configure optimizer at epoch: 7
+2023-01-17 00:09:10,661 - DEBUG - Configure optimizer at epoch: 7
+2023-01-17 00:09:10,661 - DEBUG - Subsets per iteration: 195
+DEBUG:server:Configure optimizer at epoch: 7
+[2023-01-17 00:09:10,661] DEBUG in network: Subsets per iteration: 195
+DEBUG:server:Subsets per iteration: 195
+[2023-01-17 00:09:10,662] DEBUG in network: Starting iteration 392
+2023-01-17 00:09:10,662 - DEBUG - Starting iteration 392
+DEBUG:server:Starting iteration 392
+DEBUG:root:Loading minibatches range(392, 587)
+2023-01-17 00:09:11,837 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:09:11,837] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-17 00:09:11,837] DEBUG in network: Load optimizer from the redis
+2023-01-17 00:09:11,837 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-17 00:09:11,839] DEBUG in network: Load test case from the redis
+2023-01-17 00:09:11,839 - DEBUG - Load test case from the redis
+DEBUG:server:Load test case from the redis
+[2023-01-17 00:09:11,840] DEBUG in network: loading value:  b'e72d0ef4:test:2/6'
+2023-01-17 00:09:11,840 - DEBUG - loading value:  b'e72d0ef4:test:2/6'
+DEBUG:server:loading value:  b'e72d0ef4:test:2/6'
+[2023-01-17 00:09:11,840] DEBUG in network: loading test file from host, path: /output/e72d0ef4:test:2.pkl
+2023-01-17 00:09:11,840 - DEBUG - loading test file from host, path: /output/e72d0ef4:test:2.pkl
+DEBUG:server:loading test file from host, path: /output/e72d0ef4:test:2.pkl
+[2023-01-17 00:09:11,840] DEBUG in network: loading test file, epoch: 7
+2023-01-17 00:09:11,840 - DEBUG - loading test file, epoch: 7
+DEBUG:server:loading test file, epoch: 7
+[2023-01-17 00:09:11,840] DEBUG in network: file loaded, value: test
+2023-01-17 00:09:11,840 - DEBUG - file loaded, value: test
+DEBUG:server:file loaded, value: test
+file loaded
+INFO:root:Step 0, error: 1.719207763671875
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 1.7411632537841797
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 1.6324865818023682
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 1.8578834533691406
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 1.6726526021957397
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:09:18,307] DEBUG in network: Saving model to the database
+2023-01-17 00:09:18,307 - DEBUG - Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-17 00:09:18,422] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-17 00:09:18,422] DEBUG in network: Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+2023-01-17 00:09:18,422 - DEBUG - Saved model to the database
+2023-01-17 00:09:18,422 - DEBUG - Saving optimizer to the redis
+[2023-01-17 00:09:18,422] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:09:18,422 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:09:18,422] DEBUG in network: Saving test case to the redis
+2023-01-17 00:09:18,422 - DEBUG - Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+[2023-01-17 00:09:18,423] DEBUG in network: saving test file to host
+DEBUG:server:saving test file to host
+2023-01-17 00:09:18,423 - DEBUG - saving test file to host
+[2023-01-17 00:09:18,423] DEBUG in network: saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 7
+2023-01-17 00:09:18,423 - DEBUG - saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 7
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 7
+[2023-01-17 00:09:18,423] DEBUG in network: test file saved
+2023-01-17 00:09:18,423 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:09:19,922] DEBUG in network: ----------------------Epoch: 8 Starts---------------------------
+2023-01-17 00:09:19,922 - DEBUG - ----------------------Epoch: 8 Starts---------------------------
+DEBUG:server:----------------------Epoch: 8 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 2
+2023-01-17 00:09:19,948 - DEBUG - Set device to cuda:0
+[2023-01-17 00:09:19,948] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:09:19,949 - DEBUG - Configure optimizer at epoch: 8
+2023-01-17 00:09:19,949 - DEBUG - Subsets per iteration: 195
+[2023-01-17 00:09:19,949] DEBUG in network: Configure optimizer at epoch: 8
+DEBUG:server:Configure optimizer at epoch: 8
+[2023-01-17 00:09:19,949] DEBUG in network: Subsets per iteration: 195
+DEBUG:server:Subsets per iteration: 195
+[2023-01-17 00:09:19,949] DEBUG in network: Starting iteration 392
+2023-01-17 00:09:19,949 - DEBUG - Starting iteration 392
+DEBUG:server:Starting iteration 392
+DEBUG:root:Loading minibatches range(392, 587)
+[2023-01-17 00:09:21,076] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+2023-01-17 00:09:21,076 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:09:21,076] DEBUG in network: Load optimizer from the redis
+2023-01-17 00:09:21,076 - DEBUG - Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+[2023-01-17 00:09:21,077] DEBUG in network: Load test case from the redis
+2023-01-17 00:09:21,077 - DEBUG - Load test case from the redis
+DEBUG:server:Load test case from the redis
+[2023-01-17 00:09:21,077] DEBUG in network: loading value:  b'e72d0ef4:test:2/7'
+2023-01-17 00:09:21,077 - DEBUG - loading value:  b'e72d0ef4:test:2/7'
+DEBUG:server:loading value:  b'e72d0ef4:test:2/7'
+[2023-01-17 00:09:21,077] DEBUG in network: loading test file from host, path: /output/e72d0ef4:test:2.pkl
+2023-01-17 00:09:21,077 - DEBUG - loading test file from host, path: /output/e72d0ef4:test:2.pkl
+DEBUG:server:loading test file from host, path: /output/e72d0ef4:test:2.pkl
+[2023-01-17 00:09:21,078] DEBUG in network: loading test file, epoch: 8
+2023-01-17 00:09:21,078 - DEBUG - loading test file, epoch: 8
+DEBUG:server:loading test file, epoch: 8
+[2023-01-17 00:09:21,078] DEBUG in network: file loaded, value: test
+2023-01-17 00:09:21,078 - DEBUG - file loaded, value: test
+file loaded
+DEBUG:server:file loaded, value: test
+INFO:root:Step 0, error: 1.6781084537506104
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 1.663529396057129
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 1.5967798233032227
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 1.824556827545166
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 1.617490291595459
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:09:27,382 - DEBUG - Saving model to the database
+[2023-01-17 00:09:27,382] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-17 00:09:27,505 - DEBUG - Saved model to the database
+2023-01-17 00:09:27,506 - DEBUG - Saving optimizer to the redis
+[2023-01-17 00:09:27,505] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+[2023-01-17 00:09:27,506] DEBUG in network: Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-17 00:09:27,506] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:09:27,506 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:09:27,506] DEBUG in network: Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+2023-01-17 00:09:27,506 - DEBUG - Saving test case to the redis
+[2023-01-17 00:09:27,506] DEBUG in network: saving test file to host
+2023-01-17 00:09:27,506 - DEBUG - saving test file to host
+DEBUG:server:saving test file to host
+[2023-01-17 00:09:27,506] DEBUG in network: saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 8
+2023-01-17 00:09:27,506 - DEBUG - saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 8
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 8
+[2023-01-17 00:09:27,507] DEBUG in network: test file saved
+2023-01-17 00:09:27,507 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:09:29,398] DEBUG in network: ----------------------Epoch: 9 Starts---------------------------
+2023-01-17 00:09:29,398 - DEBUG - ----------------------Epoch: 9 Starts---------------------------
+DEBUG:server:----------------------Epoch: 9 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 0
+[2023-01-17 00:09:29,434] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:09:29,434 - DEBUG - Set device to cuda:0
+[2023-01-17 00:09:29,436] DEBUG in network: Configure optimizer at epoch: 9
+2023-01-17 00:09:29,436 - DEBUG - Configure optimizer at epoch: 9
+2023-01-17 00:09:29,436 - DEBUG - Subsets per iteration: 196
+DEBUG:server:Configure optimizer at epoch: 9
+[2023-01-17 00:09:29,436] DEBUG in network: Subsets per iteration: 196
+DEBUG:server:Subsets per iteration: 196
+[2023-01-17 00:09:29,436] DEBUG in network: Starting iteration 0
+2023-01-17 00:09:29,436 - DEBUG - Starting iteration 0
+DEBUG:server:Starting iteration 0
+DEBUG:root:Loading minibatches range(0, 196)
+2023-01-17 00:09:30,543 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:09:30,543] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-17 00:09:30,544] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-17 00:09:30,544 - DEBUG - Load optimizer from the redis
+[2023-01-17 00:09:30,544] DEBUG in network: Load test case from the redis
+2023-01-17 00:09:30,544 - DEBUG - Load test case from the redis
+DEBUG:server:Load test case from the redis
+[2023-01-17 00:09:30,544] DEBUG in network: loading value:  b'e72d0ef4:test:0/8'
+2023-01-17 00:09:30,544 - DEBUG - loading value:  b'e72d0ef4:test:0/8'
+DEBUG:server:loading value:  b'e72d0ef4:test:0/8'
+[2023-01-17 00:09:30,544] DEBUG in network: loading test file from host, path: /output/e72d0ef4:test:0.pkl
+2023-01-17 00:09:30,544 - DEBUG - loading test file from host, path: /output/e72d0ef4:test:0.pkl
+DEBUG:server:loading test file from host, path: /output/e72d0ef4:test:0.pkl
+[2023-01-17 00:09:30,544] DEBUG in network: loading test file, epoch: 9
+2023-01-17 00:09:30,544 - DEBUG - loading test file, epoch: 9
+DEBUG:server:loading test file, epoch: 9
+[2023-01-17 00:09:30,544] DEBUG in network: file loaded, value: test
+2023-01-17 00:09:30,544 - DEBUG - file loaded, value: test
+file loaded
+DEBUG:server:file loaded, value: test
+INFO:root:Step 0, error: 1.54571533203125
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 1.6676995754241943
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 1.7144687175750732
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 1.6310691833496094
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 1.7906855344772339
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:09:36,129 - DEBUG - Saving model to the database
+[2023-01-17 00:09:36,129] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+[2023-01-17 00:09:36,369] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+2023-01-17 00:09:36,369 - DEBUG - Saved model to the database
+[2023-01-17 00:09:36,369] DEBUG in network: Saving optimizer to the redis
+2023-01-17 00:09:36,369 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-17 00:09:36,369] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:09:36,369 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:09:36,370] DEBUG in network: Saving test case to the redis
+2023-01-17 00:09:36,370 - DEBUG - Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+[2023-01-17 00:09:36,370] DEBUG in network: saving test file to host
+2023-01-17 00:09:36,370 - DEBUG - saving test file to host
+DEBUG:server:saving test file to host
+[2023-01-17 00:09:36,370] DEBUG in network: saving test file to path: /output/e72d0ef4:test:0.pkl , epoch: 9
+2023-01-17 00:09:36,370 - DEBUG - saving test file to path: /output/e72d0ef4:test:0.pkl , epoch: 9
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:0.pkl , epoch: 9
+[2023-01-17 00:09:36,371] DEBUG in network: test file saved
+2023-01-17 00:09:36,371 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+[2023-01-17 00:09:38,627] DEBUG in network: ----------------------Epoch: 10 Starts---------------------------
+2023-01-17 00:09:38,627 - DEBUG - ----------------------Epoch: 10 Starts---------------------------
+DEBUG:server:----------------------Epoch: 10 Starts---------------------------
+DEBUG:root:ENV is set, using gpu 0 in function 2
+[2023-01-17 00:09:38,671] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:09:38,671 - DEBUG - Set device to cuda:0
+2023-01-17 00:09:38,672 - DEBUG - Configure optimizer at epoch: 10
+[2023-01-17 00:09:38,672] DEBUG in network: Configure optimizer at epoch: 10
+DEBUG:server:Configure optimizer at epoch: 10
+[2023-01-17 00:09:38,672] DEBUG in network: Subsets per iteration: 195
+DEBUG:server:Subsets per iteration: 195
+2023-01-17 00:09:38,672 - DEBUG - Subsets per iteration: 195
+[2023-01-17 00:09:38,673] DEBUG in network: Starting iteration 392
+DEBUG:server:Starting iteration 392
+DEBUG:root:Loading minibatches range(392, 587)
+2023-01-17 00:09:38,673 - DEBUG - Starting iteration 392
+2023-01-17 00:09:39,776 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:09:39,776] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
+[2023-01-17 00:09:39,776] DEBUG in network: Load optimizer from the redis
+DEBUG:server:Load optimizer from the redis
+2023-01-17 00:09:39,776 - DEBUG - Load optimizer from the redis
+[2023-01-17 00:09:39,776] DEBUG in network: Load test case from the redis
+DEBUG:server:Load test case from the redis
+2023-01-17 00:09:39,776 - DEBUG - Load test case from the redis
+[2023-01-17 00:09:39,777] DEBUG in network: loading value:  b'e72d0ef4:test:2/9'
+2023-01-17 00:09:39,777 - DEBUG - loading value:  b'e72d0ef4:test:2/9'
+DEBUG:server:loading value:  b'e72d0ef4:test:2/9'
+[2023-01-17 00:09:39,777] DEBUG in network: loading test file from host, path: /output/e72d0ef4:test:2.pkl
+DEBUG:server:loading test file from host, path: /output/e72d0ef4:test:2.pkl
+2023-01-17 00:09:39,777 - DEBUG - loading test file from host, path: /output/e72d0ef4:test:2.pkl
+[2023-01-17 00:09:39,777] DEBUG in network: loading test file, epoch: 10
+2023-01-17 00:09:39,777 - DEBUG - loading test file, epoch: 10
+DEBUG:server:loading test file, epoch: 10
+[2023-01-17 00:09:39,777] DEBUG in network: file loaded, value: test
+2023-01-17 00:09:39,777 - DEBUG - file loaded, value: test
+file loaded
+DEBUG:server:file loaded, value: test
+INFO:root:Step 0, error: 1.5501137971878052
+INFO:root:Step 0, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 10, error: 1.5418626070022583
+INFO:root:Step 10, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 20, error: 1.551944613456726
+INFO:root:Step 20, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 30, error: 1.7807163000106812
+INFO:root:Step 30, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+INFO:root:Step 40, error: 1.457741618156433
+INFO:root:Step 40, optimizer: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:09:45,361] DEBUG in network: Saving model to the database
+DEBUG:server:Saving model to the database
+2023-01-17 00:09:45,361 - DEBUG - Saving model to the database
+[2023-01-17 00:09:45,649] DEBUG in network: Saved model to the database
+DEBUG:server:Saved model to the database
+2023-01-17 00:09:45,649 - DEBUG - Saved model to the database
+[2023-01-17 00:09:45,649] DEBUG in network: Saving optimizer to the redis
+2023-01-17 00:09:45,649 - DEBUG - Saving optimizer to the redis
+DEBUG:server:Saving optimizer to the redis
+[2023-01-17 00:09:45,650] DEBUG in network: Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+2023-01-17 00:09:45,650 - DEBUG - Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+DEBUG:server:Saving optimizer value: b'\x80\x03}q\x00(X\x05\x00\x00\x00stateq\x01}q\x02X\x0c\x00\x00\x00param_groupsq\x03]q\x04}q\x05(X\x02\x00\x00\x00lrq\x06G?\x84z\xe1G\xae\x14{X\x08\x00\x00\x00momentumq\x07K\x00X\t\x00\x00\x00dampeningq\x08K\x00X\x0c\x00\x00\x00weight_decayq\tG?\x1a6\xe2\xeb\x1cC-X\x08\x00\x00\x00nesterovq\n\x89X\x06\x00\x00\x00paramsq\x0b]q\x0c(K\x00K\x01K\x02K\x03K\x04K\x05K\x06K\x07K\x08K\tK\nK\x0bK\x0cK\rK\x0eK\x0fK\x10K\x11K\x12K\x13K\x14K\x15K\x16K\x17K\x18K\x19K\x1aK\x1bK\x1cK\x1dK\x1eK\x1fK K!K"K#K$K%K&K\'K(K)K*K+K,K-K.K/K0K1K2K3K4K5K6K7K8K9K:K;K<K=K>K?K@KAKBKCKDKEKFKGKHKIKJKKKLKMKNKOKPKQKRKSKTKUKVKWKXKYKZK[K\\K]K^K_K`KaKbKcKdKeKfKgKhKiKjKkKlKmeuau.'
+[2023-01-17 00:09:45,655] DEBUG in network: Saving test case to the redis
+DEBUG:server:Saving test case to the redis
+2023-01-17 00:09:45,655 - DEBUG - Saving test case to the redis
+[2023-01-17 00:09:45,655] DEBUG in network: saving test file to host
+2023-01-17 00:09:45,655 - DEBUG - saving test file to host
+DEBUG:server:saving test file to host
+[2023-01-17 00:09:45,655] DEBUG in network: saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 10
+2023-01-17 00:09:45,655 - DEBUG - saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 10
+DEBUG:server:saving test file to path: /output/e72d0ef4:test:2.pkl , epoch: 10
+[2023-01-17 00:09:45,656] DEBUG in network: test file saved
+2023-01-17 00:09:45,656 - DEBUG - test file saved
+DEBUG:server:test file saved
+test file saved
+DEBUG:root:Num docs: 782, Num val docs: 157
+DEBUG:root:ENV is set, using gpu 0 in function 2
+[2023-01-17 00:09:48,029] DEBUG in network: Set device to cuda:0
+DEBUG:server:Set device to cuda:0
+2023-01-17 00:09:48,029 - DEBUG - Set device to cuda:0
+DEBUG:root:Loading minibatches range(79, 118)
+2023-01-17 00:09:48,278 - DEBUG - Loaded state dict from redis
+[2023-01-17 00:09:48,278] DEBUG in network: Loaded state dict from redis
+DEBUG:server:Loaded state dict from redis
