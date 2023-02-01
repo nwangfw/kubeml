@@ -75,7 +75,7 @@ class KubeLeNet(KubeModel):
         super().__init__(network, dataset, gpu=True)
 
     def configure_optimizers(self) -> torch.optim.Optimizer:
-        sgd = SGD(self.parameters(), lr=self.lr)
+        sgd = SGD(self.parameters(), lr=self.lr, weight_decay=1e-4)
         return sgd
 
     def init(self):
