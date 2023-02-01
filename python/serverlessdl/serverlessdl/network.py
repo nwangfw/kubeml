@@ -430,7 +430,7 @@ class KubeModel(ABC):
             self._dataset._load_train_data(start=i, end=min(assigned_subsets.stop, i + subsets_per_iter))
 
             # create the loader that will be used
-            loader = DataLoader(self._dataset, batch_size=self.batch_size)
+            loader = DataLoader(self._dataset, batch_size=self.batch_size, shuffle= True)
             num_iterations += len(loader)
 
             self.logger.debug(f"Data Loading Time, {datetime.now() - startDataLoading}")

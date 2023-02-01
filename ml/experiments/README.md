@@ -1,4 +1,4 @@
-# KubeML Experiments
+# Experiments Results Highlights
 
 In these experiments we compare the performance of running training workflows in KubeML and compare it to a Tensorflow
 distributed session. The main points of focus of the experiments are:
