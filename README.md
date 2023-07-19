@@ -96,14 +96,23 @@ helm install --version v1.17.0 --namespace $FISSION_NAMESPACE fission fission-ch
 If you use minikube environment, use the following commands:
 
 ```bash
-kubectl create -k "github.com/fission/fission/crds/v1?ref=v1.19.0"
+kubectl create -k "github.com/fission/fission/crds/v1?ref=v1.17.0"
 export FISSION_NAMESPACE="fission"
 kubectl create namespace $FISSION_NAMESPACE
 kubectl config set-context --current --namespace=$FISSION_NAMESPACE
-kubectl apply -f https://github.com/fission/fission/releases/download/v1.19.0/fission-all-v1.19.0-minikube.yaml
+kubectl apply -f https://github.com/fission/fission/releases/download/v1.17.0/fission-all-v1.17.0-minikube.yaml
 ```
 
+Install Fission CLI
+```bash
+curl -Lo fission https://github.com/fission/fission/releases/download/v1.17.0/fission-v1.17.0-linux-amd64 \
+    && chmod +x fission && sudo mv fission /usr/local/bin/
+```
 
+Check Fission is installed properly
+```bash
+fission check
+```
 ### Install Prometheus
 
 KubeML exposes metrics to prometheus so you are able to track the process of training jobs, 
